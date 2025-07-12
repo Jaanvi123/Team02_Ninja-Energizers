@@ -1,0 +1,21 @@
+{
+	"info": {
+		"_postman_id": "16268084-e15e37e8-6c24-4032-83e8-279401dc2c02",
+		"name": "Team-2-Ninja_energizersPostman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"id": "16268084-9c0f3d06-5b5d-4de3-a571-7fb804f58af0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
