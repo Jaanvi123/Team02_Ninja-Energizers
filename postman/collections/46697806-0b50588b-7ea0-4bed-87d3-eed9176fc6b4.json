@@ -27,24 +27,6 @@
 					"response": []
 				},
 				{
-					"name": "DemoTest Copy",
-					"id": "46697806-08b2e488-9a77-4ae3-a768-3d3c91d26163",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "TestDemo",
-							"host": [
-								"TestDemo"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "New Request",
 					"id": "46697806-989d19a8-06bd-4be1-bf0b-c31892e0645f",
 					"protocolProfileBehavior": {
