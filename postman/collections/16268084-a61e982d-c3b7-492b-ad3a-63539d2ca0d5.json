@@ -28,7 +28,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "TestDemo",
+							"host": [
+								"TestDemo"
+							]
+						}
 					},
 					"response": []
 				}
