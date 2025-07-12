@@ -24,6 +24,11 @@
 			"id": "16268084-e878d3ea-ebbb-41b7-8f09-b31995fa0b34"
 		},
 		{
+			"name": "New Folder",
+			"item": [],
+			"id": "46697806-45a7be11-edd8-4722-be20-e827b43b8092"
+		},
+		{
 			"name": "User login",
 			"event": [
 				{
@@ -158,6 +163,18 @@
 		{
 			"name": "New Request",
 			"id": "46697806-d2b10822-a001-4d0b-9ee6-6ff31a7a09b0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"id": "46697806-c929c7cf-8011-4b34-8723-83e8c18d8535",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
