@@ -6,6 +6,11 @@
 	},
 	"item": [
 		{
+			"name": "New Folder",
+			"item": [],
+			"id": "16268084-e878d3ea-ebbb-41b7-8f09-b31995fa0b34"
+		},
+		{
 			"name": "User login",
 			"event": [
 				{
