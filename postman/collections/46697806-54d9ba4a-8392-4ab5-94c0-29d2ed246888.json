@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "46697806-54d9ba4a-8392-4ab5-94c0-29d2ed246888",
+		"name": "Team-2-Ninja_energizersPostman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sindhu",
+			"item": [
+				{
+					"name": "New Request",
+					"id": "46697806-641476e0-4253-4c02-9c65-0603e3f47a63",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-ddbbf698-06cf-4ff9-b334-97321eea8527"
+		},
+		{
+			"name": "New Folder",
+			"item": [],
+			"id": "46697806-45a7be11-edd8-4722-be20-e827b43b8092"
+		},
+		{
+			"name": "User login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var JsonData = pm.response.json();\r",
+							"var AdminBearer_Token = JsonData.token;\r",
+							"pm.environment.set(\"AdminBearer_Token\", AdminBearer_Token );\r",
+							"\r",
+							"pm.test(\"Validating Status Code\", () => {\r",
+							"    pm.expect(pm.response.code).to.eql(pm.variables.get(\"statusCode\"));\r",
+							"});\r",
+							"\r",
+							"const jsonSchema={\r",
+							"  \"type\": \"object\",\r",
+							"  \"properties\": {\r",
+							"    \"loginUserEmail\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"roles\": {\r",
+							"      \"type\": \"array\",\r",
+							"      \"items\": [\r",
+							"        {\r",
+							"          \"type\": \"string\"\r",
+							"        }\r",
+							"      ]\r",
+							"    },\r",
+							"    \"token\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"type\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"userId\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    }\r",
+							"  },\r",
+							"  \"required\": [\r",
+							"    \"loginUserEmail\",\r",
+							"    \"roles\",\r",
+							"    \"token\",\r",
+							"    \"type\",\r",
+							"    \"userId\"\r",
+							"  ]\r",
+							"};\r",
+							"\r",
+							"pm.test(\"Verify JSON Schema\",function() {\r",
+							"    if(pm.response.code === 200) {\r",
+							"        pm.response.to.have.jsonSchema(jsonSchema);\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify Schema Data\", function () {\r",
+							"    if(pm.response.code === 200) {\r",
+							"       var jsonData = pm.response.json();\r",
+							"       var roles = jsonData.roles;\r",
+							"       pm.expect(roles.includes(\"ROLE_ADMIN\")).to.be.true;\r",
+							"       pm.expect(jsonData.type).to.eql(\"Bearer \");\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "9947c18e-b204-4168-87fe-106d478f511f"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.clear();",
+							"pm.environment.set(\"data_set_entries\",null);",
+							"pm.environment.set(\"data_set_entries_Dietician\", null);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "a195da84-af10-4420-95f0-7287704872eb"
+					}
+				}
+			],
+			"id": "46697806-b3d8e712-7542-4760-8e10-26765e6b1d27",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"password\": \"{{user_password}}\",\r\n  \"userLoginEmail\":\"{{user_LoginEmail}}\"\r\n}\r\n\r\n  ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}{{Endpoint}}",
+					"host": [
+						"{{BaseURL}}{{Endpoint}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"id": "46697806-96970608-6c5b-4b6d-9d38-3d535c31f9b2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"id": "46697806-d2b10822-a001-4d0b-9ee6-6ff31a7a09b0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"id": "46697806-c929c7cf-8011-4b34-8723-83e8c18d8535",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
