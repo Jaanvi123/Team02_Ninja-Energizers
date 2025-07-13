@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "46697806-bf47398b-67bf-49c3-901e-b208cfcb8f9c",
+		"name": "Team02_Ninja-EnergizersPostman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "DemoTest",
+					"id": "46697806-db2e0b17-df5e-4c5f-ac89-9a0ceaa4e428",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "TestDemo",
+							"host": [
+								"TestDemo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "46697806-556cd258-e4b4-4107-8296-9eeda58a2960",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-667cc574-e0dd-479f-b322-2dd4c70f3a59"
+		},
+		{
+			"name": "New Request",
+			"id": "46697806-82d9721b-d9e7-4d8c-bd68-5d002811e02b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
