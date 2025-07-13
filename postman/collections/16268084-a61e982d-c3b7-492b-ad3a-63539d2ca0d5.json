@@ -10,46 +10,7 @@
 			"item": [
 				{
 					"name": "LogoutDietician",
-					"item": [
-						{
-							"name": "Logout",
-							"id": "16268084-9d73d19f-e84c-4ef6-8350-70025ba64c2f",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMjAyQGdtYWlsLmNvbSIsImlhdCI6MTc1MjI4NTQ3OSwiZXhwIjoxNzUyMzE0Mjc5fQ.HfeMsnG842DsW02hWidcw9piZLhvW9rwA5zSw_Cy6VGKMH7oAKMHUVzvN-p5ecbjN1b9sldVAElpvvSCKRy_5w",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"password\": \"test\",\r\n    \"userLoginEmail\": \"Team02@gmail.com\"\r\n}"
-								},
-								"url": {
-									"raw": "{{BaseURL}}{{Endpoint}}",
-									"host": [
-										"{{BaseURL}}{{Endpoint}}"
-									]
-								}
-							},
-							"response": []
-						}
-					],
+					"item": [],
 					"id": "16268084-94a84d28-4984-4249-b636-4509963c6a03"
 				}
 			],
@@ -57,7 +18,58 @@
 		},
 		{
 			"name": "New Folder",
-			"item": [],
+			"item": [
+				{
+					"name": "Logout",
+					"id": "16268084-9d73d19f-e84c-4ef6-8350-70025ba64c2f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMjAyQGdtYWlsLmNvbSIsImlhdCI6MTc1MjI4NTQ3OSwiZXhwIjoxNzUyMzE0Mjc5fQ.HfeMsnG842DsW02hWidcw9piZLhvW9rwA5zSw_Cy6VGKMH7oAKMHUVzvN-p5ecbjN1b9sldVAElpvvSCKRy_5w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"test\",\r\n    \"userLoginEmail\": \"Team02@gmail.com\"\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}{{Endpoint}}",
+							"host": [
+								"{{BaseURL}}{{Endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "16268084-fa7e1938-0f25-42ed-9b0d-7ed6c79036a8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "16268084-7f055dab-6dc0-4096-b35b-d8fe8e8f26e2"
 		},
 		{
