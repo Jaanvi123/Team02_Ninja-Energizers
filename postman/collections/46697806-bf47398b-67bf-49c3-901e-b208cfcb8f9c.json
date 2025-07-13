@@ -9,24 +9,6 @@
 			"name": "login",
 			"item": [
 				{
-					"name": "DemoTest",
-					"id": "46697806-db2e0b17-df5e-4c5f-ac89-9a0ceaa4e428",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "TestDemo",
-							"host": [
-								"TestDemo"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "New Request",
 					"id": "46697806-556cd258-e4b4-4107-8296-9eeda58a2960",
 					"protocolProfileBehavior": {
