@@ -10,7 +10,20 @@
 			"item": [
 				{
 					"name": "LogoutDietician",
-					"item": [],
+					"item": [
+						{
+							"name": "New Request",
+							"id": "16268084-b788fb62-0fbe-49c9-a908-ef1e341965a4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					],
 					"id": "16268084-94a84d28-4984-4249-b636-4509963c6a03"
 				},
 				{
