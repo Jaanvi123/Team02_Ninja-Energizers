@@ -217,6 +217,24 @@
 				}
 			],
 			"id": "16268084-a715e6b4-a208-441f-b2f2-8491d0ab0ce8"
+		},
+		{
+			"name": "DemoTest",
+			"id": "16268084-db2e0b17-df5e-4c5f-ac89-9a0ceaa4e428",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "TestDemo",
+					"host": [
+						"TestDemo"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
