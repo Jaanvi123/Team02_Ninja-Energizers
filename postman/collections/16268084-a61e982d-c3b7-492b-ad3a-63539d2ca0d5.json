@@ -123,6 +123,30 @@
 			"id": "16268084-b467c0d5-090a-4967-84c1-e019eee0e8d6"
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "52b09e5b-f42b-4140-a005-7e218a2dbb66",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "a9fd35c5-33d3-467a-bc5f-09c7e054fcd2",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
 			"key": "BaseURL",
