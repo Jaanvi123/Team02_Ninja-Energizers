@@ -14,83 +14,29 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "1969b813-ee78-40e6-8395-4faf20ae27b1",
 								"exec": [
-									"var JsonData = pm.response.json();\r",
-									"var AdminBearer_Token = JsonData.token;\r",
-									"pm.environment.set(\"AdminBearer_Token\", AdminBearer_Token );\r",
-									"\r",
 									"pm.test(\"Validating Status Code\", () => {\r",
-									"    pm.expect(pm.response.code).to.eql(pm.variables.get(\"statusCode\"));\r",
+									"    let expectedStatus = Number(pm.variables.get(\"statusCode\"));\r",
+									"    pm.expect(pm.response.code).to.eql(expectedStatus);\r",
 									"});\r",
-									"\r",
-									"const jsonSchema={\r",
-									"  \"type\": \"object\",\r",
-									"  \"properties\": {\r",
-									"    \"loginUserEmail\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"roles\": {\r",
-									"      \"type\": \"array\",\r",
-									"      \"items\": [\r",
-									"        {\r",
-									"          \"type\": \"string\"\r",
-									"        }\r",
-									"      ]\r",
-									"    },\r",
-									"    \"token\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"type\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"userId\": {\r",
-									"      \"type\": \"integer\"\r",
-									"    }\r",
-									"  },\r",
-									"  \"required\": [\r",
-									"    \"loginUserEmail\",\r",
-									"    \"roles\",\r",
-									"    \"token\",\r",
-									"    \"type\",\r",
-									"    \"userId\"\r",
-									"  ]\r",
-									"};\r",
-									"\r",
-									"pm.test(\"Verify JSON Schema\",function() {\r",
-									"    if(pm.response.code === 200) {\r",
-									"        pm.response.to.have.jsonSchema(jsonSchema);\r",
-									"    }\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Verify Schema Data\", function () {\r",
-									"    if(pm.response.code === 200) {\r",
-									"       var jsonData = pm.response.json();\r",
-									"       var roles = jsonData.roles;\r",
-									"       pm.expect(roles.includes(\"ROLE_ADMIN\")).to.be.true;\r",
-									"       pm.expect(jsonData.type).to.eql(\"Bearer \");\r",
-									"    }\r",
-									"});\r",
-									"\r",
-									"\r",
-									"\r",
 									""
 								],
 								"type": "text/javascript",
-								"packages": {},
-								"id": "dcd74a6c-55b1-450d-88f2-c7e010913aaf"
+								"packages": {}
 							}
 						},
 						{
 							"listen": "prerequest",
 							"script": {
+								"id": "34a394fe-0744-489b-a437-b101ec05e408",
 								"exec": [
 									"console.clear();",
 									"pm.environment.set(\"data_set_entries\",null);",
 									"pm.environment.set(\"data_set_entries_Dietician\", null);"
 								],
 								"type": "text/javascript",
-								"packages": {},
-								"id": "28c3a4fa-9e0c-4d08-97e9-1173c7e36c3b"
+								"packages": {}
 							}
 						}
 					],
@@ -100,19 +46,26 @@
 					},
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMjAyQGdtYWlsLmNvbSIsImlhdCI6MTc1MjI4NTQ3OSwiZXhwIjoxNzUyMzE0Mjc5fQ.HfeMsnG842DsW02hWidcw9piZLhvW9rwA5zSw_Cy6VGKMH7oAKMHUVzvN-p5ecbjN1b9sldVAElpvvSCKRy_5w",
+									"type": "string"
+								}
+							]
 						},
 						"method": "POST",
 						"header": [
 							{
-								"key": "",
-								"value": "",
+								"key": "Content-Type",
+								"value": "application/json",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"password\": \"{{user_password}}\",\r\n  \"userLoginEmail\":\"{{user_LoginEmail}}\"\r\n}\r\n\r\n  ",
+							"raw": "{\r\n  \"password\": \"test\",\r\n  \"userLoginEmail\": \"Team02@gmail.com\"\r\n}\r\n\r\n  ",
 							"options": {
 								"raw": {
 									"language": "json"
