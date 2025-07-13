@@ -9,6 +9,126 @@
 			"name": "New Folder",
 			"item": [
 				{
+					"name": "User login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var JsonData = pm.response.json();\r",
+									"var AdminBearer_Token = JsonData.token;\r",
+									"pm.environment.set(\"AdminBearer_Token\", AdminBearer_Token );\r",
+									"\r",
+									"pm.test(\"Validating Status Code\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(pm.variables.get(\"statusCode\"));\r",
+									"});\r",
+									"\r",
+									"const jsonSchema={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"loginUserEmail\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"roles\": {\r",
+									"      \"type\": \"array\",\r",
+									"      \"items\": [\r",
+									"        {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      ]\r",
+									"    },\r",
+									"    \"token\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"type\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"userId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"loginUserEmail\",\r",
+									"    \"roles\",\r",
+									"    \"token\",\r",
+									"    \"type\",\r",
+									"    \"userId\"\r",
+									"  ]\r",
+									"};\r",
+									"\r",
+									"pm.test(\"Verify JSON Schema\",function() {\r",
+									"    if(pm.response.code === 200) {\r",
+									"        pm.response.to.have.jsonSchema(jsonSchema);\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify Schema Data\", function () {\r",
+									"    if(pm.response.code === 200) {\r",
+									"       var jsonData = pm.response.json();\r",
+									"       var roles = jsonData.roles;\r",
+									"       pm.expect(roles.includes(\"ROLE_ADMIN\")).to.be.true;\r",
+									"       pm.expect(jsonData.type).to.eql(\"Bearer \");\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"id": "dcd74a6c-55b1-450d-88f2-c7e010913aaf"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.clear();",
+									"pm.environment.set(\"data_set_entries\",null);",
+									"pm.environment.set(\"data_set_entries_Dietician\", null);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"id": "28c3a4fa-9e0c-4d08-97e9-1173c7e36c3b"
+							}
+						}
+					],
+					"id": "16268084-1727db6b-ef40-44aa-9051-7a940bcb02e7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"{{user_password}}\",\r\n  \"userLoginEmail\":\"{{user_LoginEmail}}\"\r\n}\r\n\r\n  ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}{{Endpoint}}",
+							"host": [
+								"{{BaseURL}}{{Endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "New Request",
 					"id": "16268084-802dd4a9-f5c1-4194-96a1-69f5e01e3b95",
 					"protocolProfileBehavior": {
