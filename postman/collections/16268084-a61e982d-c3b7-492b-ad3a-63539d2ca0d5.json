@@ -80,13 +80,7 @@
 						}
 					},
 					"response": []
-				}
-			],
-			"id": "16268084-b467c0d5-090a-4967-84c1-e019eee0e8d6"
-		},
-		{
-			"name": "LogoutDietician",
-			"item": [
+				},
 				{
 					"name": "Logout",
 					"event": [
@@ -152,11 +146,24 @@
 					"response": []
 				}
 			],
-			"id": "16268084-7f055dab-6dc0-4096-b35b-d8fe8e8f26e2"
+			"id": "16268084-b467c0d5-090a-4967-84c1-e019eee0e8d6"
 		},
 		{
 			"name": "DieticianModule",
-			"item": [],
+			"item": [
+				{
+					"name": "New Request",
+					"id": "16268084-febc4805-cdd6-45df-88d2-92700a7fa1f2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "16268084-a715e6b4-a208-441f-b2f2-8491d0ab0ce8"
 		}
 	],
