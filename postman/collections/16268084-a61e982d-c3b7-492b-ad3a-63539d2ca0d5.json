@@ -88,8 +88,34 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMjAyQGdtYWlsLmNvbSIsImlhdCI6MTc1MjI4NTQ3OSwiZXhwIjoxNzUyMzE0Mjc5fQ.HfeMsnG842DsW02hWidcw9piZLhvW9rwA5zSw_Cy6VGKMH7oAKMHUVzvN-p5ecbjN1b9sldVAElpvvSCKRy_5w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"test\",\r\n    \"userLoginEmail\": \"Team02@gmail.com\"\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}{{Endpoint}}",
+							"host": [
+								"{{BaseURL}}{{Endpoint}}"
+							]
+						}
 					},
 					"response": []
 				}
