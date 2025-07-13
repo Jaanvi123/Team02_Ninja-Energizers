@@ -160,7 +160,7 @@
 								"id": "be3b359b-5f94-4fad-ac88-4bd9c2e352d0",
 								"exec": [
 									"console.clear;\r",
-									"pm.environment.variables.set(\"Endpoint\",\"/dietician\");"
+									"pm.variables.set(\"Endpoint\",\"/dietician\");"
 								],
 								"type": "text/javascript",
 								"packages": {}
