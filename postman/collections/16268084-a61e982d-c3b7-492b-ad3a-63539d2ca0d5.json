@@ -90,6 +90,11 @@
 			"key": "BaseURL",
 			"value": "",
 			"type": "default"
+		},
+		{
+			"key": "Endpoint",
+			"value": "/login",
+			"type": "default"
 		}
 	]
 }
