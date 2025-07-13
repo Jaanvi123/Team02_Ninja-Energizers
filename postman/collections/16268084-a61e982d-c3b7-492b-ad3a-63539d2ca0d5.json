@@ -12,14 +12,40 @@
 					"name": "LogoutDietician",
 					"item": [
 						{
-							"name": "New Request",
-							"id": "16268084-b788fb62-0fbe-49c9-a908-ef1e341965a4",
+							"name": "Logout",
+							"id": "16268084-9d73d19f-e84c-4ef6-8350-70025ba64c2f",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
-								"method": "GET",
-								"header": []
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMjAyQGdtYWlsLmNvbSIsImlhdCI6MTc1MjI4NTQ3OSwiZXhwIjoxNzUyMzE0Mjc5fQ.HfeMsnG842DsW02hWidcw9piZLhvW9rwA5zSw_Cy6VGKMH7oAKMHUVzvN-p5ecbjN1b9sldVAElpvvSCKRy_5w",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"test\",\r\n    \"userLoginEmail\": \"Team02@gmail.com\"\r\n}"
+								},
+								"url": {
+									"raw": "{{BaseURL}}{{Endpoint}}",
+									"host": [
+										"{{BaseURL}}{{Endpoint}}"
+									]
+								}
 							},
 							"response": []
 						}
@@ -89,44 +115,6 @@
 									"language": "json"
 								}
 							}
-						},
-						"url": {
-							"raw": "{{BaseURL}}{{Endpoint}}",
-							"host": [
-								"{{BaseURL}}{{Endpoint}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Logout",
-					"id": "16268084-9d73d19f-e84c-4ef6-8350-70025ba64c2f",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMjAyQGdtYWlsLmNvbSIsImlhdCI6MTc1MjI4NTQ3OSwiZXhwIjoxNzUyMzE0Mjc5fQ.HfeMsnG842DsW02hWidcw9piZLhvW9rwA5zSw_Cy6VGKMH7oAKMHUVzvN-p5ecbjN1b9sldVAElpvvSCKRy_5w",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"password\": \"test\",\r\n    \"userLoginEmail\": \"Team02@gmail.com\"\r\n}"
 						},
 						"url": {
 							"raw": "{{BaseURL}}{{Endpoint}}",
