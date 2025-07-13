@@ -153,13 +153,53 @@
 			"item": [
 				{
 					"name": "New Request",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "be3b359b-5f94-4fad-ac88-4bd9c2e352d0",
+								"exec": [
+									"console.clear;\r",
+									"pm.environment.variables.set(\"Endpoint\",\"/dietician\");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "16268084-febc4805-cdd6-45df-88d2-92700a7fa1f2",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{DieticianBearer_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ContactNumber\": \"9800001234\",\r\n  \"DateOfBirth\": \"1985-07-07T15:11:09.410Z\",\r\n  \"Education\": \"Graduate\",\r\n  \"Email\": \"Demo202@gmail.com\",\r\n  \"Firstname\": \"Echo\",\r\n  \"HospitalCity\": \"Pune\",\r\n  \"HospitalName\": \"Balze\",\r\n  \"HospitalPincode\": \"411001\",\r\n  \"HospitalStreet\": \"string\",\r\n  \"Lastname\": \"Thomas\"\r\n \r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{BaseURL}}{{Endpoint}}",
+							"host": [
+								"{{BaseURL}}{{Endpoint}}"
+							]
+						}
 					},
 					"response": []
 				}
