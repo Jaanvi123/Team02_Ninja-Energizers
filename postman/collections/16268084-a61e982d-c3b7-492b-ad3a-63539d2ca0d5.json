@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "LoginUser",
+			"name": "UserModule",
 			"item": [
 				{
 					"name": "User login",
