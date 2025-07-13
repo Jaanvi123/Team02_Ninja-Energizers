@@ -89,6 +89,32 @@
 			"item": [
 				{
 					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "87f37847-29bc-4ab9-87e6-3559a78caded",
+								"exec": [
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "dc003ac9-7b30-40d6-9973-0a8660c1e2ad",
+								"exec": [
+									"console.clear;\r",
+									"pm.variables.set(\"Endpoint\",\"/logoutdietician\");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "16268084-9d73d19f-e84c-4ef6-8350-70025ba64c2f",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -99,12 +125,12 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMjAyQGdtYWlsLmNvbSIsImlhdCI6MTc1MjI4NTQ3OSwiZXhwIjoxNzUyMzE0Mjc5fQ.HfeMsnG842DsW02hWidcw9piZLhvW9rwA5zSw_Cy6VGKMH7oAKMHUVzvN-p5ecbjN1b9sldVAElpvvSCKRy_5w",
+									"value": "{{DieticianBearer_Token}}",
 									"type": "string"
 								}
 							]
 						},
-						"method": "POST",
+						"method": "GET",
 						"header": [
 							{
 								"key": "Content-Type",
@@ -114,7 +140,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"password\": \"test\",\r\n    \"userLoginEmail\": \"Team02@gmail.com\"\r\n}"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{BaseURL}}{{Endpoint}}",
