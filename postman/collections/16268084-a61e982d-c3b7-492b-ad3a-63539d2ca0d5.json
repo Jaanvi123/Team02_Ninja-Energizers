@@ -152,7 +152,7 @@
 			"name": "DieticianModule",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "Create",
 					"event": [
 						{
 							"listen": "prerequest",
