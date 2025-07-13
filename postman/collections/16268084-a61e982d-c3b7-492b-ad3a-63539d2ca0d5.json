@@ -84,5 +84,12 @@
 			],
 			"id": "16268084-b467c0d5-090a-4967-84c1-e019eee0e8d6"
 		}
+	],
+	"variable": [
+		{
+			"key": "BaseURL",
+			"value": "",
+			"type": "default"
+		}
 	]
 }
