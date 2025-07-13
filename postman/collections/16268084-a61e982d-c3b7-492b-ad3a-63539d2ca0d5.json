@@ -6,36 +6,6 @@
 	},
 	"item": [
 		{
-			"name": "Sindhu",
-			"item": [
-				{
-					"name": "New Request",
-					"id": "16268084-0e1b77e7-226b-424c-9dd0-c8ee8df059e2",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "New Request",
-					"id": "16268084-37d0d06f-57b9-44f5-a11a-0ec405d4e2d2",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				}
-			],
-			"id": "16268084-e878d3ea-ebbb-41b7-8f09-b31995fa0b34"
-		},
-		{
 			"name": "User login",
 			"event": [
 				{
