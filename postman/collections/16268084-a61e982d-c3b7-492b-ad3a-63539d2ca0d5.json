@@ -9,8 +9,26 @@
 			"name": "login",
 			"item": [
 				{
+					"name": "DemoTest",
+					"id": "16268084-d24ac58a-67d0-466e-91b4-80e6e12896fe",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "TestDemo",
+							"host": [
+								"TestDemo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "New Request",
-					"id": "16268084-0e1b77e7-226b-424c-9dd0-c8ee8df059e2",
+					"id": "16268084-8cc3ff34-c755-4af0-b36d-b9fe495494f8",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -22,126 +40,6 @@
 				}
 			],
 			"id": "16268084-e878d3ea-ebbb-41b7-8f09-b31995fa0b34"
-		},
-		{
-			"name": "User login",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var JsonData = pm.response.json();\r",
-							"var AdminBearer_Token = JsonData.token;\r",
-							"pm.environment.set(\"AdminBearer_Token\", AdminBearer_Token );\r",
-							"\r",
-							"pm.test(\"Validating Status Code\", () => {\r",
-							"    pm.expect(pm.response.code).to.eql(pm.variables.get(\"statusCode\"));\r",
-							"});\r",
-							"\r",
-							"const jsonSchema={\r",
-							"  \"type\": \"object\",\r",
-							"  \"properties\": {\r",
-							"    \"loginUserEmail\": {\r",
-							"      \"type\": \"string\"\r",
-							"    },\r",
-							"    \"roles\": {\r",
-							"      \"type\": \"array\",\r",
-							"      \"items\": [\r",
-							"        {\r",
-							"          \"type\": \"string\"\r",
-							"        }\r",
-							"      ]\r",
-							"    },\r",
-							"    \"token\": {\r",
-							"      \"type\": \"string\"\r",
-							"    },\r",
-							"    \"type\": {\r",
-							"      \"type\": \"string\"\r",
-							"    },\r",
-							"    \"userId\": {\r",
-							"      \"type\": \"integer\"\r",
-							"    }\r",
-							"  },\r",
-							"  \"required\": [\r",
-							"    \"loginUserEmail\",\r",
-							"    \"roles\",\r",
-							"    \"token\",\r",
-							"    \"type\",\r",
-							"    \"userId\"\r",
-							"  ]\r",
-							"};\r",
-							"\r",
-							"pm.test(\"Verify JSON Schema\",function() {\r",
-							"    if(pm.response.code === 200) {\r",
-							"        pm.response.to.have.jsonSchema(jsonSchema);\r",
-							"    }\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Verify Schema Data\", function () {\r",
-							"    if(pm.response.code === 200) {\r",
-							"       var jsonData = pm.response.json();\r",
-							"       var roles = jsonData.roles;\r",
-							"       pm.expect(roles.includes(\"ROLE_ADMIN\")).to.be.true;\r",
-							"       pm.expect(jsonData.type).to.eql(\"Bearer \");\r",
-							"    }\r",
-							"});\r",
-							"\r",
-							"\r",
-							"\r",
-							""
-						],
-						"type": "text/javascript",
-						"packages": {},
-						"id": "9947c18e-b204-4168-87fe-106d478f511f"
-					}
-				},
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"console.clear();",
-							"pm.environment.set(\"data_set_entries\",null);",
-							"pm.environment.set(\"data_set_entries_Dietician\", null);"
-						],
-						"type": "text/javascript",
-						"packages": {},
-						"id": "a195da84-af10-4420-95f0-7287704872eb"
-					}
-				}
-			],
-			"id": "16268084-661e3408-5b08-4e5f-a3b4-85a11812a1c4",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "",
-						"value": "",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"password\": \"{{user_password}}\",\r\n  \"userLoginEmail\":\"{{user_LoginEmail}}\"\r\n}\r\n\r\n  ",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{BaseURL}}{{Endpoint}}",
-					"host": [
-						"{{BaseURL}}{{Endpoint}}"
-					]
-				}
-			},
-			"response": []
 		},
 		{
 			"name": "New Request",
