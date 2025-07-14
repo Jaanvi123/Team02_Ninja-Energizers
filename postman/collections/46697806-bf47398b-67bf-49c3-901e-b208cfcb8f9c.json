@@ -145,7 +145,41 @@
 		{
 			"name": "Get All Morbidities as Admin",
 			"item": [],
-			"id": "46697806-34eaa97b-3a94-4464-b594-9f29bc306a43"
+			"id": "46697806-34eaa97b-3a94-4464-b594-9f29bc306a43",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{Admin token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "69c8ac1a-73ae-4327-a2a4-23c023697abf",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "44d76aa4-ddd1-4c61-91f4-48af9657890e",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		}
 	],
 	"event": [
