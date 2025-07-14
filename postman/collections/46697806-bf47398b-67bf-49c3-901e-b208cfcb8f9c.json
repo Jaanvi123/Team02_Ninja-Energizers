@@ -144,7 +144,20 @@
 		},
 		{
 			"name": "Get All Morbidities as Admin",
-			"item": [],
+			"item": [
+				{
+					"name": "New Request",
+					"id": "46697806-6f97849e-ed1b-4ab1-8a07-8bf5ea436df1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "46697806-34eaa97b-3a94-4464-b594-9f29bc306a43",
 			"auth": {
 				"type": "bearer",
