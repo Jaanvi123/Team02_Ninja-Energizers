@@ -9,6 +9,79 @@
 			"name": "Login",
 			"item": [
 				{
+					"name": "User login Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1969b813-ee78-40e6-8395-4faf20ae27b1",
+								"exec": [
+									"pm.test(\"Validating Status Code\", () => {\r",
+									"    let expectedStatus = Number(pm.variables.get(\"statusCode\"));\r",
+									"    pm.expect(pm.response.code).to.eql(expectedStatus);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "34a394fe-0744-489b-a437-b101ec05e408",
+								"exec": [
+									"console.clear();",
+									"pm.environment.set(\"data_set_entries\",null);",
+									"pm.environment.set(\"data_set_entries_Dietician\", null);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697626-393fda0e-dc39-4fb0-bf58-506618bd7d0f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{DieticianBearer_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"test\",\r\n  \"userLoginEmail\": \"Team202@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}{{Endpoint}}",
+							"host": [
+								"{{BaseURL}}{{Endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "New Request",
 					"id": "46697626-4cfde054-cb71-48c1-a813-97165bb5810d",
 					"protocolProfileBehavior": {
