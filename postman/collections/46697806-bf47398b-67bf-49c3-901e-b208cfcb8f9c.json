@@ -9,7 +9,7 @@
 			"name": "UserModule Login",
 			"item": [
 				{
-					"name": "User login",
+					"name": "Userlogin",
 					"event": [
 						{
 							"listen": "test",
