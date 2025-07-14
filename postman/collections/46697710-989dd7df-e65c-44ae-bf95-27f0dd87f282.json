@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "16268084-a61e982d-c3b7-492b-ad3a-63539d2ca0d5",
+		"_postman_id": "46697710-989dd7df-e65c-44ae-bf95-27f0dd87f282",
 		"name": "Team02_Ninja-EnergizersPostman",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -9,8 +9,23 @@
 			"name": "login",
 			"item": [
 				{
+					"name": "New Request",
+					"id": "46697710-8858be40-9ebd-4f2f-affa-a9ccdc9721b6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "DemoTest",
-					"id": "16268084-d24ac58a-67d0-466e-91b4-80e6e12896fe",
+					"id": "46697710-6a0e25ee-b378-45fa-9560-d7cbebc5b398",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -28,22 +43,22 @@
 				},
 				{
 					"name": "New Request",
-					"id": "16268084-8cc3ff34-c755-4af0-b36d-b9fe495494f8",
+					"id": "46697710-07be3815-b720-4825-a206-351ef290f05d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
+						"method": "PUT",
 						"header": []
 					},
 					"response": []
 				}
 			],
-			"id": "16268084-e878d3ea-ebbb-41b7-8f09-b31995fa0b34"
+			"id": "46697710-18e0a241-ee52-45b8-a7bf-daef4a0cf42b"
 		},
 		{
 			"name": "New Request",
-			"id": "16268084-db1248eb-ba01-493f-af8c-3502286af4ce",
+			"id": "46697710-720d2924-af33-48ec-b5d8-88eef7b5cbda",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -55,7 +70,7 @@
 		},
 		{
 			"name": "New Request",
-			"id": "16268084-debbb8c8-1e0a-41d2-a89e-d8c0b8a8ff64",
+			"id": "46697710-02fdac52-aecf-4c79-9de7-cb805f746e80",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
