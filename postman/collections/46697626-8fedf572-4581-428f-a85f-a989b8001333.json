@@ -154,6 +154,77 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "All Dieticians Informations Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "029ad5ff-e8ad-4ca8-997e-9292dd4b5dd7",
+								"exec": [
+									"pm.test(\"Validating Status Code\", ()=> {\r",
+									"    pm.expect(pm.response.code).to.eql(pm.variables.get(\"statusCode\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response status text check\", function () {\r",
+									"    pm.expect(pm.response.status).to.eql(pm.variables.get('statusText'));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", ()=>{\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697626-c23106ab-4dc8-4cf7-bc00-8898695544ce",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{DieticianBearer_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BaseURL}}/dietician",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"dietician"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"id": "46697626-c663b3d6-c249-4785-9300-f45c6dddf8d1"
