@@ -325,11 +325,21 @@
 			]
 		}
 	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{authToken}}",
+				"type": "string"
+			}
+		]
+	},
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "8fc11890-88c4-43f5-9744-004b4dfd6bbd",
+				"id": "e98ac41f-5bc4-4cce-be4c-5203650391b8",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -400,7 +410,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "c954bd4f-60d0-471a-98aa-20d6cd760aca",
+				"id": "c81ec4f1-ac70-4ed8-b8b9-fed4bbfa1bd8",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
