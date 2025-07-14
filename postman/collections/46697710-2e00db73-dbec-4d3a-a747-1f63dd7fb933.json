@@ -1,0 +1,276 @@
+{
+	"info": {
+		"_postman_id": "46697710-2e00db73-dbec-4d3a-a747-1f63dd7fb933",
+		"name": "Team2_Ninja-Energizers-Dietician API-AutomationLatest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "SuccessfulMessages",
+					"item": [
+						{
+							"name": "userLogin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5976740c-097f-458d-bf6f-db6618c57fd8",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "06cdcb43-5f2f-4de6-ba17-708d309e94d2",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "46697710-62254cae-1aba-4255-9280-c312d6fda44c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userLoginEmail\": \"{{user_LoginEmail}}\",\r\n  \"password\": \"{{user_password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseURL}}{{endpoint}}",
+									"host": [
+										"{{BaseURL}}{{endpoint}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "46697710-d6a12675-d250-4124-a79b-51527cac280f"
+				},
+				{
+					"name": "ErrorMessages",
+					"item": [],
+					"id": "46697710-870264b3-bafd-4521-8bc4-9ae20821c7f1"
+				},
+				{
+					"name": "test",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e86423dc-0cbc-4a8f-8b73-87f046db0f04",
+								"exec": [
+									"let data = pm.iterationData.toObject();\r",
+									"\r",
+									"if (data.name !== \"userLogin\") return;\r",
+									"\r",
+									"console.log(\"Data keys:\", Object.keys(data));\r",
+									"console.log(\"expectedStatusCode:\", data.expectedStatusCode);\r",
+									"console.log(\"expectedContentType:\", data.expectedContentType);\r",
+									"\r",
+									"console.log(\"🟡 Raw expectedStatusCode:\", data.expectedStatusCode);\r",
+									"console.log(\"🟡 Type of expectedStatusCode:\", typeof data.expectedStatusCode);\r",
+									"console.log(\"🟡 Converted Number(data.expectedStatusCode):\", Number(data.expectedStatusCode));\r",
+									"\r",
+									"// Logging test case info\r",
+									"const testCaseId = data.testCaseId || \"Unknown_TC\";\r",
+									"const scenarioName = data.scenarioName || \"Unknown_Scenario\";\r",
+									"const scenarioType = data.scenarioType || \"Unknown_ScenarioType\";\r",
+									"const method = pm.request.method;\r",
+									"\r",
+									"console.log(\"🔍 Full Response Object:\", pm.response);\r",
+									"console.log(\"✅ pm.response.code (type):\", typeof pm.response.code);\r",
+									"console.log(\"✅ pm.response.code (value):\", pm.response.code);\r",
+									"\r",
+									"// Validate status code presence and type\r",
+									"if (typeof data.expectedStatusCode === \"undefined\") {\r",
+									"    throw new Error(\"expectedStatusCode is missing in iteration data.\");\r",
+									"}\r",
+									"if (isNaN(data.expectedStatusCode)) {\r",
+									"    throw new Error(`expectedStatusCode is not a number: ${data.expectedStatusCode}`);\r",
+									"}\r",
+									"\r",
+									"const expectedStatusCode = Number(data.expectedStatusCode);\r",
+									"const expectedContentType = data.expectedContentType || \"\";\r",
+									"\r",
+									"function logTestResult(testName, passed) {\r",
+									"    console.log(`TC_ID: ${testCaseId}, Scenario: ${scenarioName}, Type: ${scenarioType}, Method: ${method}, Test: ${testName}, Result: ${passed ? \"PASS\" : \"FAIL\"}`);\r",
+									"}\r",
+									"\r",
+									"function runTest(testName, testFunc) {\r",
+									"    try {\r",
+									"        pm.test(testName, testFunc);\r",
+									"        logTestResult(testName, true);\r",
+									"    } catch (err) {\r",
+									"        logTestResult(testName, false);\r",
+									"        throw err;\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"console.log(\"✅ pm.response.code:\", pm.response.code);\r",
+									"console.log(\"✅ expectedStatusCode:\", expectedStatusCode);\r",
+									"\r",
+									"// ---- TESTS ----\r",
+									"runTest(\"Status Code Validation\", () => {\r",
+									"    pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"});\r",
+									"\r",
+									"runTest(\"Content-type Validation\", () => {\r",
+									"    const contentType = pm.response.headers.get(\"Content-Type\") || \"\";\r",
+									"    pm.expect(contentType.toLowerCase()).to.include(expectedContentType.toLowerCase());\r",
+									"});\r",
+									"\r",
+									"runTest(\"Token Validation\", () => {\r",
+									"    const jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.token).to.be.a(\"string\").and.not.empty;\r",
+									"});\r",
+									"\r",
+									"runTest(\"Valid JSON Response Validations\", () => {\r",
+									"    pm.expect(() => pm.response.json()).not.to.throw();\r",
+									"});\r",
+									"\r",
+									"runTest(\"Validate role as Admin- ROLE_ADMIN\", () => {\r",
+									"    const jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property(\"roles\").that.is.an(\"array\").that.includes(\"ROLE_ADMIN\");\r",
+									"});\r",
+									"\r",
+									"runTest(\"UserId Validation\", () => {\r",
+									"    const jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property(\"userId\").that.is.a(\"number\");\r",
+									"});\r",
+									"\r",
+									"runTest(\"Token Type Validation\", () => {\r",
+									"    const jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.type).to.include(\"Bearer\");\r",
+									"});\r",
+									"\r",
+									"runTest(\"Email Id Validation\", () => {\r",
+									"    const jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property(\"loginUserEmail\").that.equals(data.user_LoginEmail);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697710-22ce90b9-084f-43fe-ad9d-565f83a948c6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userLoginEmail\": \"{{user_LoginEmail}}\",\r\n  \"password\": \"{{user_password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{endpoint}}",
+							"host": [
+								"{{baseUrl}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697710-fb8f4bdf-1602-481b-a73e-0563372fecdf"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b6fd9151-5f00-4366-ac4e-d48bae9bb892",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"// Fetch current row of test data\r",
+					"const requestName = pm.info.requestName;\r",
+					"const allData = pm.iterationData.toObject();\r",
+					"\r",
+					"// Optional: Only run this for specific request\r",
+					"if (requestName !== \"userLogin\") return;\r",
+					"\r",
+					"// Find matching request group by name\r",
+					"const group = allData.requests?.find(r => r.name === requestName);\r",
+					"\r",
+					"if (!group || !Array.isArray(group.data) || group.data.length === 0) {\r",
+					"    console.error(`No data found for request: ${requestName}`);\r",
+					"    return;\r",
+					"}\r",
+					"\r",
+					"// Track current test case index\r",
+					"const index = pm.info.iteration;\r",
+					"\r",
+					"// Get the corresponding test case data\r",
+					"const testCase = group.data[index];\r",
+					"if (!testCase) {\r",
+					"    console.warn(`No testCase found for iteration ${index}`);\r",
+					"    return;\r",
+					"}\r",
+					"\r",
+					"// Set variables for use in the request body, headers, etc.\r",
+					"Object.entries(testCase).forEach(([key, value]) => {\r",
+					"    pm.variables.set(key, value);\r",
+					"});\r",
+					"\r",
+					"// Optional Logging\r",
+					"console.log(`🧪 Running TestCase: ${testCase.testCaseId} - ${testCase.scenarioName}`);\r",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "56664ad8-e2a5-47f5-8daf-32412ee7cbfa",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"pm.test(\"Status code is expected\", function () {\r",
+					"    pm.response.to.have.status(pm.variables.get(\"expectedStatusCode\"));\r",
+					"});\r",
+					"\r",
+					"pm.test(\"Status line is correct\", function () {\r",
+					" \r",
+					"  pm.expect(pm.response.status).to.eql(pm.variables.get(\"expectedStatusLine\")); \r",
+					"   // pm.expect(pm.response.statusLine).to.eql(pm.variables.get(\"expectedStatusLine\"));\r",
+					"});\r",
+					"\r",
+					"pm.test(\"Content-Type is correct\", function () {\r",
+					"    pm.response.to.have.header(\"Content-Type\", pm.variables.get(\"expectedContentType\"));\r",
+					"});\r",
+					"\r",
+					"\r",
+					""
+				]
+			}
+		}
+	]
+}
