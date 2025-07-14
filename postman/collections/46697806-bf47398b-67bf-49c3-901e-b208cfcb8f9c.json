@@ -319,7 +319,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "4351a6f1-e778-42e3-8f25-8938186cc43e",
+				"id": "741e0d7d-89c9-4645-a4c6-781951c68410",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -330,7 +330,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "5851dbc2-bedd-4780-9164-cd28b5823afc",
+				"id": "c53770ff-9061-49e3-a5ea-be0c01206da6",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -348,6 +348,11 @@
 		{
 			"key": "Admin token",
 			"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMjAyQGdtYWlsLmNvbSIsImlhdCI6MTc1MjQ2NTgxNiwiZXhwIjoxNzUyNDk0NjE2fQ._9BIuRR8gwGxp86mSimlfBkBX1xF9aHgoW0Tk0M92drvd44Cm20Xg0bQv2rO-VCe1mKChbt9QM7nkONXNShctA",
+			"type": "string"
+		},
+		{
+			"key": "endpoint",
+			"value": "{{endpoint}}",
 			"type": "string"
 		}
 	]
