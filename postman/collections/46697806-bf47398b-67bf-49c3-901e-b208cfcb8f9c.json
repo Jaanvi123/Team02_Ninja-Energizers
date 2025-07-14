@@ -148,5 +148,36 @@
 			],
 			"id": "46697806-f424b544-cecd-4b00-abf8-36b3f7e150dc"
 		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "2048ea89-54c5-40ac-8b50-86996a8a4e33",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "a80d5ee4-7f33-4921-b151-093b231baa05",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseURL",
+			"value": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician",
+			"type": "string"
+		}
 	]
 }
