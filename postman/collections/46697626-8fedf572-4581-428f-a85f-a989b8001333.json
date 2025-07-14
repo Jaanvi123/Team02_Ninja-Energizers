@@ -92,7 +92,6 @@
 							"script": {
 								"id": "029ad5ff-e8ad-4ca8-997e-9292dd4b5dd7",
 								"exec": [
-									"var commonTests = () =>{\r",
 									"pm.test(\"Validating Status Code\", ()=> {\r",
 									"    pm.expect(pm.response.code).to.eql(pm.variables.get(\"statusCode\"));\r",
 									"});\r",
@@ -110,7 +109,7 @@
 									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
 									"});\r",
 									"\r",
-									"}"
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
