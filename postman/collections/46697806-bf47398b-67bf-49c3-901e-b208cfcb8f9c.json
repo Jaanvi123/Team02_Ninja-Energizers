@@ -4,18 +4,5 @@
 		"name": "Team02_Ninja-EnergizersPostman",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
-	"item": [
-		{
-			"name": "New Request",
-			"id": "46697806-82d9721b-d9e7-4d8c-bd68-5d002811e02b",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
-		}
-	]
+	"item": []
 }
