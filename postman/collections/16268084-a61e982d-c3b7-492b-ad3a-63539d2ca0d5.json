@@ -149,6 +149,149 @@
 			"id": "16268084-b467c0d5-090a-4967-84c1-e019eee0e8d6"
 		},
 		{
+			"name": "UserModule Copy",
+			"item": [
+				{
+					"name": "User login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1969b813-ee78-40e6-8395-4faf20ae27b1",
+								"exec": [
+									"pm.test(\"Validating Status Code\", () => {\r",
+									"    let expectedStatus = Number(pm.variables.get(\"statusCode\"));\r",
+									"    pm.expect(pm.response.code).to.eql(expectedStatus);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "34a394fe-0744-489b-a437-b101ec05e408",
+								"exec": [
+									"console.clear();",
+									"pm.environment.set(\"data_set_entries\",null);",
+									"pm.environment.set(\"data_set_entries_Dietician\", null);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "16268084-bd0e66dd-b599-41d6-9187-bf4c0fec0faa",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{DieticianBearer_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"test\",\r\n  \"userLoginEmail\": \"Team202@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}{{Endpoint}}",
+							"host": [
+								"{{BaseURL}}{{Endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "87f37847-29bc-4ab9-87e6-3559a78caded",
+								"exec": [
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "dc003ac9-7b30-40d6-9973-0a8660c1e2ad",
+								"exec": [
+									"console.clear;\r",
+									"pm.variables.set(\"Endpoint\",\"/logoutdietician\");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "16268084-d8826d00-5d9c-41bd-adef-388a72b18a70",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{DieticianBearer_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BaseURL}}{{Endpoint}}",
+							"host": [
+								"{{BaseURL}}{{Endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "16268084-f424b544-cecd-4b00-abf8-36b3f7e150dc"
+		},
+		{
 			"name": "DieticianModule",
 			"item": [
 				{
