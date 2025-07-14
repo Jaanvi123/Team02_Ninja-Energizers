@@ -69,7 +69,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"password\": \"{{password}}\",\r\n  \"userLoginEmail\": \"Team202@gmail.com\"\r\n}",
+							"raw": "{\r\n  \"password\": \"{{password}}\",\r\n  \"userLoginEmail\": \"{{userLoginEmail}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
