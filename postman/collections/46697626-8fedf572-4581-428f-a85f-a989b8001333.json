@@ -96,5 +96,32 @@
 			],
 			"id": "46697626-c663b3d6-c249-4785-9300-f45c6dddf8d1"
 		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "0e4c3fd5-10c1-4b2e-9a71-b7db5173c663",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "409c3c1d-8dd3-42f5-a777-dda8494ec8bb",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
 	]
 }
