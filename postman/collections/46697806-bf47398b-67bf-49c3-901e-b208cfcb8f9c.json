@@ -89,7 +89,64 @@
 					"response": []
 				}
 			],
-			"id": "46697806-f424b544-cecd-4b00-abf8-36b3f7e150dc"
+			"id": "46697806-f424b544-cecd-4b00-abf8-36b3f7e150dc",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4836ca0f-10bf-4864-a1cc-c23821a5b37c",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"// Load data from file\r",
+							"if (typeof pm. variables.get('requestsData') !== 'object'){\r",
+							"    pm.variables.set('requestsData', pm.iterationData.to0bject());\r",
+							"}\r",
+							"\r",
+							"\r",
+							"const requestsData=pm.variables.get('requestsData');\r",
+							"\r",
+							"if (typeof requestsData !== 'object' || Object.keys(requestsData).length === 0) {\r",
+							"console. log('No external data provided or object is empty.');\r",
+							"return;\r",
+							"\r",
+							"}\r",
+							"\r",
+							"// Find the current request\r",
+							"const currentRequest = requestsData.requests.filter(({name}) => name === pm.info.requestName) [0];\r",
+							"\r",
+							"//skip the rest since we have no data\r",
+							"if(!currentRequest){\r",
+							"    console.log('Request $(pm.info.requestName) has no data defined.');\r",
+							"    return;\r",
+							"}\r",
+							"\r",
+							"//Expose Variables\r",
+							"const variables=currentRequest.data.shift();\r",
+							"\r",
+							"for (const [key,value] of Object.entries(variables)) {\r",
+							" pm.variables.set(key, value);\r",
+							"}\r",
+							"\r",
+							"pm.variables.set('requestsData', requestsData);\r",
+							"\r",
+							"\r",
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "fba7edbf-b6b9-44c3-bca0-d933996ca480",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "Get All Morbidities as Admin",
