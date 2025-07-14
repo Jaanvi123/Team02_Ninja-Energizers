@@ -152,8 +152,30 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"test\",\r\n  \"userLoginEmail\": \"Team202@gmail.com\"\r\n}"
+						},
+						"url": {
+							"raw": "{{BaseURL}}/morbidity",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"morbidity"
+							]
+						}
 					},
 					"response": []
 				}
