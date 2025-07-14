@@ -215,12 +215,19 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{BaseURL}}/dietician",
+							"raw": "{{BaseURL}}/dietician/?{dieticianId}=2",
 							"host": [
 								"{{BaseURL}}"
 							],
 							"path": [
-								"dietician"
+								"dietician",
+								""
+							],
+							"query": [
+								{
+									"key": "{dieticianId}",
+									"value": "2"
+								}
 							]
 						}
 					},
