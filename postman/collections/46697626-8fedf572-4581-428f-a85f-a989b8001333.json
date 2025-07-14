@@ -93,11 +93,11 @@
 								"id": "029ad5ff-e8ad-4ca8-997e-9292dd4b5dd7",
 								"exec": [
 									"pm.test(\"Validating Status Code\", ()=> {\r",
-									"    pm.expect(pm.response.code).to.eql(pm.variables.get(\"statusCode\"));\r",
+									"    pm.expect(pm.response.code).to.eql(parseInt(pm.variables.get(\"statusCode\")));\r",
 									"});\r",
 									"\r",
-									"pm.test(\"Response status text check\", function () {\r",
-									"    pm.expect(pm.response.status).to.eql(pm.variables.get('statusText'));\r",
+									"pm.test(\"Response status text check\", function () {\r",
+									"    pm.expect(pm.response.status).to.eql(\"OK\");\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Content-Type header is application/json\", ()=>{\r",
@@ -113,6 +113,13 @@
 								],
 								"type": "text/javascript",
 								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"packages": {},
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -164,13 +171,12 @@
 								"id": "029ad5ff-e8ad-4ca8-997e-9292dd4b5dd7",
 								"exec": [
 									"pm.test(\"Validating Status Code\", ()=> {\r",
-									"    pm.expect(pm.response.code).to.eql(pm.variables.get(\"statusCode\"));\r",
+									"    pm.expect(pm.response.code).to.eql(parseInt(pm.variables.get(\"statusCode\")));\r",
 									"});\r",
 									"\r",
-									"pm.test(\"Response status text check\", function () {\r",
-									"    pm.expect(pm.response.status).to.eql(pm.variables.get('statusText'));\r",
+									"pm.test(\"Response status text check\", function () {\r",
+									"    pm.expect(pm.response.status).to.eql(\"OK\");\r",
 									"});\r",
-									"\r",
 									"pm.test(\"Content-Type header is application/json\", ()=>{\r",
 									"    pm.response.to.have.header(\"Content-Type\");\r",
 									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
