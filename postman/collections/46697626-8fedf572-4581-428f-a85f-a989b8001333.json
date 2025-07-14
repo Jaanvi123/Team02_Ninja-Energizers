@@ -215,19 +215,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{BaseURL}}/dietician/?{dieticianId}=2",
+							"raw": "{{BaseURL}}/dietician/{{dieticianId}}",
 							"host": [
 								"{{BaseURL}}"
 							],
 							"path": [
 								"dietician",
-								""
-							],
-							"query": [
-								{
-									"key": "{dieticianId}",
-									"value": "2"
-								}
+								"{{dieticianId}}"
 							]
 						}
 					},
@@ -244,7 +238,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "0e4c3fd5-10c1-4b2e-9a71-b7db5173c663",
+				"id": "639036db-278f-4529-a730-5b4a434b864e",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -255,13 +249,20 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "409c3c1d-8dd3-42f5-a777-dda8494ec8bb",
+				"id": "b98d1b23-380b-40bf-92df-021302a29865",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
 					""
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"key": "dieticianId",
+			"value": "2",
+			"type": "string"
 		}
 	]
 }
