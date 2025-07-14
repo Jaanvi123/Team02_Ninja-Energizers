@@ -16,9 +16,8 @@
 							"script": {
 								"id": "1969b813-ee78-40e6-8395-4faf20ae27b1",
 								"exec": [
-									"pm.test(\"Validating Status Code\", () => {\r",
-									"    let expectedStatus = Number(pm.variables.get(\"statusCode\"));\r",
-									"    pm.expect(pm.response.code).to.eql(expectedStatus);\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
 									"});\r",
 									""
 								],
