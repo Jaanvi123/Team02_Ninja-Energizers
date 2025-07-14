@@ -85,7 +85,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "All Dieticians Informations",
 					"id": "46697626-4cfde054-cb71-48c1-a813-97165bb5810d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
