@@ -16,9 +16,10 @@
 							"script": {
 								"id": "1969b813-ee78-40e6-8395-4faf20ae27b1",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(201);\r",
-									"});\r",
+									"if(pm.variables.get(\"statusCode\")===200){\r",
+									"    var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"authToken\",jsonData.token);\r",
+									"}\r",
 									""
 								],
 								"type": "text/javascript",
@@ -63,12 +64,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{BaseURL}}/login",
+							"raw": "{{BaseURL}}{{Endpoint}}",
 							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"login"
+								"{{BaseURL}}{{Endpoint}}"
 							]
 						}
 					},
