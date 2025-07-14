@@ -12,14 +12,12 @@
 					"name": "User login",
 					"event": [
 						{
-							"listen": "test",
+							"listen": "prerequest",
 							"script": {
-								"id": "1969b813-ee78-40e6-8395-4faf20ae27b1",
+								"id": "e9edbcd5-9265-43ad-9a1c-e7c8045b0d73",
 								"exec": [
-									"pm.test(\"Validating Status Code\", () => {\r",
-									"    let expectedStatus = Number(pm.variables.get(\"statusCode\"));\r",
-									"    pm.expect(pm.response.code).to.eql(expectedStatus);\r",
-									"});\r",
+									"console.clear();",
+									"pm.variables.set(\"Endpoint\",\"/login\");",
 									""
 								],
 								"type": "text/javascript",
@@ -27,13 +25,15 @@
 							}
 						},
 						{
-							"listen": "prerequest",
+							"listen": "test",
 							"script": {
-								"id": "34a394fe-0744-489b-a437-b101ec05e408",
+								"id": "fd9d2817-b48d-459f-ad34-b01d8b69b30e",
 								"exec": [
-									"console.clear();",
-									"pm.environment.set(\"data_set_entries\",null);",
-									"pm.environment.set(\"data_set_entries_Dietician\", null);"
+									"pm.test(\"Validating Status Code\", () => {\r",
+									"    let expectedStatus = Number(pm.variables.get(\"statusCode\"));\r",
+									"    pm.expect(pm.response.code).to.eql(expectedStatus);\r",
+									"});\r",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -253,7 +253,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "52b09e5b-f42b-4140-a005-7e218a2dbb66",
+				"id": "d127eab1-41e5-495f-adc2-901551367ce0",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -264,7 +264,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a9fd35c5-33d3-467a-bc5f-09c7e054fcd2",
+				"id": "8a4afaf2-b487-4ce4-8330-8c049b23b8a1",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -277,11 +277,6 @@
 		{
 			"key": "BaseURL",
 			"value": "",
-			"type": "default"
-		},
-		{
-			"key": "Endpoint",
-			"value": "/login",
 			"type": "default"
 		}
 	]
