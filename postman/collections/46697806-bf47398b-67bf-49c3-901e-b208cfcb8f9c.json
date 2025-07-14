@@ -221,7 +221,7 @@
 					"response": [
 						{
 							"id": "46697806-e7504dfa-80cc-4826-b2a4-bce3d1732cc4",
-							"name": "New Request",
+							"name": "Get All Morbidities  with no authorization",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
