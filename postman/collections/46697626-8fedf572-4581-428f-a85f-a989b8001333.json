@@ -94,7 +94,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{DieticianBearer_Token}}",
+									"value": "Admin_Token",
 									"type": "string"
 								}
 							]
