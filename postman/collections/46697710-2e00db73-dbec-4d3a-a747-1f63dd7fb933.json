@@ -73,7 +73,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "9bd598f5-040c-4afb-ab52-677ba61cdd19",
+				"id": "661ffe9d-15ec-45af-bcb5-4f7d10bccdb6",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -249,7 +249,7 @@
 					"//   }\r",
 					"// });\r",
 					"\r",
-					"console.log(`Running TestCase: ${testCase.testCaseId} - ${testCase.scenarioName}`);\r",
+					"//console.log(`Running TestCase: ${testCase.testCaseId} - ${testCase.scenarioName}`);\r",
 					"\r",
 					"\r",
 					"// const fullRequestName = pm.info.requestName;\r",
@@ -381,7 +381,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a98c5059-9f79-484f-ba8e-3bbd588b5cb9",
+				"id": "40ea4a90-6adc-4046-8727-044aabf10bbd",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
