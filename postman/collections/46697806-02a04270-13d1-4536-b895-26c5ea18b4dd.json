@@ -111,8 +111,28 @@
 				"disableBodyPruning": true
 			},
 			"request": {
-				"method": "GET",
-				"header": []
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Admin_Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userLoginEmail\": \"{{user_LoginEmail}}\",\r\n  \"password\": \"{{user_password}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}{{endpoint}}",
+					"host": [
+						"{{baseURL}}{{endpoint}}"
+					]
+				}
 			},
 			"response": []
 		}
