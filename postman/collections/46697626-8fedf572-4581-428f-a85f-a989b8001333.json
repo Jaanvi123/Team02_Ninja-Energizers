@@ -117,12 +117,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{BaseURL}}/login",
+							"raw": "{{baseURL}}{{endpoint}}",
 							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"login"
+								"{{baseURL}}{{endpoint}}"
 							]
 						}
 					},
