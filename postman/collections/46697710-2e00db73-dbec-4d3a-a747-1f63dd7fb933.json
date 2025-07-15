@@ -73,7 +73,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "73f4e3fb-cfaf-4388-b021-826115b4a687",
+				"id": "a6663c35-e985-40d0-8d2a-6b9e40a7a656",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -352,23 +352,23 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "0db8cfe6-adde-4a20-904b-c069313a923c",
+				"id": "cc401fb2-1e8a-495c-ad48-33ab1fe63b91",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
-					"// const testCaseId = pm.variables.get(\"testCaseId\") || \"\";\r",
-					"// const scenarioName = pm.variables.get(\"scenarioName\") || \"\";\r",
-					"\r",
-					"// pm.test(`Running TestCase: ${testCaseId} - ${scenarioName}`, () => {\r",
-					"//     pm.expect(true).to.be.true;\r",
-					"// })\r",
-					"\r",
-					"const testCaseId = pm.variables.get(\"testCaseId\"); \r",
-					"const scenarioName = pm.variables.get(\"scenarioName\"); \r",
+					"const testCaseId = pm.variables.get(\"testCaseId\") || \"\";\r",
+					"const scenarioName = pm.variables.get(\"scenarioName\") || \"\";\r",
 					"\r",
 					"pm.test(`Running TestCase: ${testCaseId} - ${scenarioName}`, () => {\r",
 					"    pm.expect(true).to.be.true;\r",
-					"});\r",
+					"})\r",
+					"\r",
+					"// const testCaseId = pm.variables.get(\"testCaseId\"); \r",
+					"// const scenarioName = pm.variables.get(\"scenarioName\"); \r",
+					"\r",
+					"// pm.test(`Running TestCase: ${testCaseId} - ${scenarioName}`, () => {\r",
+					"//     pm.expect(true).to.be.true;\r",
+					"// });\r",
 					"\r",
 					"\r",
 					"let jsonResponse;\r",
