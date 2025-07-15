@@ -121,12 +121,8 @@
 						}
 					]
 				},
-				"method": "POST",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"userLoginEmail\": \"{{user_LoginEmail}}\",\r\n  \"password\": \"{{user_password}}\"\r\n}"
-				},
 				"url": {
 					"raw": "{{baseURL}}{{endpoint}}",
 					"host": [
