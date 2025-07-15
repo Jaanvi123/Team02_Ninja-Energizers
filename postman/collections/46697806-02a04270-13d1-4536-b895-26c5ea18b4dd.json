@@ -267,7 +267,7 @@
 					"formdata": [
 						{
 							"key": "patientInfo",
-							"value": "{ \"FirstName\": \"teamnin\",\n\"LastName\": \"energi\",\n\"ContactNumber\": \"8877996655\",\n\"Email\": \"teamcode@gmail.com\",\n\"Allergy\": \"none\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"Indian\",\n\"DateOfBirth\": \"1989-07-14\"\n}\n",
+							"value": "{ \"FirstName\": \"teamninja\",\n\"LastName\": \"energizers\",\n\"ContactNumber\": \"8877990055\",\n\"Email\": \"teamco12de@gmail.com\",\n\"Allergy\": \"none\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"Indian\",\n\"DateOfBirth\": \"1978-07-15\"\n}\n",
 							"type": "text",
 							"uuid": "72601d7c-8095-435e-8295-675e87dc16f0"
 						},
@@ -276,6 +276,12 @@
 							"type": "file",
 							"uuid": "03d2996f-8731-483b-9a1f-4b439b3f297e",
 							"src": "postman-cloud:///1f061b50-95b7-4950-83d1-b37e9159bde5"
+						},
+						{
+							"key": "vitals",
+							"value": "",
+							"type": "text",
+							"uuid": "96f00a27-bc8a-489a-8801-1e0369dd17c3"
 						}
 					]
 				},
