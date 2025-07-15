@@ -1,0 +1,373 @@
+{
+	"info": {
+		"_postman_id": "46697806-02a04270-13d1-4536-b895-26c5ea18b4dd",
+		"name": "Team2_Ninja-Energizers-Dietician API-AutomationLatest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "userLogin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5976740c-097f-458d-bf6f-db6618c57fd8",
+								"exec": [
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"Admin_Token\", jsonData.token);\r",
+									"\r",
+									"const jsonSchema={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"loginUserEmail\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"roles\": {\r",
+									"      \"type\": \"array\",\r",
+									"      \"items\": [\r",
+									"        {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      ]\r",
+									"    },\r",
+									"    \"token\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"type\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"userId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"loginUserEmail\",\r",
+									"    \"roles\",\r",
+									"    \"token\",\r",
+									"    \"type\",\r",
+									"    \"userId\"\r",
+									"  ]\r",
+									"};\r",
+									"pm.test(\"Verify JSON Schema\",function() {\r",
+									"    if(pm.response.code === 200) {\r",
+									"        pm.response.to.have.jsonSchema(jsonSchema);\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "06cdcb43-5f2f-4de6-ba17-708d309e94d2",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697806-29da9107-b0e5-48e8-a590-3d195b7182e8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userLoginEmail\": \"{{user_LoginEmail}}\",\r\n  \"password\": \"{{user_password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-efec67ac-7025-428b-9a80-239efe60c050"
+		},
+		{
+			"name": "Get All Morbidities as Admin",
+			"item": [
+				{
+					"name": "Get all Morbidities as Admin no auth",
+					"id": "46697806-a8bf8536-114d-4848-8368-d767a36f8fcc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Morbidities as Admin",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "fbbf9587-1dbc-4ec0-9cff-16db9c4548cf",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697806-b4b17568-6e4b-4f60-bc94-95d70415974c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Admin_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-4c6587e8-9108-4401-b8e8-5b8b291653f2"
+		},
+		{
+			"name": "GET Morbidity condition by Test name as Admin",
+			"item": [
+				{
+					"name": "GET Morbidity condition by Test name as Admin no auth",
+					"id": "46697806-6136bbf5-4a15-482d-aaaa-ea31a4e245b9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Morbidity condition by Test name as Admin",
+					"id": "46697806-eb0edbe7-86f0-4c69-9d72-caec6cc076ed",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Admin_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/morbidity/T3",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"morbidity",
+								"T3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-1064ac89-5883-49a3-a715-d5233b87b79f"
+		},
+		{
+			"name": "login Dietician",
+			"id": "46697806-2875164a-adf7-46a4-bd78-7f0e83594786",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"id": "46697806-c3713666-2957-4326-9ac2-284f1736c24a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZWFtbmluamFAZ21haWwuY29tIiwiaWF0IjoxNzUyNjE1NTg5LCJleHAiOjE3NTI2NDQzODl9.eOz8xmpH2L8pP7PmMzL8YGDHM2lyfzZHpo2130PmI61GKk3lOPncXbwCEwb46_IERBYMZBTcooJjrYHZgU7bqQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "patientInfo",
+							"value": "{ \"FirstName\": \"teamninja\",\n\"LastName\": \"energizers\",\n\"ContactNumber\": \"8877990055\",\n\"Email\": \"teamco12de@gmail.com\",\n\"Allergy\": \"none\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"Indian\",\n\"DateOfBirth\": \"1978-07-15\"\n}\n",
+							"type": "text",
+							"uuid": "72601d7c-8095-435e-8295-675e87dc16f0"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"uuid": "03d2996f-8731-483b-9a1f-4b439b3f297e",
+							"src": "postman-cloud:///1f061b50-95b7-4950-83d1-b37e9159bde5"
+						},
+						{
+							"key": "vitals",
+							"value": "",
+							"type": "text",
+							"uuid": "96f00a27-bc8a-489a-8801-1e0369dd17c3"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseURL}}/patient",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"patient"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ec9820f9-2db2-4b63-90f8-36fcb8c6f54f",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"if (typeof pm.variables.get('requestdata') !== 'object') {\r",
+					"    pm.variables.set('requestdata', pm.iterationData.toObject());\r",
+					"}\r",
+					"const requestdata = pm.variables.get('requestdata');\r",
+					"\r",
+					"if(typeof requestdata !== 'object' || Object.keys(requestdata).length ===0) {\r",
+					"    console.log(\"No external file found\")\r",
+					"    return;\r",
+					"}\r",
+					"\r",
+					"const currentrequest = requestdata.requests.filter(({name}) => name === pm.info.requestName) [0];\r",
+					"if(!currentrequest){\r",
+					"    console.log(`Request ${pm.info.requestName} has no data defined.`);\r",
+					"}\r",
+					"\r",
+					"const variables = currentrequest.data.shift();\r",
+					"\r",
+					"Object.entries(variables).forEach(([key, value]) => {\r",
+					"        pm.variables.set(key, value);\r",
+					"    });\r",
+					"\r",
+					" pm.variables.set('requestdata',requestdata);\r",
+					"if(currentrequest.data.length > 0){\r",
+					"    pm.execution.setNextRequest(pm.info.requestName)//execute until next request is found\r",
+					"}\r",
+					"\r",
+					"\r",
+					" "
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "ee35f1d0-56ef-499e-a462-9c383cc9bfb2",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"\r",
+					"pm.test(\"Status code is expected\", function () {\r",
+					"    pm.response.to.have.status(pm.variables.get(\"expectedStatusCode\"));\r",
+					"});\r",
+					"\r",
+					"pm.test(\"Status line is correct\", function () {\r",
+					"  pm.expect(pm.response.status).to.eql(pm.variables.get(\"expectedStatusLine\")); \r",
+					"});\r",
+					"\r",
+					"pm.test(\"Content-Type is correct\", function () {\r",
+					"    pm.response.to.have.header(\"Content-Type\", pm.variables.get(\"expectedContentType\"));\r",
+					"});\r",
+					"pm.test(\"Response time is less than 1000ms\", function () {\r",
+					"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+					"});\r",
+					"\r",
+					"pm.test (\"Content-Type header is present\", () => { \r",
+					"    pm.response.to.have.header (\"Content-Type\") ;\r",
+					"});\r",
+					"\r",
+					"\r",
+					""
+				]
+			}
+		}
+	]
+}
