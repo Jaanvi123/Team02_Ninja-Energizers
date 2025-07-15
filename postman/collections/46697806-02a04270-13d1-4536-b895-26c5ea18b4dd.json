@@ -186,7 +186,13 @@
 							"type": "noauth"
 						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
 					},
 					"response": []
 				},
