@@ -232,7 +232,7 @@
 			"id": "46697806-1064ac89-5883-49a3-a715-d5233b87b79f"
 		},
 		{
-			"name": "New Request",
+			"name": "login Dietician",
 			"id": "46697806-2875164a-adf7-46a4-bd78-7f0e83594786",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
