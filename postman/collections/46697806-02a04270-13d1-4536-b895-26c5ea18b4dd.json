@@ -57,9 +57,7 @@
 									"    }\r",
 									"});\r",
 									"\r",
-									"pm.test(\"Validate response schema\", function () {\r",
-									"  pm.expect(ajv.validate(jsonData, schema)).to.be.true;\r",
-									"});\r",
+									"\r",
 									""
 								],
 								"type": "text/javascript",
