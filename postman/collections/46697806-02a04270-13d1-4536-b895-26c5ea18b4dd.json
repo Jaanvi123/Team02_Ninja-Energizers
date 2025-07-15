@@ -242,7 +242,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "e52d5d13-9191-4700-b43b-fed654512fa6",
+				"id": "ec9820f9-2db2-4b63-90f8-36fcb8c6f54f",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -272,25 +272,7 @@
 					"    pm.execution.setNextRequest(pm.info.requestName)//execute until next request is found\r",
 					"}\r",
 					"\r",
-					"pm.request.headers.clear(); // Clear all headers to prevent residual values\r",
-					"var AuthType = pm.variables.get(\"authType\");\r",
-					"switch (AuthType) {\r",
-					"    case \"No Auth\":\r",
-					"        pm.request.auth = { type: 'noauth' };\r",
-					"        break;\r",
-					"    case \"Bearer Token\":\r",
-					"        const authToken = pm.environment.get(\"AuthToken\");\r",
-					"        if (authToken) {\r",
-					"            pm.request.headers.add({ key: \"Authorization\", value: `Bearer ${authToken}` });}\r",
-					"         else {console.log(\"AuthToken is not set in the environment.\");}\r",
-					"        break;\r",
-					"    case \"Invalid Bearer token\":\r",
-					"        pm.request.headers.add({ key: \"Authorization\", value: \"invalid\" });\r",
-					"         console.log(\"Using invalid bearer token.\");\r",
-					"        break;\r",
-					"    default:\r",
-					"        console.log(\"Unknown authType: \" + AuthType); break;\r",
-					"}\r",
+					"\r",
 					" "
 				]
 			}
@@ -298,7 +280,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "d8024783-81d6-4f08-82bf-9836855b66ec",
+				"id": "ee35f1d0-56ef-499e-a462-9c383cc9bfb2",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
