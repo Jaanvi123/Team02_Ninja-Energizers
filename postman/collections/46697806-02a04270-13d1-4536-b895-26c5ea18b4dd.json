@@ -18,6 +18,7 @@
 								"exec": [
 									"let jsonData = pm.response.json();\r",
 									"pm.environment.set(\"Admin_Token\", jsonData.token);\r",
+									"\r",
 									"const Ajv = require('ajv');\r",
 									"const ajv = new Ajv();\r",
 									"var schema=\r",
