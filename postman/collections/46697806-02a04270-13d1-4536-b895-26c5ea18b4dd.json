@@ -130,6 +130,19 @@
 				},
 				{
 					"name": "Get all Morbidities as Admin",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "fbbf9587-1dbc-4ec0-9cff-16db9c4548cf",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "46697806-b4b17568-6e4b-4f60-bc94-95d70415974c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
