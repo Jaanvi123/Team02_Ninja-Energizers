@@ -206,7 +206,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "0461b70c-3107-4021-84cf-9ed6e29de88f",
+				"id": "dd0d8e43-1148-44f9-b98c-3017dcceaba6",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -249,7 +249,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "e32022a1-ea9c-4890-a304-c94465a6ae5d",
+				"id": "ab68c9bd-8d92-435b-bd6e-045e8a3d8a0c",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -260,7 +260,7 @@
 					"pm.test(\"Status line is correct\", () => {\r",
 					" \r",
 					"  pm.expect(pm.response.status).to.eql(pm.variables.get(\"expectedStatusLine\")); \r",
-					"   // pm.expect(pm.response.statusLine).to.eql(pm.variables.get(\"expectedStatusLine\"));\r",
+					"   \r",
 					"});\r",
 					"\r",
 					"pm.test(\"Content-Type is correct\", () => {\r",
