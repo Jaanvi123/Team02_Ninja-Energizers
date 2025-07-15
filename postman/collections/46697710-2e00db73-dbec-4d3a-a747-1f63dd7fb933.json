@@ -206,7 +206,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "b85c15b1-30d3-43c9-af64-a65ac9bed1ae",
+				"id": "1824adfb-c648-4efb-91a5-e5b78d8f3fd9",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -249,7 +249,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "070a5fc0-44a1-4c64-ac5f-9c5b649d30ad",
+				"id": "097a9be3-db9b-4dfa-b23f-0f72143372dc",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -279,6 +279,14 @@
 					"pm.test(\"Type of the Token is Bearer\", () => {\r",
 					"    pm.expect(jsonResponse.type.trim()).to.eql(\"Bearer\");\r",
 					"});\r",
+					"\r",
+					"//store the token as an environment variable\r",
+					"if(jsonResponse.token){ \r",
+					"    pm.environment.set(\"token\", jsonResponse.token);\r",
+					"    console.log(\"Token Saved as environment variable:\", jsonResponse.token);\r",
+					"} else {\r",
+					"    console.warn(\"Token not received in the response\");\r",
+					"}\r",
 					"\r",
 					"//Validate userId field is numeric\r",
 					"pm.test(\"userId is a number\", ()=> {\r",
@@ -351,6 +359,8 @@
 					"pm.test(\"Content-Type is correct\", () => {\r",
 					"    pm.response.to.have.header(\"Content-Type\", pm.variables.get(\"expectedContentType\"));\r",
 					"});\r",
+					"\r",
+					"\r",
 					"\r",
 					"\r",
 					""
