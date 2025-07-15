@@ -6,40 +6,6 @@
 	},
 	"item": [
 		{
-			"name": "Get All Morbidities as Admin Negative",
-			"item": [
-				{
-					"name": "Get all Morbidities as Admin negative",
-					"id": "46697806-a8bf8536-114d-4848-8368-d767a36f8fcc",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{Admin_Token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseURL}}{{endpoint}}",
-							"host": [
-								"{{baseURL}}{{endpoint}}"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"id": "46697806-4c6587e8-9108-4401-b8e8-5b8b291653f2"
-		},
-		{
 			"name": "Login",
 			"item": [
 				{
@@ -137,6 +103,40 @@
 				}
 			],
 			"id": "46697806-efec67ac-7025-428b-9a80-239efe60c050"
+		},
+		{
+			"name": "Get All Morbidities as Admin Negative",
+			"item": [
+				{
+					"name": "Get all Morbidities as Admin negative",
+					"id": "46697806-a8bf8536-114d-4848-8368-d767a36f8fcc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Admin_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-4c6587e8-9108-4401-b8e8-5b8b291653f2"
 		}
 	],
 	"event": [
