@@ -9,7 +9,7 @@
 			"name": "Dietician Module",
 			"item": [
 				{
-					"name": "User login Copy",
+					"name": "userLogin",
 					"event": [
 						{
 							"listen": "test",
