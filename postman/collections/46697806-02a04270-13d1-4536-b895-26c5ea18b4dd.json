@@ -105,10 +105,10 @@
 			"id": "46697806-efec67ac-7025-428b-9a80-239efe60c050"
 		},
 		{
-			"name": "Get All Morbidities as Admin Negative",
+			"name": "Get All Morbidities as Admin",
 			"item": [
 				{
-					"name": "Get all Morbidities as Admin negative",
+					"name": "Get all Morbidities as Admin no auth",
 					"id": "46697806-a8bf8536-114d-4848-8368-d767a36f8fcc",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
