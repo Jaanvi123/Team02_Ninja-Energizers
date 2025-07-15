@@ -175,7 +175,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "GET Morbidity condition by Test name as Admin",
 					"id": "46697806-eb0edbe7-86f0-4c69-9d72-caec6cc076ed",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
