@@ -69,11 +69,21 @@
 			"id": "46697806-efec67ac-7025-428b-9a80-239efe60c050"
 		}
 	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{authToken}}",
+				"type": "string"
+			}
+		]
+	},
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "17acdd92-53e3-46ab-a223-bb3310cc29a6",
+				"id": "ef4bc1df-3773-4075-a956-fffe5be14409",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -116,7 +126,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "de748408-eaf3-4fe8-8e57-a5f358c0a7aa",
+				"id": "b644762e-920a-4407-95df-4e3923894501",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
