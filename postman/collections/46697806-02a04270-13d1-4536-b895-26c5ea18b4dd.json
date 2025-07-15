@@ -19,6 +19,12 @@
 									"script": {
 										"id": "5976740c-097f-458d-bf6f-db6618c57fd8",
 										"exec": [
+											"if(pm.variables.get(\"statusCode\")===200){\r",
+											"    var jsonData = pm.response.json();\r",
+											"pm.environment.set(\"authToken\",jsonData.token);\r",
+											"}\r",
+											"\r",
+											"\r",
 											""
 										],
 										"type": "text/javascript",
