@@ -206,7 +206,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "cccca051-83d1-4b46-b247-8ed91f37d3db",
+				"id": "152803c6-7220-42a7-b2d6-31b3273fb15a",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -249,7 +249,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "7963b03a-009c-442c-8e41-cc77aa64e4f0",
+				"id": "3f4297a9-93ce-4f4e-8ec3-965d7435f81e",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -276,7 +276,11 @@
 					"//     pm.expect(jsonResponse.type).to.eql(\"Bearer\");   \r",
 					"// });\r",
 					"\r",
-					"pm.test(\"Type of the Token is Bearer\", () => {\r",
+					"// pm.test(\"Type of the Token is Bearer\", () => {\r",
+					"//     pm.expect(jsonResponse.type.trim()).to.eql(\"Bearer\");\r",
+					"// });\r",
+					"\r",
+					"pm.test(\"Token type is 'Bearer'\", ()=> {\r",
 					"    pm.expect(jsonResponse.type.trim()).to.eql(\"Bearer\");\r",
 					"});\r",
 					"\r",
