@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "46697710-989dd7df-e65c-44ae-bf95-27f0dd87f282",
+		"name": "Team02_Ninja-EnergizersPostman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "New Request",
+					"id": "46697710-8858be40-9ebd-4f2f-affa-a9ccdc9721b6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DemoTest",
+					"id": "46697710-6a0e25ee-b378-45fa-9560-d7cbebc5b398",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "TestDemo",
+							"host": [
+								"TestDemo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "46697710-07be3815-b720-4825-a206-351ef290f05d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"id": "46697710-18e0a241-ee52-45b8-a7bf-daef4a0cf42b"
+		},
+		{
+			"name": "New Request",
+			"id": "46697710-720d2924-af33-48ec-b5d8-88eef7b5cbda",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"id": "46697710-02fdac52-aecf-4c79-9de7-cb805f746e80",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
