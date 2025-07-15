@@ -206,7 +206,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "1824adfb-c648-4efb-91a5-e5b78d8f3fd9",
+				"id": "cccca051-83d1-4b46-b247-8ed91f37d3db",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -241,7 +241,7 @@
 					"});\r",
 					"\r",
 					"// Optional Logging\r",
-					"console.log(`🧪 Running TestCase: ${testCase.testCaseId} - ${testCase.scenarioName}`);\r",
+					"console.log(`Running TestCase: ${testCase.testCaseId} - ${testCase.scenarioName}`);\r",
 					""
 				]
 			}
@@ -249,7 +249,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "097a9be3-db9b-4dfa-b23f-0f72143372dc",
+				"id": "7963b03a-009c-442c-8e41-cc77aa64e4f0",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
