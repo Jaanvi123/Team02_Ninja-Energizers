@@ -315,21 +315,65 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "639036db-278f-4529-a730-5b4a434b864e",
+				"id": "fce59cf7-56cb-4a36-b34b-3799e40804e6",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
-					""
+					"if (typeof pm.variables.get('requestdata') !== 'object') {\r",
+					"    pm.variables.set('requestdata', pm.iterationData.toObject());\r",
+					"}\r",
+					"const requestdata = pm.variables.get('requestdata');\r",
+					"\r",
+					"if(typeof requestdata !== 'object' || Object.keys(requestdata).length ===0) {\r",
+					"    console.log(\"No external file found\")\r",
+					"    return;\r",
+					"}\r",
+					"\r",
+					"const currentrequest = requestdata.requests.filter(({name}) => name === pm.info.requestName) [0];\r",
+					"if(!currentrequest){\r",
+					"    console.log(`Request ${pm.info.requestName} has no data defined.`);\r",
+					"}\r",
+					"\r",
+					"const variables = currentrequest.data.shift();\r",
+					"\r",
+					"Object.entries(variables).forEach(([key, value]) => {\r",
+					"        pm.variables.set(key, value);\r",
+					"    });\r",
+					"\r",
+					" pm.variables.set('requestdata',requestdata);\r",
+					"if(currentrequest.data.length > 0){\r",
+					"    pm.execution.setNextRequest(pm.info.requestName)\r",
+					"}\r",
+					" \r",
+					" "
 				]
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
-				"id": "b98d1b23-380b-40bf-92df-021302a29865",
+				"id": "68c0ecd2-b210-4fa8-9f03-c5e8055f3df1",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
+					"pm.test(\"Status code is expected\", function () {\r",
+					"    pm.response.to.have.status(pm.variables.get(\"expectedStatusCode\"));\r",
+					"});\r",
+					"\r",
+					"pm.test(\"Status line is correct\", function () {\r",
+					"  pm.expect(pm.response.status).to.eql(pm.variables.get(\"expectedStatusLine\")); \r",
+					"});\r",
+					"\r",
+					"pm.test(\"Content-Type is correct\", function () {\r",
+					"    pm.response.to.have.header(\"Content-Type\", pm.variables.get(\"expectedContentType\"));\r",
+					"});\r",
+					"pm.test(\"Response time is less than 1000ms\", function () {\r",
+					"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+					"});\r",
+					"\r",
+					"pm.test (\"Content-Type header is present\", () => { \r",
+					"    pm.response.to.have.header (\"Content-Type\") ;\r",
+					"});\r",
 					""
 				]
 			}
