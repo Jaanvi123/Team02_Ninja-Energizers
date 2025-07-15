@@ -250,8 +250,36 @@
 				"disableBodyPruning": true
 			},
 			"request": {
-				"method": "GET",
-				"header": []
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZWFtbmluamFAZ21haWwuY29tIiwiaWF0IjoxNzUyNjE1NTg5LCJleHAiOjE3NTI2NDQzODl9.eOz8xmpH2L8pP7PmMzL8YGDHM2lyfzZHpo2130PmI61GKk3lOPncXbwCEwb46_IERBYMZBTcooJjrYHZgU7bqQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"FirstName\": \"teamnin\",\r\n\"LastName\": \"energi\",\r\n\"ContactNumber\": \"8877996655\",\r\n\"Email\": \"teamcode@gmail.com\",\r\n\"Allergy\": \"none\",\r\n\"FoodPreference\": \"vegan\",\r\n\"CuisineCategory\":\"Indian\",\r\n\"DateOfBirth\": \"1989-07-14\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/patient",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"patient"
+					]
+				}
 			},
 			"response": []
 		}
