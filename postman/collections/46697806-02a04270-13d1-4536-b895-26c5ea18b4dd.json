@@ -9,7 +9,7 @@
 			"name": "Get All Morbidities as Admin Negative",
 			"item": [
 				{
-					"name": "Get all Morbidities as Admin",
+					"name": "Get all Morbidities as Admin negative",
 					"id": "46697806-a8bf8536-114d-4848-8368-d767a36f8fcc",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
