@@ -76,8 +76,7 @@
 								"id": "34a394fe-0744-489b-a437-b101ec05e408",
 								"exec": [
 									"console.clear();",
-									"pm.environment.set(\"data_set_entries\",null);",
-									"pm.environment.set(\"data_set_entries_Dietician\", null);"
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
