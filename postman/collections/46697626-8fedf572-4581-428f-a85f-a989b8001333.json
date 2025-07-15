@@ -199,13 +199,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{BaseURL}}/dietician/{{dieticianId}}",
+							"raw": "{{baseURL}}{{endpoint}}",
 							"host": [
-								"{{BaseURL}}"
-							],
-							"path": [
-								"dietician",
-								"{{dieticianId}}"
+								"{{baseURL}}{{endpoint}}"
 							]
 						}
 					},
