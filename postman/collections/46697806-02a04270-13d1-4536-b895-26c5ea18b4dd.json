@@ -161,7 +161,20 @@
 		},
 		{
 			"name": "GET Morbidity condition by Test name as Admin",
-			"item": [],
+			"item": [
+				{
+					"name": "New Request",
+					"id": "46697806-6136bbf5-4a15-482d-aaaa-ea31a4e245b9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "46697806-1064ac89-5883-49a3-a715-d5233b87b79f"
 		}
 	],
