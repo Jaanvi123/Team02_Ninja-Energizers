@@ -54,9 +54,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}{{endpoint}}",
+									"raw": "{{baseURL}}{{endpoint}}",
 									"host": [
-										"{{baseUrl}}{{endpoint}}"
+										"{{baseURL}}{{endpoint}}"
 									]
 								}
 							},
