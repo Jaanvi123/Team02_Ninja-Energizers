@@ -12,7 +12,7 @@
 					"name": "SuccessfulMessages",
 					"item": [
 						{
-							"name": "userLogin",
+							"name": "userLogin-POST-Positive",
 							"event": [
 								{
 									"listen": "test",
