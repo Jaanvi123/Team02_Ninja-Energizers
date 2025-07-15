@@ -137,21 +137,11 @@
 			"response": []
 		}
 	],
-	"auth": {
-		"type": "bearer",
-		"bearer": [
-			{
-				"key": "token",
-				"value": "{{authToken}}",
-				"type": "string"
-			}
-		]
-	},
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "f91d20b1-6ea5-473b-b0cc-95ac126d80e3",
+				"id": "0ba8a31d-74f6-4453-adec-c68c2a49a454",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -194,7 +184,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "d721bac8-0324-48e0-bcb9-7f1133e0a141",
+				"id": "9e4a4194-a5e2-455b-a914-0d1a43ca8128",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
