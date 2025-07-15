@@ -21,7 +21,6 @@
 									"pm.environment.set(\"Admin_Token\", Admin_Token );\r",
 									"const Ajv = require('ajv');\r",
 									"const ajv = new Ajv();\r",
-									"\r",
 									"var schema=\r",
 									"{\r",
 									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
