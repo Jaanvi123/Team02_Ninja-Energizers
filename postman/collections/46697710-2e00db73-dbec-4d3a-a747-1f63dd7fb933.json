@@ -73,7 +73,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "417dc034-85d8-4669-8337-f451d29bc433",
+				"id": "73f4e3fb-cfaf-4388-b021-826115b4a687",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -97,7 +97,7 @@
 					"const testCase = group.data?.[index];\r",
 					"\r",
 					"if (!testCase) {\r",
-					"    console.warn(`⚠️ No test case found for iteration ${index} in ${normalizedRequestName}`);\r",
+					"    console.warn(`No test case found for iteration ${index} in ${normalizedRequestName}`);\r",
 					"    return;\r",
 					"}\r",
 					"\r",
@@ -352,10 +352,25 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "05aec764-9e20-41a5-8d9a-db80bd1f1381",
+				"id": "0db8cfe6-adde-4a20-904b-c069313a923c",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
+					"// const testCaseId = pm.variables.get(\"testCaseId\") || \"\";\r",
+					"// const scenarioName = pm.variables.get(\"scenarioName\") || \"\";\r",
+					"\r",
+					"// pm.test(`Running TestCase: ${testCaseId} - ${scenarioName}`, () => {\r",
+					"//     pm.expect(true).to.be.true;\r",
+					"// })\r",
+					"\r",
+					"const testCaseId = pm.variables.get(\"testCaseId\"); \r",
+					"const scenarioName = pm.variables.get(\"scenarioName\"); \r",
+					"\r",
+					"pm.test(`Running TestCase: ${testCaseId} - ${scenarioName}`, () => {\r",
+					"    pm.expect(true).to.be.true;\r",
+					"});\r",
+					"\r",
+					"\r",
 					"let jsonResponse;\r",
 					"try {\r",
 					"    jsonResponse = pm.response.json();\r",
