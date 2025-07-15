@@ -206,7 +206,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "b6fd9151-5f00-4366-ac4e-d48bae9bb892",
+				"id": "d5c52c04-f03c-4277-94df-431269d18560",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -249,23 +249,35 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "56664ad8-e2a5-47f5-8daf-32412ee7cbfa",
+				"id": "851d5de6-bdd6-4b8e-8ed2-b6d741ae6ece",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
+					"var commonTests = () =>{\r",
 					"pm.test(\"Status code is expected\", function () {\r",
 					"    pm.response.to.have.status(pm.variables.get(\"expectedStatusCode\"));\r",
 					"});\r",
 					"\r",
 					"pm.test(\"Status line is correct\", function () {\r",
-					" \r",
 					"  pm.expect(pm.response.status).to.eql(pm.variables.get(\"expectedStatusLine\")); \r",
-					"   // pm.expect(pm.response.statusLine).to.eql(pm.variables.get(\"expectedStatusLine\"));\r",
 					"});\r",
 					"\r",
 					"pm.test(\"Content-Type is correct\", function () {\r",
 					"    pm.response.to.have.header(\"Content-Type\", pm.variables.get(\"expectedContentType\"));\r",
 					"});\r",
+					"pm.test(\"Response time is less than 1000ms\", function () {\r",
+					"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+					"});\r",
+					"}\r",
+					"\r",
+					"pm.environment.set(\"commonTests\",commonTests.toString());\r",
+					"\r",
+					"var jsonSchemaValidation = () =>{\r",
+					"    pm.test(\"Verify JSON Schema using AJV\", function () {\r",
+					"        pm.response.to.have.jsonSchema(expectedSchema);\r",
+					"    });\r",
+					"}\r",
+					"\r",
 					"\r",
 					"\r",
 					""
