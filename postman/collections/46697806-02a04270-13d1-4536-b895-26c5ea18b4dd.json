@@ -106,36 +106,37 @@
 		},
 		{
 			"name": "Get All Morbidities as Admin Negative",
-			"item": [],
-			"id": "46697806-4c6587e8-9108-4401-b8e8-5b8b291653f2"
-		},
-		{
-			"name": "Get all Morbidities as Admin",
-			"id": "46697806-a8bf8536-114d-4848-8368-d767a36f8fcc",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{Admin_Token}}",
-							"type": "string"
+			"item": [
+				{
+					"name": "Get all Morbidities as Admin",
+					"id": "46697806-a8bf8536-114d-4848-8368-d767a36f8fcc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Admin_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
 						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{baseURL}}{{endpoint}}",
-					"host": [
-						"{{baseURL}}{{endpoint}}"
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"id": "46697806-4c6587e8-9108-4401-b8e8-5b8b291653f2"
 		}
 	],
 	"event": [
