@@ -206,7 +206,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "b6fd9151-5f00-4366-ac4e-d48bae9bb892",
+				"id": "0461b70c-3107-4021-84cf-9ed6e29de88f",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -249,21 +249,21 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "56664ad8-e2a5-47f5-8daf-32412ee7cbfa",
+				"id": "e32022a1-ea9c-4890-a304-c94465a6ae5d",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
-					"pm.test(\"Status code is expected\", function () {\r",
+					"pm.test(\"Status code is expected\", () => {\r",
 					"    pm.response.to.have.status(pm.variables.get(\"expectedStatusCode\"));\r",
 					"});\r",
 					"\r",
-					"pm.test(\"Status line is correct\", function () {\r",
+					"pm.test(\"Status line is correct\", () => {\r",
 					" \r",
 					"  pm.expect(pm.response.status).to.eql(pm.variables.get(\"expectedStatusLine\")); \r",
 					"   // pm.expect(pm.response.statusLine).to.eql(pm.variables.get(\"expectedStatusLine\"));\r",
 					"});\r",
 					"\r",
-					"pm.test(\"Content-Type is correct\", function () {\r",
+					"pm.test(\"Content-Type is correct\", () => {\r",
 					"    pm.response.to.have.header(\"Content-Type\", pm.variables.get(\"expectedContentType\"));\r",
 					"});\r",
 					"\r",
