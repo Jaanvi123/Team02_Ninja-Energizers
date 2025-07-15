@@ -229,14 +229,47 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "AddReports",
 					"id": "16268084-3adbfbed-5751-43d0-8ba5-c28640ac4dbd",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{DieticianBearer_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "pateintInfo",
+									"type": "file",
+									"uuid": "24af6da0-5f76-4993-98a8-d6b5ce7c4b4a",
+									"src": "pateintInfo.json"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseURL}}{{Endpoint}}",
+							"host": [
+								"{{BaseURL}}{{Endpoint}}"
+							]
+						}
 					},
 					"response": []
 				}
