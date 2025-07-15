@@ -67,7 +67,20 @@
 				},
 				{
 					"name": "ErrorMessages",
-					"item": [],
+					"item": [
+						{
+							"name": "New Request",
+							"id": "46697710-fd9e3af1-cb03-49ee-afbc-fa698dc6a1aa",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					],
 					"id": "46697710-870264b3-bafd-4521-8bc4-9ae20821c7f1"
 				},
 				{
