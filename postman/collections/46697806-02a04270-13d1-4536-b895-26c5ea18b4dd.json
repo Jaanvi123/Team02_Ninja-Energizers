@@ -163,7 +163,7 @@
 			"name": "GET Morbidity condition by Test name as Admin",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "GET Morbidity condition by Test name as Admin no auth",
 					"id": "46697806-6136bbf5-4a15-482d-aaaa-ea31a4e245b9",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
