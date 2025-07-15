@@ -125,8 +125,7 @@
 									"pm.test(\"Validating Status Code\", () => {\r",
 									"    let expectedStatus = Number(pm.variables.get(\"statusCode\"));\r",
 									"    pm.expect(pm.response.code).to.eql(expectedStatus);\r",
-									"});\r",
-									""
+									"});"
 								],
 								"type": "text/javascript",
 								"packages": {}
