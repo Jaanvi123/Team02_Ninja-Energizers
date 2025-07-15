@@ -145,7 +145,7 @@
 								}
 							]
 						},
-						"method": "POST",
+						"method": "GET",
 						"header": [],
 						"url": {
 							"raw": "{{baseURL}}{{endpoint}}",
