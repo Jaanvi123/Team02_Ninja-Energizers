@@ -122,6 +122,10 @@
 							"script": {
 								"id": "029ad5ff-e8ad-4ca8-997e-9292dd4b5dd7",
 								"exec": [
+									"pm.test(\"Validating Status Code\", () => {\r",
+									"    let expectedStatus = Number(pm.variables.get(\"statusCode\"));\r",
+									"    pm.expect(pm.response.code).to.eql(expectedStatus);\r",
+									"});\r",
 									""
 								],
 								"type": "text/javascript",
