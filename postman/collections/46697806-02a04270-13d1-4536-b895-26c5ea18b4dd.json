@@ -136,7 +136,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Get all Morbidities as Admin",
 					"id": "46697806-b4b17568-6e4b-4f60-bc94-95d70415974c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
