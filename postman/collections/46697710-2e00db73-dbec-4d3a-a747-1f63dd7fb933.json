@@ -73,7 +73,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "b684851c-0674-4743-9a04-e1ac02b002c2",
+				"id": "bf5df9f0-04f3-404c-b09c-b739ed2af354",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -96,15 +96,13 @@
 					"    return;\r",
 					"}\r",
 					"\r",
-					"// Do NOT clear environment variables here to preserve token\r",
-					"\r",
-					"// Optionally, selectively set env vars needed by your request\r",
-					"const keysToSet = ['endpoint', 'user_LoginEmail', 'user_password'];\r",
-					"keysToSet.forEach(key => {\r",
-					"  if (testCase[key] !== undefined) {\r",
-					"    pm.environment.set(key, testCase[key]);\r",
-					"  }\r",
-					"});\r",
+					"// // Optionally, selectively set env vars needed by your request\r",
+					"// const keysToSet = ['endpoint', 'user_LoginEmail', 'user_password'];\r",
+					"// keysToSet.forEach(key => {\r",
+					"//   if (testCase[key] !== undefined) {\r",
+					"//     pm.environment.set(key, testCase[key]);\r",
+					"//   }\r",
+					"// });\r",
 					"\r",
 					"console.log(`Running TestCase: ${testCase.testCaseId} - ${testCase.scenarioName}`);\r",
 					"\r",
@@ -238,7 +236,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "ca4986e6-93d3-4609-b897-689e55b77e26",
+				"id": "6ad8c53a-f905-44ea-813d-5276d213971d",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
