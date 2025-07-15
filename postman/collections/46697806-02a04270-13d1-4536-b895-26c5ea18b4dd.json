@@ -10,65 +10,7 @@
 			"item": [
 				{
 					"name": "SuccessfulMessages",
-					"item": [
-						{
-							"name": "userLogin",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "5976740c-097f-458d-bf6f-db6618c57fd8",
-										"exec": [
-											"if(pm.variables.get(\"statusCode\")===200){\r",
-											"    var jsonData = pm.response.json();\r",
-											"pm.environment.set(\"authToken\",jsonData.token);\r",
-											"}\r",
-											"\r",
-											"\r",
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "06cdcb43-5f2f-4de6-ba17-708d309e94d2",
-										"exec": [
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "46697806-29da9107-b0e5-48e8-a590-3d195b7182e8",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"userLoginEmail\": \"{{user_LoginEmail}}\",\r\n  \"password\": \"{{user_password}}\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseURL}}{{endpoint}}",
-									"host": [
-										"{{baseURL}}{{endpoint}}"
-									]
-								}
-							},
-							"response": []
-						}
-					],
+					"item": [],
 					"id": "46697806-65163e5d-0e68-45fb-acc5-7a426428043f"
 				},
 				{
@@ -201,6 +143,63 @@
 				}
 			],
 			"id": "46697806-efec67ac-7025-428b-9a80-239efe60c050"
+		},
+		{
+			"name": "userLogin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5976740c-097f-458d-bf6f-db6618c57fd8",
+						"exec": [
+							"if(pm.variables.get(\"statusCode\")===200){\r",
+							"    var jsonData = pm.response.json();\r",
+							"pm.environment.set(\"authToken\",jsonData.token);\r",
+							"}\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "06cdcb43-5f2f-4de6-ba17-708d309e94d2",
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "46697806-29da9107-b0e5-48e8-a590-3d195b7182e8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userLoginEmail\": \"{{user_LoginEmail}}\",\r\n  \"password\": \"{{user_password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}{{endpoint}}",
+					"host": [
+						"{{baseURL}}{{endpoint}}"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
