@@ -135,7 +135,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "ef4bc1df-3773-4075-a956-fffe5be14409",
+				"id": "f91d20b1-6ea5-473b-b0cc-95ac126d80e3",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -178,7 +178,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "b644762e-920a-4407-95df-4e3923894501",
+				"id": "d721bac8-0324-48e0-bcb9-7f1133e0a141",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -196,6 +196,10 @@
 					"});\r",
 					"pm.test(\"Response time is less than 1000ms\", function () {\r",
 					"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+					"});\r",
+					"\r",
+					"pm.test (\"Content-Type header is present\", () => { \r",
+					"    pm.response.to.have.header (\"Content-Type\") ;\r",
 					"});\r",
 					"\r",
 					"\r",
