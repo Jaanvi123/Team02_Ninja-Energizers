@@ -173,6 +173,74 @@
 			"id": "46697806-4c6587e8-9108-4401-b8e8-5b8b291653f2"
 		},
 		{
+			"name": "Get All Morbidities as Admin Copy",
+			"item": [
+				{
+					"name": "Get all Morbidities as Admin no auth",
+					"id": "46697806-12581a73-331e-4825-934d-a962471a471e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Morbidities as Admin",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "fbbf9587-1dbc-4ec0-9cff-16db9c4548cf",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697806-262b98e8-ad45-4c33-9b52-b565196a3b6e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Admin_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-8184e51c-4248-4763-a30e-589d14f81046"
+		},
+		{
 			"name": "GET Morbidity condition by Test name as Admin",
 			"item": [
 				{
