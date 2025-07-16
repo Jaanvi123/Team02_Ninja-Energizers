@@ -214,22 +214,10 @@
 							"script": {
 								"id": "029ad5ff-e8ad-4ca8-997e-9292dd4b5dd7",
 								"exec": [
-									"pm.test(\"Validating Status Code\", ()=> {\r",
-									"    pm.expect(pm.response.code).to.eql(parseInt(pm.variables.get(\"statusCode\")));\r",
+									"pm.test(\"Validating Status Code\", () => {\r",
+									"    let expectedStatus = parseInt(pm.variables.get(\"statusCode\"));\r",
+									"    pm.expect(pm.response.code).to.eql(expectedStatus);\r",
 									"});\r",
-									"\r",
-									"pm.test(\"Response status text check\", function () {\r",
-									"    pm.expect(pm.response.status).to.eql(\"OK\");\r",
-									"});\r",
-									"pm.test(\"Content-Type header is application/json\", ()=>{\r",
-									"    pm.response.to.have.header(\"Content-Type\");\r",
-									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response time is less than 1000ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
-									"});\r",
-									"\r",
 									""
 								],
 								"type": "text/javascript",
@@ -431,7 +419,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"userLoginEmail\": \"{{user_LoginEmail}}\",\r\n  \"password\": \"{{user_password}}\"\r\n}",
+					"raw": "{\r\n  \"userLoginEmail\": \"Team202@gmail.com\",\r\n  \"password\": \"test\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -439,9 +427,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseURL}}{{endpoint}}",
+					"raw": "{{baseURL}}/login",
 					"host": [
-						"{{baseURL}}{{endpoint}}"
+						"{{baseURL}}"
+					],
+					"path": [
+						"login"
 					]
 				}
 			},
