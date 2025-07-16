@@ -703,7 +703,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{Patient_token}}",
+									"value": "{{Patient_Token}}",
 									"type": "string"
 								}
 							]
