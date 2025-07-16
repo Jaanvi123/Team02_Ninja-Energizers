@@ -155,50 +155,6 @@
 					"response": []
 				},
 				{
-					"name": "createpatient",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "7b04c97f-8959-4213-a3e3-19cac936f170",
-								"exec": [
-									"let jsonData = pm.response.json();\r",
-									"pm.environment.set(\"Patient_token\", jsonData.token);"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "46697803-285a64c9-14d4-41be-ae14-7803a6145d3c",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"userLoginEmail\": \"{{user_LoginEmail}}\",\r\n  \"password\": \"{{user_password}}\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseURL}}{{endpoint}}",
-							"host": [
-								"{{baseURL}}{{endpoint}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Get Patients Morbidity Details",
 					"id": "46697803-caa81d93-b34d-4df4-8769-e63b38125084",
 					"protocolProfileBehavior": {
@@ -261,6 +217,50 @@
 			"name": "GET Patients Morbidity by patient ID",
 			"item": [],
 			"id": "46697803-a545b9db-cc81-4367-ba4f-3b1ae808bfb8"
+		},
+		{
+			"name": "createpatient",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b04c97f-8959-4213-a3e3-19cac936f170",
+						"exec": [
+							"let jsonData = pm.response.json();\r",
+							"pm.environment.set(\"Patient_token\", jsonData.token);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "46697803-285a64c9-14d4-41be-ae14-7803a6145d3c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userLoginEmail\": \"{{user_LoginEmail}}\",\r\n  \"password\": \"{{user_password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}{{endpoint}}",
+					"host": [
+						"{{baseURL}}{{endpoint}}"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
