@@ -573,12 +573,9 @@
 							]
 						},
 						"url": {
-							"raw": "{{baseURL}}/patient",
+							"raw": "{{baseURL}}{{endpoint}}",
 							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"patient"
+								"{{baseURL}}{{endpoint}}"
 							]
 						}
 					},
