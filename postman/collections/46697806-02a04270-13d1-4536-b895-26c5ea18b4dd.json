@@ -421,7 +421,7 @@
 							"formdata": [
 								{
 									"key": "patientInfo",
-									"value": "{ \"FirstName\": \"teamninja\",\n\"LastName\": \"energizers\",\n\"ContactNumber\": \"8877990055\",\n\"Email\": \"teamco12de@gmail.com\",\n\"Allergy\": \"none\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"Indian\",\n\"DateOfBirth\": \"1978-07-15\"\n}\n",
+									"value": "{ \n\"FirstName\": \"{{P_FirstName}}\",\n\"LastName\": \"{{P_Lastname}}\",\n\"ContactNumber\": \"{{P_ContactNumber}}\",\n\"Email\": \"{{P_Email}}\",\n\"Allergy\": \"{{P_Allergy}}\",\n\"FoodPreference\": \"{{P_FoodPreferences}}\",\n\"CuisineCategory\":\"{{P_CuisineCatergory}}\",\n\"DateOfBirth\": \"{{P_DateOfBirth}}\"\n}",
 									"type": "text",
 									"uuid": "72601d7c-8095-435e-8295-675e87dc16f0"
 								},
