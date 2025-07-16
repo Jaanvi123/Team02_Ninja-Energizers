@@ -687,7 +687,20 @@
 		},
 		{
 			"name": "Get Patient file by File Id",
-			"item": [],
+			"item": [
+				{
+					"name": "New Request",
+					"id": "46697806-4c597575-23a6-43ad-940a-d801637e55d1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "46697806-02639b54-953d-4861-9f93-8940f8315d1d"
 		}
 	],
