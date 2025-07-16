@@ -155,7 +155,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "createpatient",
 					"id": "46697803-285a64c9-14d4-41be-ae14-7803a6145d3c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
