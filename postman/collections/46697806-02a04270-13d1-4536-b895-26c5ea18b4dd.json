@@ -674,9 +674,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}{{endpoint}}",
+							"raw": "{{baseURL}}/login",
 							"host": [
-								"{{baseURL}}{{endpoint}}"
+								"{{baseURL}}"
+							],
+							"path": [
+								"login"
 							]
 						}
 					},
