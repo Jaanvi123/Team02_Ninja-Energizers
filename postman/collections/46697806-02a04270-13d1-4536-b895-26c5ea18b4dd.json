@@ -407,7 +407,7 @@
 								"exec": [
 									"const response = pm.response.json();\r",
 									"pm.test(\"Validating Status Code\", ()=> {\r",
-									"    pm.expect(pm.response.code).to.eql(pm.variables.get(\"statusCode\"));\r",
+									"    pm.expect(pm.response.code).to.eql(pm.variables.get(\"expectedStatusCode\"));\r",
 									"});\r",
 									"const jsonSchema = {\r",
 									"  \"type\": \"object\",\r",
