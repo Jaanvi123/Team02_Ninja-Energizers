@@ -226,6 +226,20 @@
 				},
 				{
 					"name": "login Dietician",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "29e28b25-d78e-441d-b67c-780d327a1f85",
+								"exec": [
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"Admin_Token\", jsonData.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "46697806-2875164a-adf7-46a4-bd78-7f0e83594786",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
