@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Dietician Module",
+			"name": "Admin Module",
 			"item": [
 				{
 					"name": "userLogin",
