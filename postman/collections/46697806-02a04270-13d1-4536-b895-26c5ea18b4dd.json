@@ -204,76 +204,76 @@
 			"id": "46697806-1064ac89-5883-49a3-a715-d5233b87b79f"
 		},
 		{
-			"name": "Get All Patients",
+			"name": "Get All Morbidities as Admin",
 			"item": [
 				{
-					"name": "Get All Morbidities as Admin",
-					"item": [
-						{
-							"name": "Get all Morbidities no auth",
-							"id": "46697806-a8bf8536-114d-4848-8368-d767a36f8fcc",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{baseURL}}{{endpoint}}",
-									"host": [
-										"{{baseURL}}{{endpoint}}"
-									]
-								}
-							},
-							"response": []
+					"name": "Get all Morbidities no auth",
+					"id": "46697806-a8bf8536-114d-4848-8368-d767a36f8fcc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
 						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Morbidities",
+					"event": [
 						{
-							"name": "Get all Morbidities",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "fbbf9587-1dbc-4ec0-9cff-16db9c4548cf",
-										"exec": [
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "46697806-b4b17568-6e4b-4f60-bc94-95d70415974c",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{Admin_Token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{baseURL}}{{endpoint}}",
-									"host": [
-										"{{baseURL}}{{endpoint}}"
-									]
-								}
-							},
-							"response": []
+							"listen": "prerequest",
+							"script": {
+								"id": "fbbf9587-1dbc-4ec0-9cff-16db9c4548cf",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
 						}
 					],
-					"id": "46697806-4c6587e8-9108-4401-b8e8-5b8b291653f2"
-				},
+					"id": "46697806-b4b17568-6e4b-4f60-bc94-95d70415974c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Admin_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-4c6587e8-9108-4401-b8e8-5b8b291653f2"
+		},
+		{
+			"name": "Get All Patients",
+			"item": [
 				{
 					"name": "Get All Patients with no auth",
 					"id": "46697806-71a12024-c155-4ff9-be22-3ff9484cb025",
