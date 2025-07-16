@@ -174,9 +174,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}{{endpoint))",
+							"raw": "{{baseURL}}{{endpoint}}",
 							"host": [
-								"{{baseURL}}{{endpoint))"
+								"{{baseURL}}{{endpoint}}"
 							]
 						}
 					},
