@@ -108,7 +108,7 @@
 			"name": "Create",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "create_dietician",
 					"id": "46697803-caa81d93-b34d-4df4-8769-e63b38125084",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
