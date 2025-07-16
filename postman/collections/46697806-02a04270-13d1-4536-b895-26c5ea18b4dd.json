@@ -129,7 +129,7 @@
 					"response": []
 				},
 				{
-					"name": "Get all Morbidities as Admin",
+					"name": "Get all Morbidities",
 					"event": [
 						{
 							"listen": "prerequest",
