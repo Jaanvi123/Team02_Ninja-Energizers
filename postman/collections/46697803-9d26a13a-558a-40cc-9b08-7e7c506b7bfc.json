@@ -161,8 +161,29 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Dietician_Token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/patient/testReports/111",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"patient",
+								"testReports",
+								"111"
+							]
+						}
 					},
 					"response": []
 				}
