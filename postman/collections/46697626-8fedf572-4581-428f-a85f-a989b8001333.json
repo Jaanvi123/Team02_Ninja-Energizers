@@ -229,7 +229,8 @@
 							"script": {
 								"id": "a0967cc8-b1e3-41fd-be25-497f1d2ea155",
 								"exec": [
-									""
+									"// let jsonData = pm.response.json();\r",
+									"// pm.collectionVariables.set(\"dieticianId\", jsonData.id);"
 								],
 								"type": "text/javascript",
 								"packages": {}
