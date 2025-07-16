@@ -238,8 +238,26 @@
 				"disableBodyPruning": true
 			},
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userLoginEmail\": \"teamninja@gmail.com\",\r\n  \"password\": \"Glory99\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/login",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"login"
+					]
+				}
 			},
 			"response": []
 		},
@@ -279,7 +297,7 @@
 						},
 						{
 							"key": "vitals",
-							"value": "",
+							"value": "{ \"Weight\" : 75.0,   \"Height\" : 5.4, \"Temperature\" : 97.0, \"SP\" : 120, \"DP\" : 80  }",
 							"type": "text",
 							"uuid": "96f00a27-bc8a-489a-8801-1e0369dd17c3"
 						}
