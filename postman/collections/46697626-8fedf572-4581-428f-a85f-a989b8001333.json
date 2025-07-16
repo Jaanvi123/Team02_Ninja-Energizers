@@ -272,7 +272,65 @@
 		},
 		{
 			"name": "Dietician Module",
-			"item": [],
+			"item": [
+				{
+					"name": "All Dieticians Informations Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "029ad5ff-e8ad-4ca8-997e-9292dd4b5dd7",
+								"exec": [
+									"pm.test(\"Validating Status Code\", () => {\r",
+									"    let expectedStatus = parseInt(pm.variables.get(\"statusCode\"));\r",
+									"    pm.expect(pm.response.code).to.eql(expectedStatus);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "020ce675-7987-4b81-95ba-cbbcec3d19bd",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697626-f8159263-594b-45b8-91b3-53ec3d76234f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/ecmascript",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
 			"id": "46697626-e7a085c7-a7b6-49e2-8d36-fbd04d65e46d"
 		},
 		{
