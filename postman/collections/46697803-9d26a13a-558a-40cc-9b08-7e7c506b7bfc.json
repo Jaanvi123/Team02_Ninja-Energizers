@@ -156,13 +156,45 @@
 				},
 				{
 					"name": "createpatient",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7b04c97f-8959-4213-a3e3-19cac936f170",
+								"exec": [
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"Patient_token\", jsonData.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "46697803-285a64c9-14d4-41be-ae14-7803a6145d3c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userLoginEmail\": \"{{user_LoginEmail}}\",\r\n  \"password\": \"{{user_password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
 					},
 					"response": []
 				},
