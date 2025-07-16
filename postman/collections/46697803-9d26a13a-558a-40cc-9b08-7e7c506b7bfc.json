@@ -123,7 +123,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "createdietician",
 					"id": "46697803-dc736a9b-9db3-4071-aa57-fdd538f6adff",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
