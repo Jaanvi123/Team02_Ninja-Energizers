@@ -105,74 +105,6 @@
 			"id": "46697806-efec67ac-7025-428b-9a80-239efe60c050"
 		},
 		{
-			"name": "Get All Morbidities as Admin",
-			"item": [
-				{
-					"name": "Get all Morbidities no auth",
-					"id": "46697806-a8bf8536-114d-4848-8368-d767a36f8fcc",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseURL}}{{endpoint}}",
-							"host": [
-								"{{baseURL}}{{endpoint}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get all Morbidities",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "fbbf9587-1dbc-4ec0-9cff-16db9c4548cf",
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "46697806-b4b17568-6e4b-4f60-bc94-95d70415974c",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{Admin_Token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseURL}}{{endpoint}}",
-							"host": [
-								"{{baseURL}}{{endpoint}}"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"id": "46697806-4c6587e8-9108-4401-b8e8-5b8b291653f2"
-		},
-		{
 			"name": "GET Morbidity condition by Test name as Admin",
 			"item": [
 				{
@@ -274,6 +206,74 @@
 		{
 			"name": "Get All Patients",
 			"item": [
+				{
+					"name": "Get All Morbidities as Admin",
+					"item": [
+						{
+							"name": "Get all Morbidities no auth",
+							"id": "46697806-a8bf8536-114d-4848-8368-d767a36f8fcc",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}{{endpoint}}",
+									"host": [
+										"{{baseURL}}{{endpoint}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all Morbidities",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "fbbf9587-1dbc-4ec0-9cff-16db9c4548cf",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "46697806-b4b17568-6e4b-4f60-bc94-95d70415974c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{Admin_Token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}{{endpoint}}",
+									"host": [
+										"{{baseURL}}{{endpoint}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "46697806-4c6587e8-9108-4401-b8e8-5b8b291653f2"
+				},
 				{
 					"name": "Get All Patients with no auth",
 					"id": "46697806-71a12024-c155-4ff9-be22-3ff9484cb025",
