@@ -108,7 +108,7 @@
 			"name": "Get All Morbidities as Admin",
 			"item": [
 				{
-					"name": "Get all Morbidities as Admin no auth",
+					"name": "Get all Morbidities no auth",
 					"id": "46697806-a8bf8536-114d-4848-8368-d767a36f8fcc",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
