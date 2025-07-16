@@ -207,6 +207,41 @@
 					"response": []
 				},
 				{
+					"name": "All Dieticians Information by DieticianID Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "029ad5ff-e8ad-4ca8-997e-9292dd4b5dd7",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697626-68c06465-44d6-4720-b855-23ddc5193849",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Update Dieticians Information by DieticianID",
 					"event": [
 						{
