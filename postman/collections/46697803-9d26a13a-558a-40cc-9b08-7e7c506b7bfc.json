@@ -184,18 +184,6 @@
 				}
 			],
 			"id": "46697803-f77e3ae0-7d13-455e-a5d9-8dcdb3c0d603"
-		},
-		{
-			"name": "New Request",
-			"id": "46697803-de82a224-2482-405e-b53a-5edb605b9e4b",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
 		}
 	],
 	"event": [
