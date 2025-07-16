@@ -233,7 +233,7 @@
 								"id": "29e28b25-d78e-441d-b67c-780d327a1f85",
 								"exec": [
 									"let jsonData = pm.response.json();\r",
-									"pm.environment.set(\"Admin_Token\", jsonData.token);"
+									"pm.environment.set(\"Dietician_Token\", jsonData.token);"
 								],
 								"type": "text/javascript",
 								"packages": {}
