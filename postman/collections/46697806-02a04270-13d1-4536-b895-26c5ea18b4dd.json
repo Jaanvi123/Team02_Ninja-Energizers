@@ -574,7 +574,7 @@
 									"   \r",
 									"});\r",
 									" pm.test(\"Validating FirstName of the Patient\", () => {\r",
-									"        pm.expect(response.FirstName).to.equal(pm.variables.get(\"p_FirstName\"));  \r",
+									"        pm.expect(response.FirstName).to.equal(pm.variables.get(\"P_FirstName\"));  \r",
 									"    }); \r",
 									"pm.environment.set(\"patient_Email\",response.Email);\r",
 									"pm.environment.set(\"patientId\", response.patientId);\r",
