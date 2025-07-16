@@ -115,7 +115,7 @@
 					"response": []
 				},
 				{
-					"name": "userLogin Copy",
+					"name": "login Dietician",
 					"event": [
 						{
 							"listen": "test",
