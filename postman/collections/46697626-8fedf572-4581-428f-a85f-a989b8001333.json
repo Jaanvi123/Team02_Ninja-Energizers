@@ -274,7 +274,7 @@
 			"name": "Dietician Module",
 			"item": [
 				{
-					"name": "All Dieticians Information by DieticianID Copy",
+					"name": "All Dieticians Information by DieticianID  as a Dietician",
 					"event": [
 						{
 							"listen": "test",
