@@ -272,7 +272,20 @@
 		},
 		{
 			"name": "PUT patient by ID",
-			"item": [],
+			"item": [
+				{
+					"name": "New Request",
+					"id": "46697803-1c0ec732-7af9-4020-a281-593200df3f25",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "46697803-65b4b521-86f3-41d6-88fc-909587dfffb1"
 		}
 	],
