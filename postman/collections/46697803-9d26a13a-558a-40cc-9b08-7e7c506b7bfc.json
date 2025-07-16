@@ -111,18 +111,6 @@
 			"name": "GET  Patients Morbidity Details",
 			"item": [
 				{
-					"name": "Get Patients Morbidity Details",
-					"id": "46697803-caa81d93-b34d-4df4-8769-e63b38125084",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
 					"name": "createdietician",
 					"event": [
 						{
@@ -163,6 +151,18 @@
 								"{{baseURL}}{{endpoint}}"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patients Morbidity Details",
+					"id": "46697803-caa81d93-b34d-4df4-8769-e63b38125084",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
