@@ -174,14 +174,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/patient/testReports/111",
+							"raw": "{{baseURL}}{{endpoint))",
 							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"patient",
-								"testReports",
-								"111"
+								"{{baseURL}}{{endpoint))"
 							]
 						}
 					},
