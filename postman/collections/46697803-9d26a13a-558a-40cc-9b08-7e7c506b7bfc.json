@@ -105,8 +105,21 @@
 			"id": "46697803-8f87d1c4-2b44-493a-9665-c1912defbf08"
 		},
 		{
-			"name": "New Folder",
-			"item": [],
+			"name": "Create",
+			"item": [
+				{
+					"name": "New Request",
+					"id": "46697803-caa81d93-b34d-4df4-8769-e63b38125084",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "46697803-f77e3ae0-7d13-455e-a5d9-8dcdb3c0d603"
 		},
 		{
