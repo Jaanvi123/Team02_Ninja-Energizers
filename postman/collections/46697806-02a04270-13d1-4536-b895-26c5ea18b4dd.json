@@ -409,7 +409,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZWFtbmluamFAZ21haWwuY29tIiwiaWF0IjoxNzUyNjE1NTg5LCJleHAiOjE3NTI2NDQzODl9.eOz8xmpH2L8pP7PmMzL8YGDHM2lyfzZHpo2130PmI61GKk3lOPncXbwCEwb46_IERBYMZBTcooJjrYHZgU7bqQ",
+									"value": "{{Dietician_Token}}",
 									"type": "string"
 								}
 							]
