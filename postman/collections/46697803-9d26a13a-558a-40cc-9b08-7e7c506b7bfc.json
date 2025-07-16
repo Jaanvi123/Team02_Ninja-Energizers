@@ -124,13 +124,48 @@
 				},
 				{
 					"name": "createdietician",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "794e946c-2f05-43f2-b85e-42249b2014e2",
+								"exec": [
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"Dietician_Token\", jsonData.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "46697803-dc736a9b-9db3-4071-aa57-fdd538f6adff",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userLoginEmail\": \"{{user_LoginEmail}}\",\r\n  \"password\": \"{{user_password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/login",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
 					},
 					"response": []
 				}
