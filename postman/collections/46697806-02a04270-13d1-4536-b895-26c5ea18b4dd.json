@@ -640,13 +640,45 @@
 				},
 				{
 					"name": "login Patient",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bece00cc-f342-40f5-b489-c1170c2f154a",
+								"exec": [
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"Dietician_Token\", jsonData.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "46697806-56e01eb5-2e50-40f8-9549-b00b6bb7071a",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userLoginEmail\": \"{{user_LoginEmail}}\",\r\n  \"password\": \"{{user_password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
 					},
 					"response": []
 				}
