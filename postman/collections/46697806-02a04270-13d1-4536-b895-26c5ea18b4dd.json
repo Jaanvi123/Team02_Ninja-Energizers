@@ -249,7 +249,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"userLoginEmail\": \"teamninja@gmail.com\",\r\n  \"password\": \"Glory99\"\r\n}",
+							"raw": "{\r\n  \"userLoginEmail\": \"{{user_LoginEmail}}\",\r\n  \"password\": \"{{user_password}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
