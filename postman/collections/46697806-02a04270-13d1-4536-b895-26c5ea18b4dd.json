@@ -231,7 +231,7 @@
 			"name": "Get All Patients",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "Get All Patients with no auth",
 					"id": "46697806-71a12024-c155-4ff9-be22-3ff9484cb025",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
