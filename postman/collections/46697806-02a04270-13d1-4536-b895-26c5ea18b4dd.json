@@ -330,7 +330,7 @@
 			"name": "Get All Morbidities as Dietician",
 			"item": [
 				{
-					"name": "Get all Morbidities as Admin no auth",
+					"name": "Get all Morbidities as Dietician no auth",
 					"id": "46697806-12581a73-331e-4825-934d-a962471a471e",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
