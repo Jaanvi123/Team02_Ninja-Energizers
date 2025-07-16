@@ -105,6 +105,11 @@
 			"id": "46697803-8f87d1c4-2b44-493a-9665-c1912defbf08"
 		},
 		{
+			"name": "New Folder",
+			"item": [],
+			"id": "46697803-f77e3ae0-7d13-455e-a5d9-8dcdb3c0d603"
+		},
+		{
 			"name": "Get all Morbidities as Admin",
 			"id": "46697803-465d5fcc-4b58-4b78-84f6-81df299f74e6",
 			"protocolProfileBehavior": {
@@ -135,6 +140,18 @@
 		{
 			"name": "New Request",
 			"id": "46697803-a4374bc0-b9d5-4a0f-9e09-9fbe8d64c6e6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"id": "46697803-de82a224-2482-405e-b53a-5edb605b9e4b",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
