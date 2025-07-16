@@ -689,7 +689,7 @@
 			"name": "Get Patient file by File Id",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "Get Patient file by FileI d",
 					"id": "46697806-4c597575-23a6-43ad-940a-d801637e55d1",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
