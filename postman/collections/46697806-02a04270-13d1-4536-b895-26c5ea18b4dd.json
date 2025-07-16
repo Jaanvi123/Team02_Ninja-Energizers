@@ -281,13 +281,22 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "GET All Patients as Dietician",
 					"id": "46697806-bc0f3235-9756-48fe-a2a8-4e08e4bf8e40",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
