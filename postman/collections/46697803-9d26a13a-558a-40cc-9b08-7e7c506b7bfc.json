@@ -231,37 +231,37 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get morbidity by patient token",
+					"id": "46697803-b7599f78-3f87-4569-aec0-376be648f6c6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Patient_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"id": "46697803-a545b9db-cc81-4367-ba4f-3b1ae808bfb8"
-		},
-		{
-			"name": "Get morbidity by patient token",
-			"id": "46697803-b7599f78-3f87-4569-aec0-376be648f6c6",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{Patient_token}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{baseURL}}{{endpoint}}",
-					"host": [
-						"{{baseURL}}{{endpoint}}"
-					]
-				}
-			},
-			"response": []
 		}
 	],
 	"event": [
