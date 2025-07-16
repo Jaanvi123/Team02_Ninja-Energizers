@@ -327,7 +327,7 @@
 			"id": "46697806-1461da2d-26a2-4e09-b410-2e655c172332"
 		},
 		{
-			"name": "Get All Morbidities as Admin Copy",
+			"name": "Get All Morbidities as Dietician",
 			"item": [
 				{
 					"name": "Get all Morbidities as Admin no auth",
