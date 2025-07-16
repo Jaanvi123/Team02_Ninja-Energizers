@@ -583,7 +583,7 @@
 			"name": "Get information of all dieticians",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "Get information of all dieticians",
 					"id": "46697806-fc4ff717-44cf-4058-89a3-167373ecfbe3",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
