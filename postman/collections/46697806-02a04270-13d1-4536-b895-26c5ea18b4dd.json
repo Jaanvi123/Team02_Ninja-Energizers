@@ -647,7 +647,7 @@
 								"id": "bece00cc-f342-40f5-b489-c1170c2f154a",
 								"exec": [
 									"let jsonData = pm.response.json();\r",
-									"pm.environment.set(\"Dietician_Token\", jsonData.token);"
+									"pm.environment.set(\"Patient_Token\", jsonData.token);"
 								],
 								"type": "text/javascript",
 								"packages": {}
