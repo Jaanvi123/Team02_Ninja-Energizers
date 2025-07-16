@@ -412,7 +412,6 @@
 									"pm.collectionVariables.set(\"ContactNumber\", response.ContactNumber);\r",
 									"pm.collectionVariables.set(\"Email\", response.Email);\r",
 									"pm.collectionVariables.set(\"Allergy\", response.Allergy);\r",
-									"pm.collectionVariables.set(\"fileId \", response.FileMorbidity.fileId);\r",
 									"pm.test(\"Validating Status Code\", ()=> {\r",
 									"    pm.expect(pm.response.code).to.eql(pm.variables.get(\"expectedStatusCode\"));\r",
 									"});\r",
