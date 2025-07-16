@@ -656,5 +656,31 @@
 				]
 			}
 		}
+	],
+	"variable": [
+		{
+			"key": "patientId",
+			"value": ""
+		},
+		{
+			"key": "FirstName",
+			"value": ""
+		},
+		{
+			"key": "LastName",
+			"value": ""
+		},
+		{
+			"key": "ContactNumber",
+			"value": ""
+		},
+		{
+			"key": "Email",
+			"value": ""
+		},
+		{
+			"key": "Allergy",
+			"value": ""
+		}
 	]
 }
