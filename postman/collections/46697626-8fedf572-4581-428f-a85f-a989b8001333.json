@@ -298,9 +298,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{baseURL}}{{endpoint}}",
+							"raw": "{{baseURL}}/dietician",
 							"host": [
-								"{{baseURL}}{{endpoint}}"
+								"{{baseURL}}"
+							],
+							"path": [
+								"dietician"
 							]
 						}
 					},
