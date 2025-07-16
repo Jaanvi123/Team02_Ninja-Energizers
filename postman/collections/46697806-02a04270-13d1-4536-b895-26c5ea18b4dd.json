@@ -433,7 +433,7 @@
 								},
 								{
 									"key": "vitals",
-									"value": "{ \"Weight\" : 75.0,   \"Height\" : 5.4, \"Temperature\" : 97.0, \"SP\" : 120, \"DP\" : 80  }",
+									"value": "{ \"Weight\" : {{P_Weight}},   \"Height\" : {{P_Height}}, \"Temperature\" : {{P_Temperature}}, \"SP\" : {{P_SP}}, \"DP\" : {{P_DP}}}",
 									"type": "text",
 									"uuid": "96f00a27-bc8a-489a-8801-1e0369dd17c3"
 								}
