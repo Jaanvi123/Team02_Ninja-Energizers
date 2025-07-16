@@ -227,7 +227,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Get morbidity by patient token",
 					"id": "46697803-b7599f78-3f87-4569-aec0-376be648f6c6",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
