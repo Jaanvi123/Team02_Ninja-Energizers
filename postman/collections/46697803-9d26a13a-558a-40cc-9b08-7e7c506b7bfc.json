@@ -158,12 +158,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseurl}}/login",
+							"raw": "{{baseURL}}{{endpoint}}",
 							"host": [
-								"{{baseurl}}"
-							],
-							"path": [
-								"login"
+								"{{baseURL}}{{endpoint}}"
 							]
 						}
 					},
