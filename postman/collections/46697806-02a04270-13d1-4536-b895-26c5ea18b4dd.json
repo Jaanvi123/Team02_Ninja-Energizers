@@ -395,6 +395,68 @@
 			"id": "46697806-8184e51c-4248-4763-a30e-589d14f81046"
 		},
 		{
+			"name": "Get information of all dieticians",
+			"item": [
+				{
+					"name": "Get information of all dieticians",
+					"id": "46697806-fc4ff717-44cf-4058-89a3-167373ecfbe3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Dietician_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get information of dietician by dieticianID",
+					"id": "46697806-04708ba5-7036-4952-b4ab-f1490f456268",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Dietician_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-c0f334c5-aebd-40f7-8e29-578793be495c"
+		},
+		{
 			"name": "Create a Patient",
 			"item": [
 				{
@@ -578,68 +640,6 @@
 				}
 			],
 			"id": "46697806-ad7908cb-b5e4-4e83-9e04-d084872935fd"
-		},
-		{
-			"name": "Get information of all dieticians",
-			"item": [
-				{
-					"name": "Get information of all dieticians",
-					"id": "46697806-fc4ff717-44cf-4058-89a3-167373ecfbe3",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{Dietician_Token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseURL}}{{endpoint}}",
-							"host": [
-								"{{baseURL}}{{endpoint}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get information of dietician by dieticianID",
-					"id": "46697806-04708ba5-7036-4952-b4ab-f1490f456268",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{Dietician_Token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseURL}}{{endpoint}}",
-							"host": [
-								"{{baseURL}}{{endpoint}}"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"id": "46697806-c0f334c5-aebd-40f7-8e29-578793be495c"
 		}
 	],
 	"event": [
