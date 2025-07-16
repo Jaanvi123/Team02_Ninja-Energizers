@@ -108,7 +108,7 @@
 			"id": "46697803-8f87d1c4-2b44-493a-9665-c1912defbf08"
 		},
 		{
-			"name": "Create",
+			"name": "GET",
 			"item": [
 				{
 					"name": "create_dietician",
