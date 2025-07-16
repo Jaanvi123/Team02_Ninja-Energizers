@@ -216,13 +216,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/morbidity/T3",
+							"raw": "{{baseURL}}{{endpoint}}",
 							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"morbidity",
-								"T3"
+								"{{baseURL}}{{endpoint}}"
 							]
 						}
 					},
