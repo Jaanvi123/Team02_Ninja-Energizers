@@ -589,7 +589,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "ec9820f9-2db2-4b63-90f8-36fcb8c6f54f",
+				"id": "d68b6563-45b3-4f7d-b7bb-5176e4f9472c",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -627,7 +627,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "ee35f1d0-56ef-499e-a462-9c383cc9bfb2",
+				"id": "7d8f30ef-3e44-4a32-877f-cf84eb67a5f7",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -648,7 +648,7 @@
 					"});\r",
 					"\r",
 					"pm.test (\"Content-Type header is present\", () => { \r",
-					"    pm.response.to.have.header (\"Content-Type\") ;\r",
+					"    pm.response.to.have.header (\"expectedContentType\") ;\r",
 					"});\r",
 					"\r",
 					"\r",
