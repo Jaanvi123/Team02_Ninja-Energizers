@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "46697626-dd32f790-2c27-4a95-bb91-c0b1f4b4ec1f",
+		"_postman_id": "46697710-2492b8a3-230c-4659-8f1b-25914801f9b3",
 		"name": "Team2_Ninja-Energizers-Dietician API-AutomationLatest",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -76,7 +76,7 @@
 							}
 						}
 					],
-					"id": "46697626-e314d1ad-08e9-47f7-bee3-df20c710ab6c",
+					"id": "46697710-eb4b8af7-6cee-43c1-a7b0-692bd864a510",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -102,10 +102,10 @@
 					"response": []
 				}
 			],
-			"id": "46697626-b45035aa-1c87-4558-a648-d68e6a69fff1"
+			"id": "46697710-c2325d44-bafa-46b6-b411-f1d69ed53aee"
 		},
 		{
-			"name": "Dietician",
+			"name": "CreateDietician",
 			"item": [
 				{
 					"name": "createDietician-POST",
@@ -194,11 +194,21 @@
 							}
 						}
 					],
-					"id": "46697626-9143874e-5b9b-4368-bdec-f390641d9346",
+					"id": "46697710-58d6e7dc-99bb-48ae-86af-f09378018173",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Admin_Token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -218,532 +228,13 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "All Dieticians Informations",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "029ad5ff-e8ad-4ca8-997e-9292dd4b5dd7",
-								"exec": [
-									"pm.test(\"Validating Status Code\", () => {\r",
-									"    let expectedStatus = parseInt(pm.variables.get(\"statusCode\"));\r",
-									"    pm.expect(pm.response.code).to.eql(expectedStatus);\r",
-									"});\r",
-									"\r",
-									"if(pm.variables.get(\"statusCode\")===200){\r",
-									"\r",
-									"\r",
-									" //-------------SCHEMA VALIDATION---------------\r",
-									" var expectedSchema = {\r",
-									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
-									"  \"type\": \"array\",\r",
-									"  \"items\": [\r",
-									"    {\r",
-									"      \"type\": \"object\",\r",
-									"      \"properties\": {\r",
-									"        \"id\": {\r",
-									"          \"type\": \"integer\"\r",
-									"        },\r",
-									"        \"Firstname\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"Lastname\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"ContactNumber\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"DateOfBirth\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"Email\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"HospitalName\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"HospitalStreet\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"HospitalCity\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"HospitalPincode\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"Education\": {\r",
-									"          \"type\": \"string\"\r",
-									"        }\r",
-									"      },\r",
-									"      \"required\": [\r",
-									"        \"id\",\r",
-									"        \"Firstname\",\r",
-									"        \"Lastname\",\r",
-									"        \"ContactNumber\",\r",
-									"        \"DateOfBirth\",\r",
-									"        \"Email\",\r",
-									"        \"HospitalName\",\r",
-									"        \"HospitalStreet\",\r",
-									"        \"HospitalCity\",\r",
-									"        \"HospitalPincode\",\r",
-									"        \"Education\"\r",
-									"      ]\r",
-									"    },\r",
-									"    {\r",
-									"      \"type\": \"object\",\r",
-									"      \"properties\": {\r",
-									"        \"id\": {\r",
-									"          \"type\": \"integer\"\r",
-									"        },\r",
-									"        \"Firstname\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"Lastname\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"ContactNumber\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"DateOfBirth\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"Email\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"HospitalName\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"HospitalStreet\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"HospitalCity\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"HospitalPincode\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"Education\": {\r",
-									"          \"type\": \"string\"\r",
-									"        }\r",
-									"      },\r",
-									"      \"required\": [\r",
-									"        \"id\",\r",
-									"        \"Firstname\",\r",
-									"        \"Lastname\",\r",
-									"        \"ContactNumber\",\r",
-									"        \"DateOfBirth\",\r",
-									"        \"Email\",\r",
-									"        \"HospitalName\",\r",
-									"        \"HospitalStreet\",\r",
-									"        \"HospitalCity\",\r",
-									"        \"HospitalPincode\",\r",
-									"        \"Education\"\r",
-									"      ]\r",
-									"    }\r",
-									"  ]\r",
-									"}\r",
-									"\r",
-									"// Get the status code of the response\r",
-									"var StatusCode = pm.response.code;\r",
-									"if(StatusCode === 200){\r",
-									"\r",
-									"    var jsonData = pm.response.json();\r",
-									"    //calling jsonSchemaValidation methods\r",
-									"    eval(pm.environment.get(\"jsonSchemaValidation\"))();\r",
-									"\r",
-									"    //Data Type Validation\r",
-									"    pm.test(\"Validating Test Data Type Of the Response\", () => {\r",
-									"    let res = pm.response.json();\r",
-									"    pm.expect(res).to.be.an(\"object\");\r",
-									"    pm.expect(res.id).to.be.a(\"number\");\r",
-									"    pm.expect(res.loginPassword).to.be.a(\"string\");\r",
-									"    pm.expect(res.Firstname).to.be.a(\"string\");\r",
-									"    pm.expect(res.Lastname).to.be.a(\"string\");\r",
-									"    pm.expect(res.ContactNumber).to.be.a(\"string\");\r",
-									"    pm.expect(res.DateOfBirth).to.be.a(\"string\");\r",
-									"    pm.expect(res.Email).to.be.a(\"string\");\r",
-									"    pm.expect(res.HospitalName).to.be.a(\"string\");\r",
-									"    pm.expect(res.HospitalStreet).to.be.a(\"string\");\r",
-									"    pm.expect(res.HospitalCity).to.be.a(\"string\");\r",
-									"    pm.expect(res.HospitalPincode).to.be.a(\"string\");\r",
-									"    pm.expect(res.Education).to.be.a(\"string\");\r",
-									"\r",
-									"    });\r",
-									"}\r",
-									"}"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "020ce675-7987-4b81-95ba-cbbcec3d19bd",
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "46697626-867e1108-1378-44d8-8d4e-1971fa9360eb",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/ecmascript",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{baseURL}}{{endpoint}}",
-							"host": [
-								"{{baseURL}}{{endpoint}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update Dieticians Information by DieticianID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "029ad5ff-e8ad-4ca8-997e-9292dd4b5dd7",
-								"exec": [
-									"pm.test(\"Validating Status Code\", () => {\r",
-									"    let expectedStatus = parseInt(pm.variables.get(\"statusCode\"));\r",
-									"    pm.expect(pm.response.code).to.eql(expectedStatus);\r",
-									"});\r",
-									"\r",
-									"\r",
-									"if(pm.variables.get(\"statusCode\")===200){\r",
-									"\r",
-									"\r",
-									" //-------------SCHEMA VALIDATION---------------\r",
-									" var expectedSchema = {\r",
-									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
-									"  \"type\": \"object\",\r",
-									"  \"properties\": {\r",
-									"    \"id\": {\r",
-									"      \"type\": \"integer\"\r",
-									"    },\r",
-									"    \"loginPassword\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"Firstname\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"Lastname\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"ContactNumber\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"DateOfBirth\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"Email\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"HospitalName\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"HospitalStreet\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"HospitalCity\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"HospitalPincode\": {\r",
-									"      \"type\": \"string\"\r",
-									"    },\r",
-									"    \"Education\": {\r",
-									"      \"type\": \"string\"\r",
-									"    }\r",
-									"  },\r",
-									"  \"required\": [\r",
-									"    \"id\",\r",
-									"    \"loginPassword\",\r",
-									"    \"Firstname\",\r",
-									"    \"Lastname\",\r",
-									"    \"ContactNumber\",\r",
-									"    \"DateOfBirth\",\r",
-									"    \"Email\",\r",
-									"    \"HospitalName\",\r",
-									"    \"HospitalStreet\",\r",
-									"    \"HospitalCity\",\r",
-									"    \"HospitalPincode\",\r",
-									"    \"Education\"\r",
-									"  ]\r",
-									"}\r",
-									"\r",
-									"// Get the status code of the response\r",
-									"var StatusCode = pm.response.code;\r",
-									"if(StatusCode === 200){\r",
-									"\r",
-									"    var jsonData = pm.response.json();\r",
-									"    //calling jsonSchemaValidation methods\r",
-									"    eval(pm.environment.get(\"jsonSchemaValidation\"))();\r",
-									"\r",
-									"    //Data Type Validation\r",
-									"    pm.test(\"Validating Test Data Type Of the Response\", () => {\r",
-									"    let res = pm.response.json();\r",
-									"    pm.expect(res).to.be.an(\"object\");\r",
-									"    pm.expect(res.id).to.be.a(\"number\");\r",
-									"    pm.expect(res.loginPassword).to.be.a(\"string\");\r",
-									"    pm.expect(res.Firstname).to.be.a(\"string\");\r",
-									"    pm.expect(res.Lastname).to.be.a(\"string\");\r",
-									"    pm.expect(res.ContactNumber).to.be.a(\"string\");\r",
-									"    pm.expect(res.DateOfBirth).to.be.a(\"string\");\r",
-									"    pm.expect(res.Email).to.be.a(\"string\");\r",
-									"    pm.expect(res.HospitalName).to.be.a(\"string\");\r",
-									"    pm.expect(res.HospitalStreet).to.be.a(\"string\");\r",
-									"    pm.expect(res.HospitalCity).to.be.a(\"string\");\r",
-									"    pm.expect(res.HospitalPincode).to.be.a(\"string\");\r",
-									"    pm.expect(res.Education).to.be.a(\"string\");\r",
-									"\r",
-									"    });\r",
-									"}\r",
-									"}"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "a0967cc8-b1e3-41fd-be25-497f1d2ea155",
-								"exec": [
-									"// let jsonData = pm.response.json();\r",
-									"// pm.collectionVariables.set(\"dieticianId\", jsonData.id);\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "46697626-1c82729f-421b-40ce-9c7b-5f9c5a789df4",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumber}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{Email}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n }\r\n\r\n"
-						},
-						"url": {
-							"raw": "{{baseURL}}{{endpoint}}",
-							"host": [
-								"{{baseURL}}{{endpoint}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "All Dieticians Information by DieticianID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "029ad5ff-e8ad-4ca8-997e-9292dd4b5dd7",
-								"exec": [
-									"pm.test(\"Validating Status Code\", () => {\r",
-									"    let expectedStatus = parseInt(pm.variables.get(\"statusCode\"));\r",
-									"    pm.expect(pm.response.code).to.eql(expectedStatus);\r",
-									"});\r",
-									"\r",
-									"if(pm.variables.get(\"statusCode\")===200){\r",
-									"\r",
-									"\r",
-									" //-------------SCHEMA VALIDATION---------------\r",
-									" var expectedSchema = {\r",
-									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
-									"  \"type\": \"array\",\r",
-									"  \"items\": [\r",
-									"    {\r",
-									"      \"type\": \"object\",\r",
-									"      \"properties\": {\r",
-									"        \"id\": {\r",
-									"          \"type\": \"integer\"\r",
-									"        },\r",
-									"        \"Firstname\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"Lastname\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"ContactNumber\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"DateOfBirth\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"Email\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"HospitalName\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"HospitalStreet\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"HospitalCity\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"HospitalPincode\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"Education\": {\r",
-									"          \"type\": \"string\"\r",
-									"        }\r",
-									"      },\r",
-									"      \"required\": [\r",
-									"        \"id\",\r",
-									"        \"Firstname\",\r",
-									"        \"Lastname\",\r",
-									"        \"ContactNumber\",\r",
-									"        \"DateOfBirth\",\r",
-									"        \"Email\",\r",
-									"        \"HospitalName\",\r",
-									"        \"HospitalStreet\",\r",
-									"        \"HospitalCity\",\r",
-									"        \"HospitalPincode\",\r",
-									"        \"Education\"\r",
-									"      ]\r",
-									"    },\r",
-									"    {\r",
-									"      \"type\": \"object\",\r",
-									"      \"properties\": {\r",
-									"        \"id\": {\r",
-									"          \"type\": \"integer\"\r",
-									"        },\r",
-									"        \"Firstname\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"Lastname\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"ContactNumber\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"DateOfBirth\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"Email\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"HospitalName\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"HospitalStreet\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"HospitalCity\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"HospitalPincode\": {\r",
-									"          \"type\": \"string\"\r",
-									"        },\r",
-									"        \"Education\": {\r",
-									"          \"type\": \"string\"\r",
-									"        }\r",
-									"      },\r",
-									"      \"required\": [\r",
-									"        \"id\",\r",
-									"        \"Firstname\",\r",
-									"        \"Lastname\",\r",
-									"        \"ContactNumber\",\r",
-									"        \"DateOfBirth\",\r",
-									"        \"Email\",\r",
-									"        \"HospitalName\",\r",
-									"        \"HospitalStreet\",\r",
-									"        \"HospitalCity\",\r",
-									"        \"HospitalPincode\",\r",
-									"        \"Education\"\r",
-									"      ]\r",
-									"    }\r",
-									"  ]\r",
-									"}\r",
-									"\r",
-									"// Get the status code of the response\r",
-									"var StatusCode = pm.response.code;\r",
-									"if(StatusCode === 200){\r",
-									"\r",
-									"    var jsonData = pm.response.json();\r",
-									"    //calling jsonSchemaValidation methods\r",
-									"    eval(pm.environment.get(\"jsonSchemaValidation\"))();\r",
-									"\r",
-									"    //Data Type Validation\r",
-									"    pm.test(\"Validating Test Data Type Of the Response\", () => {\r",
-									"    let res = pm.response.json();\r",
-									"    pm.expect(res).to.be.an(\"object\");\r",
-									"    pm.expect(res.id).to.be.a(\"number\");\r",
-									"    pm.expect(res.loginPassword).to.be.a(\"string\");\r",
-									"    pm.expect(res.Firstname).to.be.a(\"string\");\r",
-									"    pm.expect(res.Lastname).to.be.a(\"string\");\r",
-									"    pm.expect(res.ContactNumber).to.be.a(\"string\");\r",
-									"    pm.expect(res.DateOfBirth).to.be.a(\"string\");\r",
-									"    pm.expect(res.Email).to.be.a(\"string\");\r",
-									"    pm.expect(res.HospitalName).to.be.a(\"string\");\r",
-									"    pm.expect(res.HospitalStreet).to.be.a(\"string\");\r",
-									"    pm.expect(res.HospitalCity).to.be.a(\"string\");\r",
-									"    pm.expect(res.HospitalPincode).to.be.a(\"string\");\r",
-									"    pm.expect(res.Education).to.be.a(\"string\");\r",
-									"\r",
-									"    });\r",
-									"}\r",
-									"}"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "46697626-6127efcc-d330-47e2-8eab-032bdc4509cd",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{baseURL}}{{endpoint}}",
-							"host": [
-								"{{baseURL}}{{endpoint}}"
-							]
-						}
-					},
-					"response": []
-				},
+				}
+			],
+			"id": "46697710-71f0769a-7a86-49ef-98c3-7d4291cf7724"
+		},
+		{
+			"name": "DeleteDieticianById",
+			"item": [
 				{
 					"name": "deleteDieticianById-DELETE",
 					"event": [
@@ -842,11 +333,21 @@
 							}
 						}
 					],
-					"id": "46697626-dad4f9b2-a842-4d77-83b4-38d173ff566f",
+					"id": "46697710-e5119fdf-dd72-4493-b445-8722305f56e5",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Admin_Token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
@@ -857,43 +358,21 @@
 						}
 					},
 					"response": []
-				}
-			],
-			"id": "46697626-25fbc7c5-8ebf-4f60-8a52-86125e8e8369",
-			"auth": {
-				"type": "bearer",
-				"bearer": [
-					{
-						"key": "token",
-						"value": "{{Admin_Token}}",
-						"type": "string"
-					}
-				]
-			},
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"id": "975e1926-dc4c-4123-b1dd-93ffd57235ea",
-						"type": "text/javascript",
-						"packages": {},
-						"exec": [
-							""
-						]
-					}
 				},
 				{
-					"listen": "test",
-					"script": {
-						"id": "ecdc64d2-6e40-4a30-86a8-c70824bb0c7d",
-						"type": "text/javascript",
-						"packages": {},
-						"exec": [
-							""
-						]
-					}
+					"name": "New Request",
+					"id": "46697710-85dd202d-cb5b-4012-85ac-0ba79eafb827",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
-			]
+			],
+			"id": "46697710-8991048c-85de-4436-8048-c07e73e179b4"
 		},
 		{
 			"name": "UserLogout",
@@ -913,7 +392,7 @@
 							}
 						}
 					],
-					"id": "46697626-841f2bff-d12b-4cdf-9167-318f07d649c9",
+					"id": "46697710-7055051d-e0c8-48b9-a447-e56dfa2fa268",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -940,11 +419,11 @@
 					"response": []
 				}
 			],
-			"id": "46697626-ef5d1d86-8fc6-41ba-8350-cd591d3d7f7c"
+			"id": "46697710-c6a71a33-0d85-44e1-97ac-8cd8e99681fc"
 		},
 		{
 			"name": "Get all Morbidities as Admin",
-			"id": "46697626-162f1a08-ab0c-4322-a4f9-20817275ee16",
+			"id": "46697710-146441e8-6c1d-4b43-90ca-50a659108502",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -969,13 +448,37 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "New Request",
+			"id": "46697710-7b9a075d-e25a-4691-bdd0-3c4c944e81c7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"id": "46697710-af734676-1453-4f0e-be35-2122a6ee2984",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "4b1721f1-1281-424d-9362-7b7e07876aba",
+				"id": "4af84e23-792c-4da3-aa1d-b3c353f56c2e",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -1012,7 +515,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a00c367b-eecb-421f-9ed9-f61f81d896d9",
+				"id": "9efa1b66-2521-4dfc-9072-b3fddab9ee05",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [

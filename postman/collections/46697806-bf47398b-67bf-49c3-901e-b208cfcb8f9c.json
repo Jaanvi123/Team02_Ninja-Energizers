@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "46697806-bf47398b-67bf-49c3-901e-b208cfcb8f9c",
+		"name": "Team02_Ninja-EnergizersPostman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UserModule Login",
+			"item": [
+				{
+					"name": "Userlogin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1969b813-ee78-40e6-8395-4faf20ae27b1",
+								"exec": [
+									"if(pm.variables.get(\"statusCode\")===200){\r",
+									"    var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"authToken\",jsonData.token);\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "34a394fe-0744-489b-a437-b101ec05e408",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697806-a3a0b367-5d97-4cc3-9c14-643331430091",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"{{password}}\",\r\n  \"userLoginEmail\": \"{{userLoginEmail}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}{{Endpoint}}",
+							"host": [
+								"{{BaseURL}}{{Endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-f424b544-cecd-4b00-abf8-36b3f7e150dc",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5f615175-0ef6-4873-9999-1822c5fbdba3",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "84c84d18-4d36-4a71-86ec-cb427283e25d",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{authToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e98ac41f-5bc4-4cce-be4c-5203650391b8",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"// Load data from file\r",
+					"if (typeof pm. variables.get('requestsData') !== 'object'){\r",
+					"    pm.variables.set('requestsData', pm.iterationData.to0bject());\r",
+					"}\r",
+					"\r",
+					"\r",
+					"const requestsData=pm.variables.get('requestsData');\r",
+					"\r",
+					"if (typeof requestsData !== 'object' || Object.keys(requestsData).length === 0) {\r",
+					"console. log('No external data provided or object is empty.');\r",
+					"return;\r",
+					"\r",
+					"}\r",
+					"\r",
+					"// Find the current request\r",
+					"const currentRequest = requestsData.requests.filter(({name}) => name === pm.info.requestName) [0];\r",
+					"\r",
+					"//skip the rest since we have no data\r",
+					"if(!currentRequest){\r",
+					"    console.log('Request $(pm.info.requestName) has no data defined.');\r",
+					"    return;\r",
+					"}\r",
+					"\r",
+					"//Expose Variables\r",
+					"const variables=currentRequest.data.shift();\r",
+					"\r",
+					"for (const [key,value] of Object.entries(variables)) {\r",
+					" pm.variables.set(key, value);\r",
+					"}\r",
+					"\r",
+					"pm.variables.set('requestsData', requestsData);\r",
+					"if(currentrequest.data.length > 0){\r",
+					"    pm.execution.setNextRequest(pm.info.requestName)\r",
+					"}\r",
+					"pm.request.headers.clear(); // Clear all headers to prevent residual values\r",
+					"var AuthType = pm.variables.get(\"authType\");\r",
+					"switch (AuthType) {\r",
+					"    case \"No Auth\":\r",
+					"        pm.request.auth = { type: 'noauth' };\r",
+					"        break;\r",
+					"    case \"Bearer Token\":\r",
+					"        const authToken = pm.environment.get(\"AuthToken\");\r",
+					"        if (authToken) {\r",
+					"            pm.request.headers.add({ key: \"Authorization\", value: `Bearer ${authToken}` });}\r",
+					"         else {console.log(\"AuthToken is not set in the environment.\");}\r",
+					"        break;\r",
+					"    case \"Invalid Bearer token\":\r",
+					"        pm.request.headers.add({ key: \"Authorization\", value: \"invalid\" });\r",
+					"         console.log(\"Using invalid bearer token.\");\r",
+					"        break;\r",
+					"    default:\r",
+					"        console.log(\"Unknown authType: \" + AuthType); break;\r",
+					"}\r",
+					"\r",
+					"// Set the Request Method Dynamically\r",
+					" if (variables.method) {\r",
+					"    pm.request.method = variables.method;\r",
+					" }\r",
+					"\r",
+					"\r",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "c81ec4f1-ac70-4ed8-b8b9-fed4bbfa1bd8",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"var commonTests = () =>{\r",
+					"pm.test(\"Validating Status Code\", ()=> {\r",
+					"    pm.expect(pm.response.code).to.eql(pm.variables.get(\"statusCode\"));\r",
+					"});\r",
+					"\r",
+					"pm.test(\"Response status text check\", function () {\r",
+					"    pm.expect(pm.response.status).to.eql(pm.variables.get('statusText'));\r",
+					"});\r",
+					"\r",
+					"pm.test(\"Content-Type header is application/json\", ()=>{\r",
+					"    pm.response.to.have.header(\"Content-Type\");\r",
+					"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+					"});\r",
+					"\r",
+					"pm.test(\"Response time is less than 1000ms\", function () {\r",
+					"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+					"});\r",
+					"\r",
+					"}\r",
+					"\r",
+					"pm.environment.set(\"commonTests\",commonTests.toString());\r",
+					"\r",
+					"var jsonSchemaValidation = () =>{\r",
+					"    pm.test(\"Verify JSON Schema using AJV\", function () {\r",
+					"        pm.response.to.have.jsonSchema(expectedSchema);\r",
+					"    });\r",
+					"}\r",
+					"\r",
+					"pm.environment.set(\"jsonSchemaValidation\",jsonSchemaValidation.toString());\r",
+					"\r",
+					"//Common Test/ Status Code Test \r",
+					"if (pm.response.text() !== '') {\r",
+					"    try {\r",
+					"        const jsonData = pm.response.json();\r",
+					"        // Run common tests\r",
+					"        eval(pm.environment.get(\"commonTests\"))();\r",
+					"    } catch (e) {\r",
+					"       console.log(\"Failed to parse JSON response:\", e);\r",
+					"        // If the response is not valid JSON, only validate status and status text\r",
+					"        pm.test(\"Validating Status Code - \" , () => {\r",
+					"            pm.expect(pm.response.code).to.eql(pm.variables.get(\"statusCode\"));\r",
+					"        });\r",
+					"        pm.test(\"Response status text check - \" , function () {\r",
+					"            pm.expect(pm.response.status).to.eql(pm.variables.get('statusText'));\r",
+					"        });\r",
+					"    }\r",
+					"  } else {\r",
+					" console.log(\"Empty response received.\");\r",
+					"    pm.test(\"Validating Status Code - \"  , () => {\r",
+					"        pm.expect(pm.response.code).to.eql(pm.variables.get(\"statusCode\"));\r",
+					"    });\r",
+					"  }\r",
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseURL",
+			"value": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician",
+			"type": "string"
+		},
+		{
+			"key": "Admin token",
+			"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMjAyQGdtYWlsLmNvbSIsImlhdCI6MTc1MjQ2NTgxNiwiZXhwIjoxNzUyNDk0NjE2fQ._9BIuRR8gwGxp86mSimlfBkBX1xF9aHgoW0Tk0M92drvd44Cm20Xg0bQv2rO-VCe1mKChbt9QM7nkONXNShctA",
+			"type": "string"
+		},
+		{
+			"key": "endpoint",
+			"value": "{{endpoint}}",
+			"type": "string"
+		}
+	]
+}
