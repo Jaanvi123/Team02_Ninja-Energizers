@@ -699,7 +699,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "4d3fb881-3354-4172-a88d-9cb80de1fb8a",
+				"id": "4e42bfaf-080d-42cc-8de6-93192c3bc865",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -736,7 +736,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a4e63b23-e927-4c34-80cd-cc9c5e5d136e",
+				"id": "34b94511-9358-4f46-b36b-ce3e1a8792bf",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -913,7 +913,7 @@
 					"            });\r",
 					"        });\r",
 					"        //Store the Dietician ID / password as environment variable \r",
-					"        pm.environment.set(\"dieticianId\", jsonResponse.id);\r",
+					"        pm.environment.set(\"Dietician_Id\", jsonResponse.id);\r",
 					"        pm.environment.set(\"Dietician_LoginPassword\", jsonResponse.loginPassword);\r",
 					"        pm.environment.set(\"createdDieticianData\", JSON.stringify(jsonResponse));\r",
 					"\r",
