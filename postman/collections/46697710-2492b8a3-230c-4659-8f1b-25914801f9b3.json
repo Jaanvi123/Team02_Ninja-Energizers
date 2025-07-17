@@ -417,7 +417,7 @@
 					"response": []
 				},
 				{
-					"name": "Update Dieticians Information by DieticianID Copy",
+					"name": "Update Dieticians Information by DieticianID",
 					"event": [
 						{
 							"listen": "test",
@@ -530,7 +530,8 @@
 								"id": "a0967cc8-b1e3-41fd-be25-497f1d2ea155",
 								"exec": [
 									"// let jsonData = pm.response.json();\r",
-									"// pm.collectionVariables.set(\"dieticianId\", jsonData.id);"
+									"// pm.collectionVariables.set(\"dieticianId\", jsonData.id);\r",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
