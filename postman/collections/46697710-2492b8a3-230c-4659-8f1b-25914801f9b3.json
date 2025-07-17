@@ -417,7 +417,7 @@
 					"response": []
 				},
 				{
-					"name": "All Dieticians Information by DieticianID Copy",
+					"name": "All Dieticians Information by DieticianID",
 					"event": [
 						{
 							"listen": "test",
