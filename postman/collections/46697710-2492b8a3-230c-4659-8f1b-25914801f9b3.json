@@ -437,7 +437,41 @@
 					"response": []
 				}
 			],
-			"id": "46697710-71f0769a-7a86-49ef-98c3-7d4291cf7724"
+			"id": "46697710-71f0769a-7a86-49ef-98c3-7d4291cf7724",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{Admin_Token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "975e1926-dc4c-4123-b1dd-93ffd57235ea",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ecdc64d2-6e40-4a30-86a8-c70824bb0c7d",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "DeleteDieticianById",
