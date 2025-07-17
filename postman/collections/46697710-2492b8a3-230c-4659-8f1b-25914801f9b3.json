@@ -105,7 +105,7 @@
 			"id": "46697710-c2325d44-bafa-46b6-b411-f1d69ed53aee"
 		},
 		{
-			"name": "CreateDietician",
+			"name": "Dietician",
 			"item": [
 				{
 					"name": "createDietician-POST",
