@@ -487,10 +487,7 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"auth": {
-							"type": "bearer"
-						},
-						"method": "GET",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
@@ -500,12 +497,15 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"userLoginEmail\": \"Team202@gmail.com\",\r\n  \"password\": \"test\"\r\n}"
+							"raw": ""
 						},
 						"url": {
-							"raw": "{{baseURL}}{{endpoint}}",
+							"raw": "{{baseURL}}/dietician",
 							"host": [
-								"{{baseURL}}{{endpoint}}"
+								"{{baseURL}}"
+							],
+							"path": [
+								"dietician"
 							]
 						}
 					},
