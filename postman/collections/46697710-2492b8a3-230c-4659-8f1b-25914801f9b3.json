@@ -699,7 +699,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "c3347ee6-0944-426e-beb1-c3d8ee6aafae",
+				"id": "4d3fb881-3354-4172-a88d-9cb80de1fb8a",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -729,14 +729,14 @@
 					"    pm.execution.setNextRequest(pm.info.requestName)\r",
 					"}\r",
 					" \r",
-					"console.log(\"Resolved Dietician_Id:\", pm.environment.get(\"Dietician_Id\")); "
+					"console.log(\"Resolved Dietician_Id:\", pm.environment.get(\"dieticianId\")); "
 				]
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
-				"id": "f56299d3-7e23-4abb-b56a-ac2db1719a50",
+				"id": "a4e63b23-e927-4c34-80cd-cc9c5e5d136e",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
