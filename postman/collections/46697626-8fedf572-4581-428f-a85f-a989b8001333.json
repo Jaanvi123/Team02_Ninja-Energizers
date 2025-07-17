@@ -312,7 +312,7 @@
 					"response": []
 				},
 				{
-					"name": "All Dieticians Informations Copy",
+					"name": "All Dieticians Informations manual",
 					"event": [
 						{
 							"listen": "test",
