@@ -487,6 +487,9 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer"
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -497,7 +500,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": ""
+							"raw": "{\r\n  \"userLoginEmail\": \"Team202@gmail.com\",\r\n  \"password\": \"test\"\r\n}"
 						},
 						"url": {
 							"raw": "{{baseURL}}{{endpoint}}",
