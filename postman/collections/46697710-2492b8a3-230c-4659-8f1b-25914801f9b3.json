@@ -1,0 +1,739 @@
+{
+	"info": {
+		"_postman_id": "46697710-2492b8a3-230c-4659-8f1b-25914801f9b3",
+		"name": "Team2_Ninja-Energizers-Dietician API-AutomationLatest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "userLogin-POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5976740c-097f-458d-bf6f-db6618c57fd8",
+								"exec": [
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"Admin_Token\", jsonData.token);\r",
+									"\r",
+									"const jsonSchema={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"loginUserEmail\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"roles\": {\r",
+									"      \"type\": \"array\",\r",
+									"      \"items\": [\r",
+									"        {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      ]\r",
+									"    },\r",
+									"    \"token\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"type\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"userId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"loginUserEmail\",\r",
+									"    \"roles\",\r",
+									"    \"token\",\r",
+									"    \"type\",\r",
+									"    \"userId\"\r",
+									"  ]\r",
+									"};\r",
+									"pm.test(\"Verify JSON Schema for userLogin-POST\",function() {\r",
+									"    if(pm.response.code === 200) {\r",
+									"        pm.response.to.have.jsonSchema(jsonSchema);\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "06cdcb43-5f2f-4de6-ba17-708d309e94d2",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697710-eb4b8af7-6cee-43c1-a7b0-692bd864a510",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userLoginEmail\": \"{{user_LoginEmail}}\",\r\n  \"password\": \"{{user_password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697710-c2325d44-bafa-46b6-b411-f1d69ed53aee"
+		},
+		{
+			"name": "CreateDietician",
+			"item": [
+				{
+					"name": "createDietician-POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d0e4a729-1054-48f0-91fa-62e984ab177f",
+								"exec": [
+									"const jsonSchema={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"Firstname\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"Lastname\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"ContactNumber\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"DateOfBirth\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"Email\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"HospitalName\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"HospitalStreet\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"HospitalCity\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"HospitalPincode\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"Education\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"Firstname\",\r",
+									"    \"Lastname\",\r",
+									"    \"ContactNumber\",\r",
+									"    \"DateOfBirth\",\r",
+									"    \"Email\",\r",
+									"    \"HospitalName\",\r",
+									"    \"HospitalStreet\",\r",
+									"    \"HospitalCity\",\r",
+									"    \"HospitalPincode\",\r",
+									"    \"Education\"\r",
+									"  ]\r",
+									"}\r",
+									"pm.test(\"Verify JSON Schema for createDietician-POST\",function() {\r",
+									"    if(pm.response.code === 201) {\r",
+									"        pm.response.to.have.jsonSchema(jsonSchema);\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"  "
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697710-58d6e7dc-99bb-48ae-86af-f09378018173",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Admin_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ContactNumber\": \"{{contact_number}}\",\r\n  \"DateOfBirth\": \"{{date_Of_birth}}\",\r\n  \"Education\": \"{{education}}\",\r\n  \"Email\": \"{{email}}\",\r\n  \"Firstname\": \"{{firstname}}\",\r\n  \"HospitalCity\": \"{{hospital_city}}\",\r\n  \"HospitalName\": \"{{hospital_name}}\",\r\n  \"HospitalPincode\": \"{{hospital_pincode}}\",\r\n  \"HospitalStreet\": \"{{hospital_street}}\",\r\n  \"Lastname\": \"{{lastname}}\"\r\n }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697710-71f0769a-7a86-49ef-98c3-7d4291cf7724"
+		},
+		{
+			"name": "DeleteDieticianById",
+			"item": [
+				{
+					"name": "deleteDieticianById-DELETE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ebbea383-a114-4003-bd06-f118127aa51a",
+								"exec": [
+									"const jsonSchema={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"message\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"data\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"Firstname\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"Lastname\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"ContactNumber\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"DateOfBirth\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"Email\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"HospitalName\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"HospitalStreet\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"HospitalCity\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"HospitalPincode\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"Education\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"Firstname\",\r",
+									"        \"Lastname\",\r",
+									"        \"ContactNumber\",\r",
+									"        \"DateOfBirth\",\r",
+									"        \"Email\",\r",
+									"        \"HospitalName\",\r",
+									"        \"HospitalStreet\",\r",
+									"        \"HospitalCity\",\r",
+									"        \"HospitalPincode\",\r",
+									"        \"Education\"\r",
+									"      ]\r",
+									"    },\r",
+									"    \"timestamp\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"message\",\r",
+									"    \"data\",\r",
+									"    \"timestamp\"\r",
+									" ]\r",
+									"}\r",
+									"pm.test(\"Verify JSON Schema for deleteDieticianById-DELETE\",function() {\r",
+									"    if(pm.response.code === 200) {\r",
+									"        pm.response.to.have.jsonSchema(jsonSchema);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697710-e5119fdf-dd72-4493-b445-8722305f56e5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Admin_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697710-8991048c-85de-4436-8048-c07e73e179b4"
+		},
+		{
+			"name": "UserLogout",
+			"item": [
+				{
+					"name": "userLogout-GET",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4d37ecd6-9d65-4efb-bf86-1688e4058910",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697710-7055051d-e0c8-48b9-a447-e56dfa2fa268",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Admin_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697710-c6a71a33-0d85-44e1-97ac-8cd8e99681fc"
+		},
+		{
+			"name": "Get all Morbidities as Admin",
+			"id": "46697710-146441e8-6c1d-4b43-90ca-50a659108502",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Admin_Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}{{endpoint}}",
+					"host": [
+						"{{baseURL}}{{endpoint}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"id": "46697710-7b9a075d-e25a-4691-bdd0-3c4c944e81c7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"id": "46697710-af734676-1453-4f0e-be35-2122a6ee2984",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "4af84e23-792c-4da3-aa1d-b3c353f56c2e",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"if (typeof pm.variables.get('requestdata') !== 'object') {\r",
+					"    pm.variables.set('requestdata', pm.iterationData.toObject());\r",
+					"}\r",
+					"const requestdata = pm.variables.get('requestdata');\r",
+					"\r",
+					"if(typeof requestdata !== 'object' || Object.keys(requestdata).length ===0) {\r",
+					"    console.log(\"No external file found\")\r",
+					"    return;\r",
+					"}\r",
+					"\r",
+					"const currentrequest = requestdata.requests.filter(({name}) => name === pm.info.requestName) [0];\r",
+					"if(!currentrequest){\r",
+					"    console.log(`Request ${pm.info.requestName} has no data defined.`);\r",
+					"}\r",
+					"\r",
+					"const variables = currentrequest.data.shift();\r",
+					"\r",
+					"Object.entries(variables).forEach(([key, value]) => {\r",
+					"        pm.variables.set(key, value);\r",
+					"    });\r",
+					"\r",
+					" pm.variables.set('requestdata',requestdata);\r",
+					"if(currentrequest.data.length > 0){\r",
+					"    pm.execution.setNextRequest(pm.info.requestName)\r",
+					"}\r",
+					" \r",
+					"console.log(\"Resolved Dietician_Id:\", pm.environment.get(\"Dietician_Id\")); "
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "9efa1b66-2521-4dfc-9072-b3fddab9ee05",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"const testCaseId = pm.variables.get(\"testCaseId\") || \"\";\r",
+					"const scenarioName = pm.variables.get(\"scenarioName\") || \"\";\r",
+					"const expectedContentType = pm.variables.get(\"expectedContentType\") || \"application/json\";\r",
+					"\r",
+					"pm.test(`Running TestCase: ${testCaseId} - ${scenarioName}`, () => {\r",
+					"    pm.expect(true).to.be.true;\r",
+					"});\r",
+					"\r",
+					"let jsonResponse;\r",
+					"let responseText = pm.response.text();\r",
+					"\r",
+					"if (testCaseId === \"TC_01_userLogout\") {\r",
+					"    // For logout API: response is plain text, so skip JSON parsing\r",
+					"    pm.test(\"Response is plain text for logout\", () => {\r",
+					"        pm.expect(responseText).to.be.a(\"string\").and.not.empty;\r",
+					"    });\r",
+					"\r",
+					"    pm.test(\"Content-Type matches expected for logout\", () => {\r",
+					"        pm.response.to.have.header(\"Content-Type\", expectedContentType);\r",
+					"    });\r",
+					"} else {\r",
+					"    // For all other APIs: parse JSON response as before\r",
+					"    try {\r",
+					"        jsonResponse = pm.response.json();\r",
+					"        pm.test(\"Response is a valid JSON Object\", () => {\r",
+					"            pm.expect(jsonResponse).to.be.an(\"object\");\r",
+					"        });\r",
+					"    } catch (e) {\r",
+					"        pm.test(\"Response is a valid JSON Object\", () => {\r",
+					"            throw new Error(\"Response is not a valid JSON Object\");\r",
+					"        });\r",
+					"        return;\r",
+					"    }\r",
+					"\r",
+					"    pm.test(\"Content-Type matches expected\", () => {\r",
+					"        pm.response.to.have.header(\"Content-Type\", expectedContentType);\r",
+					"    });\r",
+					"}\r",
+					"\r",
+					"const statusCode = pm.response.code;\r",
+					"const expectedStatusCode = parseInt(pm.variables.get(\"expectedStatusCode\"));\r",
+					"const expectedErrorMessage = pm.variables.get(\"expectedErrorMessage\");\r",
+					"\r",
+					"// Generic validations\r",
+					"pm.test(\"Status code matches expected\", () => {\r",
+					"    pm.expect(statusCode).to.eql(expectedStatusCode);\r",
+					"});\r",
+					"pm.test(\"Status line matches expected\", () => {\r",
+					"    pm.expect(pm.response.status).to.eql(pm.variables.get(\"expectedStatusLine\"));\r",
+					"});\r",
+					"\r",
+					"// Switch for specific status code logic\r",
+					"switch (statusCode) {\r",
+					"    case 200:\r",
+					"\r",
+					"       const loginTestCases = [\"TC_01_userLogin\", \"TC_02_userLogin\"];\r",
+					"\r",
+					"       if (loginTestCases.includes(testCaseId)) {\r",
+					"        pm.test(\"Response Contains valid Token\", () => {\r",
+					"            pm.expect(jsonResponse.token).to.be.a(\"string\").and.not.empty;\r",
+					"        });\r",
+					"        pm.test(\"Token type is 'Bearer'\", () => {\r",
+					"            pm.expect(jsonResponse.type.trim()).to.eql(\"Bearer\");\r",
+					"        });\r",
+					"        pm.test(\"Response contains userId and is a number\", () => {\r",
+					"            pm.expect(jsonResponse.userId).to.be.a(\"number\");\r",
+					"        });\r",
+					"        pm.test(\"Response contains Email and matches with request email\", () => {\r",
+					"            pm.expect(jsonResponse.loginUserEmail).to.eql(pm.variables.get(\"user_LoginEmail\"));\r",
+					"        });\r",
+					"        pm.test(\"Response contains Role as 'ROLE_ADMIN'\", () => {\r",
+					"            pm.expect(jsonResponse.roles).to.include(\"ROLE_ADMIN\");\r",
+					"        });\r",
+					"\r",
+					"       //Storing Environment variable \r",
+					"        pm.environment.set(\"Admin_Token\", jsonResponse.token);\r",
+					"        pm.environment.set(\"userId\", jsonResponse.userId);\r",
+					"\r",
+					"       }\r",
+					"\r",
+					"       // Logout case: validate plain text response\r",
+					"       if (testCaseId === \"TC_01_userLogout\") {\r",
+					"           const expectedStatusMessage = pm.variables.get(\"expectedStatusMessage\") || \"\";\r",
+					"\r",
+					"           pm.test(\"Logout message matches expected\", () => {\r",
+					"               pm.expect(responseText.trim()).to.eql(expectedStatusMessage);\r",
+					"           });\r",
+					"\r",
+					"           pm.environment.set(\"Successful_Logout\", responseText.trim() === expectedStatusMessage);\r",
+					"       }\r",
+					"\r",
+					"       // Validations for Delete Dietician By id \r",
+					"       if (testCaseId === \"TC_01_deleteDieticianById\") {\r",
+					"           const dietician_Id = pm.environment.get(\"Dietician_Id\");\r",
+					"\r",
+					"           //storing the deleted dietician id in env variable \r",
+					"           pm.environment.set(\"Deleted_Dietician_Id\", dietician_Id);\r",
+					"\r",
+					"           const createdData = JSON.parse(pm.environment.get(\"createdDieticianData\") || \"{}\");\r",
+					"\r",
+					"           //Delete message in the response validations\r",
+					"           pm.test(\"Delete Message displayed ID\", () => {\r",
+					"               pm.expect(jsonResponse.message).to.eql(`Deleted dietician successfully with id-${dietician_Id}`);\r",
+					"           }); \r",
+					"\r",
+					"           //Response data match (relevant fields only)\r",
+					"           pm.test(\"Deleted data matches original POST data (relevant fields only)\", () => {\r",
+					"               const fieldsToCompare = [\r",
+					"                   \"id\",\r",
+					"                   \"Firstname\",\r",
+					"                   \"Lastname\",\r",
+					"                   \"ContactNumber\",\r",
+					"                   \"DateOfBirth\",\r",
+					"                   \"Email\",\r",
+					"                   \"HospitalName\",\r",
+					"                   \"HospitalStreet\",\r",
+					"                   \"HospitalCity\",\r",
+					"                   \"HospitalPincode\",\r",
+					"                   \"Education\"\r",
+					"               ];\r",
+					"\r",
+					"               fieldsToCompare.forEach(field => {\r",
+					"                   pm.expect(jsonResponse.data[field]).to.eql(createdData[field]);\r",
+					"               });\r",
+					"           });\r",
+					"\r",
+					"           pm.test(\"Timestamp is a valid ISO datetime\", () => {\r",
+					"               const isoRegex = /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z)?$/;\r",
+					"               pm.expect(jsonResponse.timestamp).to.match(isoRegex);\r",
+					"           });\r",
+					"       }\r",
+					"\r",
+					"       break;\r",
+					"\r",
+					"    case 201:\r",
+					"        //Validate dietician id is a number \r",
+					"        pm.test(\"Response contains Dietician ID and it is a number\", () => {\r",
+					"            pm.expect(jsonResponse.id).to.be.a(\"number\");\r",
+					"        });\r",
+					"\r",
+					"        //Validate login password\r",
+					"        pm.test(\"Response contains login Password and is a string\", () => {\r",
+					"            pm.expect(jsonResponse.loginPassword).to.be.a(\"string\").and.not.empty;\r",
+					"        });\r",
+					"\r",
+					"        //Match all the input request fields with response \r",
+					"        const expectedFields = [\r",
+					"            \"contact_number\",\r",
+					"            \"date_Of_birth\",\r",
+					"            \"education\",\r",
+					"            \"email\",\r",
+					"            \"firstname\",\r",
+					"            \"hospital_city\",\r",
+					"            \"hospital_name\",\r",
+					"            \"hospital_pincode\",\r",
+					"            \"hospital_street\",\r",
+					"            \"lastname\"\r",
+					"        ];\r",
+					"\r",
+					"        expectedFields.forEach(field => {\r",
+					"            const expectedValue = pm.variables.get(field);\r",
+					"\r",
+					"            // Convert snake_case to PascalCase for the response field\r",
+					"            const responseField = field\r",
+					"                .split(\"_\")\r",
+					"                .map((s) => s.charAt(0).toUpperCase() + s.slice(1))\r",
+					"                .join(\"\");\r",
+					"\r",
+					"            pm.test(`Response field '${responseField}' matches request`, () => {\r",
+					"                pm.expect(jsonResponse[responseField]).to.eql(expectedValue);\r",
+					"            });\r",
+					"        });\r",
+					"        //Store the Dietician ID / password as environment variable \r",
+					"        pm.environment.set(\"Dietician_Id\", jsonResponse.id);\r",
+					"        pm.environment.set(\"Dietician_LoginPassword\", jsonResponse.loginPassword);\r",
+					"        pm.environment.set(\"createdDieticianData\", JSON.stringify(jsonResponse));\r",
+					"\r",
+					"        break;  \r",
+					"    case 400:\r",
+					"        pm.test(\"Bad Request error message present\", () => {\r",
+					"            pm.expect(jsonResponse.message || jsonResponse.error).to.exist;\r",
+					"        });\r",
+					"        if (expectedErrorMessage) {\r",
+					"            pm.test(\"Error message matches expected\", () => {\r",
+					"                pm.expect((jsonResponse.message || jsonResponse.error).toLowerCase())\r",
+					"                  .to.include(expectedErrorMessage.toLowerCase());\r",
+					"            });\r",
+					"        }\r",
+					"        break;\r",
+					"\r",
+					"    case 401:\r",
+					"        pm.test(\"Unauthorized error message present\", () => {\r",
+					"            pm.expect(jsonResponse.message || jsonResponse.error).to.include(\"Unauthorized\");\r",
+					"        });\r",
+					"        if (expectedErrorMessage) {\r",
+					"            pm.test(\"Error message matches expected\", () => {\r",
+					"                pm.expect((jsonResponse.message || jsonResponse.error).toLowerCase())\r",
+					"                  .to.include(expectedErrorMessage.toLowerCase());\r",
+					"            });\r",
+					"        }\r",
+					"        break;\r",
+					"\r",
+					"    case 404:\r",
+					"        pm.test(\"Not Found error message present\", () => {\r",
+					"            pm.expect(jsonResponse.message || jsonResponse.error).to.include(\"Not Found\");\r",
+					"        });\r",
+					"        if (expectedErrorMessage) {\r",
+					"            pm.test(\"Error message matches expected\", () => {\r",
+					"                pm.expect((jsonResponse.message || jsonResponse.error).toLowerCase())\r",
+					"                  .to.include(expectedErrorMessage.toLowerCase());\r",
+					"            });\r",
+					"        }\r",
+					"        break;\r",
+					"\r",
+					"    default:\r",
+					"        pm.test(\"Unhandled status code - verify manually\", () => {\r",
+					"            console.warn(`Received unexpected status code: ${statusCode}`);\r",
+					"            pm.expect(true).to.be.true;\r",
+					"        });\r",
+					"}\r",
+					"\r",
+					"pm.test(\"Response time is less than 1000ms\", function () {\r",
+					"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+					"});\r",
+					""
+				]
+			}
+		}
+	]
+}
