@@ -417,130 +417,6 @@
 					"response": []
 				},
 				{
-					"name": "deleteDieticianById-DELETE",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "ebbea383-a114-4003-bd06-f118127aa51a",
-								"exec": [
-									"const jsonSchema={\r",
-									"  \"type\": \"object\",\r",
-									"  \"properties\": {\r",
-									"    \"message\": {\r",
-									"      \"type\": \"string\",\r",
-									"      \"minLength\": 1\r",
-									"    },\r",
-									"    \"data\": {\r",
-									"      \"type\": \"object\",\r",
-									"      \"properties\": {\r",
-									"        \"id\": {\r",
-									"          \"type\": \"number\"\r",
-									"        },\r",
-									"        \"Firstname\": {\r",
-									"          \"type\": \"string\",\r",
-									"          \"minLength\": 1\r",
-									"        },\r",
-									"        \"Lastname\": {\r",
-									"          \"type\": \"string\",\r",
-									"          \"minLength\": 1\r",
-									"        },\r",
-									"        \"ContactNumber\": {\r",
-									"          \"type\": \"string\",\r",
-									"          \"minLength\": 1\r",
-									"        },\r",
-									"        \"DateOfBirth\": {\r",
-									"          \"type\": \"string\",\r",
-									"          \"minLength\": 1\r",
-									"        },\r",
-									"        \"Email\": {\r",
-									"          \"type\": \"string\",\r",
-									"          \"minLength\": 1\r",
-									"        },\r",
-									"        \"HospitalName\": {\r",
-									"          \"type\": \"string\",\r",
-									"          \"minLength\": 1\r",
-									"        },\r",
-									"        \"HospitalStreet\": {\r",
-									"          \"type\": \"string\",\r",
-									"          \"minLength\": 1\r",
-									"        },\r",
-									"        \"HospitalCity\": {\r",
-									"          \"type\": \"string\",\r",
-									"          \"minLength\": 1\r",
-									"        },\r",
-									"        \"HospitalPincode\": {\r",
-									"          \"type\": \"string\",\r",
-									"          \"minLength\": 1\r",
-									"        },\r",
-									"        \"Education\": {\r",
-									"          \"type\": \"string\",\r",
-									"          \"minLength\": 1\r",
-									"        }\r",
-									"      },\r",
-									"      \"required\": [\r",
-									"        \"id\",\r",
-									"        \"Firstname\",\r",
-									"        \"Lastname\",\r",
-									"        \"ContactNumber\",\r",
-									"        \"DateOfBirth\",\r",
-									"        \"Email\",\r",
-									"        \"HospitalName\",\r",
-									"        \"HospitalStreet\",\r",
-									"        \"HospitalCity\",\r",
-									"        \"HospitalPincode\",\r",
-									"        \"Education\"\r",
-									"      ]\r",
-									"    },\r",
-									"    \"timestamp\": {\r",
-									"      \"type\": \"string\",\r",
-									"      \"minLength\": 1\r",
-									"    }\r",
-									"  },\r",
-									"  \"required\": [\r",
-									"    \"message\",\r",
-									"    \"data\",\r",
-									"    \"timestamp\"\r",
-									" ]\r",
-									"}\r",
-									"pm.test(\"Verify JSON Schema for deleteDieticianById-DELETE\",function() {\r",
-									"    if(pm.response.code === 200) {\r",
-									"        pm.response.to.have.jsonSchema(jsonSchema);\r",
-									"    }\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "46697710-e5119fdf-dd72-4493-b445-8722305f56e5",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{Admin_Token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{baseURL}}{{endpoint}}",
-							"host": [
-								"{{baseURL}}{{endpoint}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "All Dieticians Information by DieticianID",
 					"event": [
 						{
@@ -711,6 +587,120 @@
 							"mode": "raw",
 							"raw": ""
 						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteDieticianById-DELETE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ebbea383-a114-4003-bd06-f118127aa51a",
+								"exec": [
+									"const jsonSchema={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"message\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"data\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"Firstname\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"Lastname\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"ContactNumber\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"DateOfBirth\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"Email\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"HospitalName\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"HospitalStreet\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"HospitalCity\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"HospitalPincode\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"Education\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"Firstname\",\r",
+									"        \"Lastname\",\r",
+									"        \"ContactNumber\",\r",
+									"        \"DateOfBirth\",\r",
+									"        \"Email\",\r",
+									"        \"HospitalName\",\r",
+									"        \"HospitalStreet\",\r",
+									"        \"HospitalCity\",\r",
+									"        \"HospitalPincode\",\r",
+									"        \"Education\"\r",
+									"      ]\r",
+									"    },\r",
+									"    \"timestamp\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"message\",\r",
+									"    \"data\",\r",
+									"    \"timestamp\"\r",
+									" ]\r",
+									"}\r",
+									"pm.test(\"Verify JSON Schema for deleteDieticianById-DELETE\",function() {\r",
+									"    if(pm.response.code === 200) {\r",
+									"        pm.response.to.have.jsonSchema(jsonSchema);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697710-e5119fdf-dd72-4493-b445-8722305f56e5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
 						"url": {
 							"raw": "{{baseURL}}{{endpoint}}",
 							"host": [
