@@ -306,10 +306,6 @@
 									"    pm.expect(res.HospitalPincode).to.be.a(\"string\");\r",
 									"    pm.expect(res.Education).to.be.a(\"string\");\r",
 									"\r",
-									"       \r",
-									"\r",
-									"   \r",
-									"\r",
 									"    });\r",
 									"}\r",
 									"}"
