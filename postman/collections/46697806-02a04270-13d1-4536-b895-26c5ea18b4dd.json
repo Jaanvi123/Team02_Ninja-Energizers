@@ -1,0 +1,825 @@
+{
+	"info": {
+		"_postman_id": "46697806-02a04270-13d1-4536-b895-26c5ea18b4dd",
+		"name": "Team2_Ninja-Energizers-Dietician API-AutomationLatest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "userLogin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5976740c-097f-458d-bf6f-db6618c57fd8",
+								"exec": [
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"Admin_Token\", jsonData.token);\r",
+									"\r",
+									"const jsonSchema={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"loginUserEmail\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"roles\": {\r",
+									"      \"type\": \"array\",\r",
+									"      \"items\": [\r",
+									"        {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      ]\r",
+									"    },\r",
+									"    \"token\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"type\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"userId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"loginUserEmail\",\r",
+									"    \"roles\",\r",
+									"    \"token\",\r",
+									"    \"type\",\r",
+									"    \"userId\"\r",
+									"  ]\r",
+									"};\r",
+									"pm.test(\"Verify JSON Schema\",function() {\r",
+									"    if(pm.response.code === 200) {\r",
+									"        pm.response.to.have.jsonSchema(jsonSchema);\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "06cdcb43-5f2f-4de6-ba17-708d309e94d2",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697806-29da9107-b0e5-48e8-a590-3d195b7182e8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userLoginEmail\": \"{{user_LoginEmail}}\",\r\n  \"password\": \"{{user_password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-efec67ac-7025-428b-9a80-239efe60c050"
+		},
+		{
+			"name": "GET Morbidity condition by Test name as Admin",
+			"item": [
+				{
+					"name": "GET Morbidity condition by Test name as Admin no auth",
+					"id": "46697806-6136bbf5-4a15-482d-aaaa-ea31a4e245b9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Morbidity condition by Test name as Admin",
+					"id": "46697806-eb0edbe7-86f0-4c69-9d72-caec6cc076ed",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Admin_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login Dietician",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "29e28b25-d78e-441d-b67c-780d327a1f85",
+								"exec": [
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"Dietician_Token\", jsonData.token);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697806-2875164a-adf7-46a4-bd78-7f0e83594786",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userLoginEmail\": \"{{user_LoginEmail}}\",\r\n  \"password\": \"{{user_password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-1064ac89-5883-49a3-a715-d5233b87b79f"
+		},
+		{
+			"name": "Get All Morbidities as Admin",
+			"item": [
+				{
+					"name": "Get all Morbidities no auth",
+					"id": "46697806-a8bf8536-114d-4848-8368-d767a36f8fcc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Morbidities",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "fbbf9587-1dbc-4ec0-9cff-16db9c4548cf",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697806-b4b17568-6e4b-4f60-bc94-95d70415974c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Admin_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-4c6587e8-9108-4401-b8e8-5b8b291653f2"
+		},
+		{
+			"name": "Get All Patients",
+			"item": [
+				{
+					"name": "Get All Patients with no auth",
+					"id": "46697806-71a12024-c155-4ff9-be22-3ff9484cb025",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET All Patients as Dietician",
+					"id": "46697806-bc0f3235-9756-48fe-a2a8-4e08e4bf8e40",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Dietician_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-1461da2d-26a2-4e09-b410-2e655c172332"
+		},
+		{
+			"name": "Get All Morbidities as Dietician",
+			"item": [
+				{
+					"name": "Get all Morbidities no auth",
+					"id": "46697806-12581a73-331e-4825-934d-a962471a471e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Morbidities",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "fbbf9587-1dbc-4ec0-9cff-16db9c4548cf",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697806-262b98e8-ad45-4c33-9b52-b565196a3b6e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Dietician_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-8184e51c-4248-4763-a30e-589d14f81046"
+		},
+		{
+			"name": "Get information of all dieticians",
+			"item": [
+				{
+					"name": "Get information of all dieticians",
+					"id": "46697806-fc4ff717-44cf-4058-89a3-167373ecfbe3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Dietician_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get information of dietician by dieticianID",
+					"id": "46697806-04708ba5-7036-4952-b4ab-f1490f456268",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Dietician_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-c0f334c5-aebd-40f7-8e29-578793be495c"
+		},
+		{
+			"name": "Create a Patient",
+			"item": [
+				{
+					"name": "Create a Patient",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2713d3ef-c221-4407-aa72-825106f22385",
+								"exec": [
+									"const response = pm.response.json();\r",
+									"const jsonSchema = {\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"patientId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"FirstName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"LastName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"ContactNumber\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"Email\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"format\": \"email\"\r",
+									"    },\r",
+									"    \"Allergy\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"FoodPreference\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"CuisineCategory\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"FileMorbidity\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"66ad4e104717cf471aaad141\": {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"T4\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"TSH\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          }\r",
+									"           \r",
+									"        }\r",
+									"      }\r",
+									"       \r",
+									"    },\r",
+									"    \"FileMorbidityCondition\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"66ad4e104717cf471aaad141\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      }\r",
+									"    },\r",
+									"    \"DateOfBirth\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"format\": \"date\"\r",
+									"    },\r",
+									"    \"DieticianId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"Vitals\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"66ad4e104717cf471aaad141\": {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"Weight\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"Height\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"Temperature\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"SP\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"DP\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            }\r",
+									"          }\r",
+									"           \r",
+									"        }\r",
+									"      }\r",
+									"      \r",
+									"    },\r",
+									"    \"LastVisitDate\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"format\": \"date-time\"\r",
+									"    }\r",
+									"  }\r",
+									"   \r",
+									"};\r",
+									"if(pm.response.code === 201)\r",
+									"{\r",
+									"pm.test(\"Verify JSON Schema\",function(){\r",
+									"    pm.response.to.have.jsonSchema(jsonSchema);\r",
+									"   \r",
+									"});\r",
+									" pm.test(\"Validating FirstName of the Patient\", () => {\r",
+									"        pm.expect(response.FirstName).to.equal(pm.variables.get(\"P_FirstName\"));  \r",
+									"    }); \r",
+									"pm.environment.set(\"patient_Email\",response.Email);\r",
+									"pm.environment.set(\"patientId\", response.patientId);\r",
+									"pm.environment.set(\"FirstName\", response.FirstName);\r",
+									"pm.environment.set(\"LastName\", response.LastName);\r",
+									"pm.environment.set(\"ContactNumber\", response.ContactNumber);\r",
+									"pm.environment.set(\"Email\", response.Email);\r",
+									"pm.environment.set(\"Allergy\", response.Allergy);\r",
+									"\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697806-c3713666-2957-4326-9ac2-284f1736c24a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Dietician_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patientInfo",
+									"value": "{ \n\"FirstName\": \"{{P_FirstName}}\",\n\"LastName\": \"{{P_Lastname}}\",\n\"ContactNumber\": \"{{P_ContactNumber}}\",\n\"Email\": \"{{P_Email}}\",\n\"Allergy\": \"{{P_Allergy}}\",\n\"FoodPreference\": \"{{P_FoodPreferences}}\",\n\"CuisineCategory\":\"{{P_CuisineCatergory}}\",\n\"DateOfBirth\": \"{{P_DateOfBirth}}\"\n}",
+									"type": "text",
+									"uuid": "72601d7c-8095-435e-8295-675e87dc16f0"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"uuid": "03d2996f-8731-483b-9a1f-4b439b3f297e",
+									"src": "postman-cloud:///1f061b50-95b7-4950-83d1-b37e9159bde5"
+								},
+								{
+									"key": "vitals",
+									"value": "{ \"Weight\" : {{P_Weight}},   \"Height\" : {{P_Height}}, \"Temperature\" : {{P_Temperature}}, \"SP\" : {{P_SP}}, \"DP\" : {{P_DP}}}",
+									"type": "text",
+									"uuid": "96f00a27-bc8a-489a-8801-1e0369dd17c3"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login Patient",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bece00cc-f342-40f5-b489-c1170c2f154a",
+								"exec": [
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"Patient_Token\", jsonData.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697806-56e01eb5-2e50-40f8-9549-b00b6bb7071a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userLoginEmail\": \"{{user_LoginEmail}}\",\r\n  \"password\": \"{{user_password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-ad7908cb-b5e4-4e83-9e04-d084872935fd"
+		},
+		{
+			"name": "Get Patient file by File Id",
+			"item": [
+				{
+					"name": "Get Patient file by File Id",
+					"id": "46697806-4c597575-23a6-43ad-940a-d801637e55d1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Patient_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-02639b54-953d-4861-9f93-8940f8315d1d"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "bea63558-3862-49d7-a31f-052fef76192d",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"if (typeof pm.variables.get('requestdata') !== 'object') {\r",
+					"    pm.variables.set('requestdata', pm.iterationData.toObject());\r",
+					"}\r",
+					"const requestdata = pm.variables.get('requestdata');\r",
+					"\r",
+					"if(typeof requestdata !== 'object' || Object.keys(requestdata).length ===0) {\r",
+					"    console.log(\"No external file found\")\r",
+					"    return;\r",
+					"}\r",
+					"\r",
+					"const currentrequest = requestdata.requests.filter(({name}) => name === pm.info.requestName) [0];\r",
+					"if(!currentrequest){\r",
+					"    console.log(`Request ${pm.info.requestName} has no data defined.`);\r",
+					"}\r",
+					"\r",
+					"const variables = currentrequest.data.shift();\r",
+					"\r",
+					"Object.entries(variables).forEach(([key, value]) => {\r",
+					"        pm.variables.set(key, value);\r",
+					"    });\r",
+					"\r",
+					" pm.variables.set('requestdata',requestdata);\r",
+					"if(currentrequest.data.length > 0){\r",
+					"    pm.execution.setNextRequest(pm.info.requestName)//execute until next request is found\r",
+					"}\r",
+					"\r",
+					"\r",
+					" "
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "fc72fbdc-29b4-4189-a05b-0bc23a323b27",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"\r",
+					"pm.test(\"Status code is expected\", function () {\r",
+					"    pm.response.to.have.status(pm.variables.get(\"expectedStatusCode\"));\r",
+					"});\r",
+					"\r",
+					"pm.test(\"Status line is correct\", function () {\r",
+					"  pm.expect(pm.response.status).to.eql(pm.variables.get(\"expectedStatusLine\")); \r",
+					"});\r",
+					"\r",
+					"pm.test(\"Content-Type is correct\", function () {\r",
+					"    pm.response.to.have.header(\"Content-Type\", pm.variables.get(\"expectedContentType\"));\r",
+					"});\r",
+					"pm.test(\"Response time is less than 1000ms\", function () {\r",
+					"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+					"});\r",
+					"\r",
+					"\r",
+					"\r",
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "patientId",
+			"value": ""
+		},
+		{
+			"key": "FirstName",
+			"value": ""
+		},
+		{
+			"key": "LastName",
+			"value": ""
+		},
+		{
+			"key": "ContactNumber",
+			"value": ""
+		},
+		{
+			"key": "Email",
+			"value": ""
+		},
+		{
+			"key": "Allergy",
+			"value": ""
+		}
+	]
+}
