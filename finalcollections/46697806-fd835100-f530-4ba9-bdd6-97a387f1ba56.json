@@ -1,0 +1,2417 @@
+{
+	"info": {
+		"_postman_id": "46697806-fd835100-f530-4ba9-bdd6-97a387f1ba56",
+		"name": "Team2_Ninja-Energizers-Dietician API-AutomationLatest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "userLogin-POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let jsonData = pm.response.json();\r",
+									"pm.environment.set(\"Admin_Token\", jsonData.token);\r",
+									"\r",
+									"const jsonSchema={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"loginUserEmail\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"roles\": {\r",
+									"      \"type\": \"array\",\r",
+									"      \"items\": [\r",
+									"        {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      ]\r",
+									"    },\r",
+									"    \"token\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"type\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"userId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"loginUserEmail\",\r",
+									"    \"roles\",\r",
+									"    \"token\",\r",
+									"    \"type\",\r",
+									"    \"userId\"\r",
+									"  ]\r",
+									"};\r",
+									"pm.test(\"Verify JSON Schema for userLogin-POST\",function() {\r",
+									"    if(pm.response.code === 200) {\r",
+									"        pm.response.to.have.jsonSchema(jsonSchema);\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"id": "697a61c1-1933-4be1-81b6-06829f7b9006"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"id": "f7da2d1a-c30b-4caf-ab76-a4ab98dfbe5a"
+							}
+						}
+					],
+					"id": "46697806-09ecafe1-0997-483a-8124-c0f77b32f2a8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userLoginEmail\": \"{{user_LoginEmail}}\",\r\n  \"password\": \"{{user_password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-32f52276-0744-4955-a9bc-19089329fa09"
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "createDietician-POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonSchema={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"Firstname\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"Lastname\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"ContactNumber\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"DateOfBirth\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"Email\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"HospitalName\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"HospitalStreet\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"HospitalCity\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"HospitalPincode\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"Education\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"Firstname\",\r",
+									"    \"Lastname\",\r",
+									"    \"ContactNumber\",\r",
+									"    \"DateOfBirth\",\r",
+									"    \"Email\",\r",
+									"    \"HospitalName\",\r",
+									"    \"HospitalStreet\",\r",
+									"    \"HospitalCity\",\r",
+									"    \"HospitalPincode\",\r",
+									"    \"Education\"\r",
+									"  ]\r",
+									"}\r",
+									"pm.test(\"Verify JSON Schema for createDietician-POST\",function() {\r",
+									"    if(pm.response.code === 201) {\r",
+									"        pm.response.to.have.jsonSchema(jsonSchema);\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"  "
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"id": "b5cd5307-3c92-4d7a-b882-10589821e93b"
+							}
+						}
+					],
+					"id": "46697806-fa52333d-5a0f-4f81-b574-53ca1b16e9ff",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ContactNumber\": \"{{contact_number}}\",\r\n  \"DateOfBirth\": \"{{date_Of_birth}}\",\r\n  \"Education\": \"{{education}}\",\r\n  \"Email\": \"{{email}}\",\r\n  \"Firstname\": \"{{firstname}}\",\r\n  \"HospitalCity\": \"{{hospital_city}}\",\r\n  \"HospitalName\": \"{{hospital_name}}\",\r\n  \"HospitalPincode\": \"{{hospital_pincode}}\",\r\n  \"HospitalStreet\": \"{{hospital_street}}\",\r\n  \"Lastname\": \"{{lastname}}\"\r\n }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Dieticians Informations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bb371f58-cc57-4854-9051-a3689c60b511",
+								"exec": [
+									"pm.test(\"Validating Status Code\", () => {\r",
+									"    let expectedStatus = parseInt(pm.variables.get(\"statusCode\"));\r",
+									"    pm.expect(pm.response.code).to.eql(expectedStatus);\r",
+									"});\r",
+									"\r",
+									"if(pm.variables.get(\"statusCode\")===200){\r",
+									"\r",
+									"\r",
+									"\r",
+									" var expectedSchema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"array\",\r",
+									"  \"items\": [\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"Firstname\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"Lastname\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"ContactNumber\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"DateOfBirth\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"Email\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"HospitalName\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"HospitalStreet\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"HospitalCity\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"HospitalPincode\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"Education\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"Firstname\",\r",
+									"        \"Lastname\",\r",
+									"        \"ContactNumber\",\r",
+									"        \"DateOfBirth\",\r",
+									"        \"Email\",\r",
+									"        \"HospitalName\",\r",
+									"        \"HospitalStreet\",\r",
+									"        \"HospitalCity\",\r",
+									"        \"HospitalPincode\",\r",
+									"        \"Education\"\r",
+									"      ]\r",
+									"    },\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"Firstname\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"Lastname\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"ContactNumber\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"DateOfBirth\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"Email\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"HospitalName\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"HospitalStreet\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"HospitalCity\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"HospitalPincode\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"Education\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"Firstname\",\r",
+									"        \"Lastname\",\r",
+									"        \"ContactNumber\",\r",
+									"        \"DateOfBirth\",\r",
+									"        \"Email\",\r",
+									"        \"HospitalName\",\r",
+									"        \"HospitalStreet\",\r",
+									"        \"HospitalCity\",\r",
+									"        \"HospitalPincode\",\r",
+									"        \"Education\"\r",
+									"      ]\r",
+									"    }\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"\r",
+									"var StatusCode = pm.response.code;\r",
+									"if(StatusCode === 200){\r",
+									"\r",
+									"    var jsonData = pm.response.json();\r",
+									"   \r",
+									"    eval(pm.environment.get(\"jsonSchemaValidation\"))();\r",
+									"\r",
+									"   \r",
+									"    pm.test(\"Validating Test Data Type Of the Response\", () => {\r",
+									"    let res = pm.response.json();\r",
+									"    pm.expect(res).to.be.an(\"object\");\r",
+									"    pm.expect(res.id).to.be.a(\"number\");\r",
+									"    pm.expect(res.loginPassword).to.be.a(\"string\");\r",
+									"    pm.expect(res.Firstname).to.be.a(\"string\");\r",
+									"    pm.expect(res.Lastname).to.be.a(\"string\");\r",
+									"    pm.expect(res.ContactNumber).to.be.a(\"string\");\r",
+									"    pm.expect(res.DateOfBirth).to.be.a(\"string\");\r",
+									"    pm.expect(res.Email).to.be.a(\"string\");\r",
+									"    pm.expect(res.HospitalName).to.be.a(\"string\");\r",
+									"    pm.expect(res.HospitalStreet).to.be.a(\"string\");\r",
+									"    pm.expect(res.HospitalCity).to.be.a(\"string\");\r",
+									"    pm.expect(res.HospitalPincode).to.be.a(\"string\");\r",
+									"    pm.expect(res.Education).to.be.a(\"string\");\r",
+									"\r",
+									"    });\r",
+									"}\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "b58649de-7ee1-4b1f-a29c-2d8a6746d035",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697806-4bc8cfb2-7b1c-4326-bb21-f103c5528b2c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/ecmascript",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Dieticians Information by DieticianID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "32361a13-9b28-46a4-87e9-81c98f9694b0",
+								"exec": [
+									"pm.test(\"Validating Status Code\", () => {\r",
+									"    let expectedStatus = parseInt(pm.variables.get(\"statusCode\"));\r",
+									"    pm.expect(pm.response.code).to.eql(expectedStatus);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"if(pm.variables.get(\"statusCode\")===200){\r",
+									"\r",
+									"\r",
+									" \r",
+									" var expectedSchema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"id\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"loginPassword\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"Firstname\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"Lastname\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"ContactNumber\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"DateOfBirth\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"Email\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"HospitalName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"HospitalStreet\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"HospitalCity\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"HospitalPincode\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"Education\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"id\",\r",
+									"    \"loginPassword\",\r",
+									"    \"Firstname\",\r",
+									"    \"Lastname\",\r",
+									"    \"ContactNumber\",\r",
+									"    \"DateOfBirth\",\r",
+									"    \"Email\",\r",
+									"    \"HospitalName\",\r",
+									"    \"HospitalStreet\",\r",
+									"    \"HospitalCity\",\r",
+									"    \"HospitalPincode\",\r",
+									"    \"Education\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"\r",
+									"var StatusCode = pm.response.code;\r",
+									"if(StatusCode === 200){\r",
+									"\r",
+									"    var jsonData = pm.response.json();\r",
+									"   \r",
+									"    eval(pm.environment.get(\"jsonSchemaValidation\"))();\r",
+									"\r",
+									"   \r",
+									"    pm.test(\"Validating Test Data Type Of the Response\", () => {\r",
+									"    let res = pm.response.json();\r",
+									"    pm.expect(res).to.be.an(\"object\");\r",
+									"    pm.expect(res.id).to.be.a(\"number\");\r",
+									"    pm.expect(res.loginPassword).to.be.a(\"string\");\r",
+									"    pm.expect(res.Firstname).to.be.a(\"string\");\r",
+									"    pm.expect(res.Lastname).to.be.a(\"string\");\r",
+									"    pm.expect(res.ContactNumber).to.be.a(\"string\");\r",
+									"    pm.expect(res.DateOfBirth).to.be.a(\"string\");\r",
+									"    pm.expect(res.Email).to.be.a(\"string\");\r",
+									"    pm.expect(res.HospitalName).to.be.a(\"string\");\r",
+									"    pm.expect(res.HospitalStreet).to.be.a(\"string\");\r",
+									"    pm.expect(res.HospitalCity).to.be.a(\"string\");\r",
+									"    pm.expect(res.HospitalPincode).to.be.a(\"string\");\r",
+									"    pm.expect(res.Education).to.be.a(\"string\");\r",
+									"\r",
+									"    });\r",
+									"}\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "97a32be1-82b9-482c-befd-272362b63ee2",
+								"exec": [
+									"// let jsonData = pm.response.json();\r",
+									"// pm.collectionVariables.set(\"dieticianId\", jsonData.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697806-e34bc52a-012b-4f56-8923-6c93b06a171a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumber}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{Email}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n }\r\n\r\n"
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Dieticians Information by DieticianID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4f71635d-c643-45ba-8efc-99f892855218",
+								"exec": [
+									"pm.test(\"Validating Status Code\", () => {\r",
+									"    let expectedStatus = parseInt(pm.variables.get(\"statusCode\"));\r",
+									"    pm.expect(pm.response.code).to.eql(expectedStatus);\r",
+									"});\r",
+									"\r",
+									"if(pm.variables.get(\"statusCode\")===200){\r",
+									"\r",
+									"\r",
+									" \r",
+									" var expectedSchema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"array\",\r",
+									"  \"items\": [\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"Firstname\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"Lastname\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"ContactNumber\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"DateOfBirth\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"Email\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"HospitalName\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"HospitalStreet\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"HospitalCity\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"HospitalPincode\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"Education\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"Firstname\",\r",
+									"        \"Lastname\",\r",
+									"        \"ContactNumber\",\r",
+									"        \"DateOfBirth\",\r",
+									"        \"Email\",\r",
+									"        \"HospitalName\",\r",
+									"        \"HospitalStreet\",\r",
+									"        \"HospitalCity\",\r",
+									"        \"HospitalPincode\",\r",
+									"        \"Education\"\r",
+									"      ]\r",
+									"    },\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"Firstname\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"Lastname\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"ContactNumber\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"DateOfBirth\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"Email\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"HospitalName\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"HospitalStreet\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"HospitalCity\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"HospitalPincode\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"Education\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"Firstname\",\r",
+									"        \"Lastname\",\r",
+									"        \"ContactNumber\",\r",
+									"        \"DateOfBirth\",\r",
+									"        \"Email\",\r",
+									"        \"HospitalName\",\r",
+									"        \"HospitalStreet\",\r",
+									"        \"HospitalCity\",\r",
+									"        \"HospitalPincode\",\r",
+									"        \"Education\"\r",
+									"      ]\r",
+									"    }\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"\r",
+									"var StatusCode = pm.response.code;\r",
+									"if(StatusCode === 200){\r",
+									"\r",
+									"    var jsonData = pm.response.json();\r",
+									"   \r",
+									"    eval(pm.environment.get(\"jsonSchemaValidation\"))();\r",
+									"\r",
+									" \r",
+									"    pm.test(\"Validating Test Data Type Of the Response\", () => {\r",
+									"    let res = pm.response.json();\r",
+									"    pm.expect(res).to.be.an(\"object\");\r",
+									"    pm.expect(res.id).to.be.a(\"number\");\r",
+									"    pm.expect(res.loginPassword).to.be.a(\"string\");\r",
+									"    pm.expect(res.Firstname).to.be.a(\"string\");\r",
+									"    pm.expect(res.Lastname).to.be.a(\"string\");\r",
+									"    pm.expect(res.ContactNumber).to.be.a(\"string\");\r",
+									"    pm.expect(res.DateOfBirth).to.be.a(\"string\");\r",
+									"    pm.expect(res.Email).to.be.a(\"string\");\r",
+									"    pm.expect(res.HospitalName).to.be.a(\"string\");\r",
+									"    pm.expect(res.HospitalStreet).to.be.a(\"string\");\r",
+									"    pm.expect(res.HospitalCity).to.be.a(\"string\");\r",
+									"    pm.expect(res.HospitalPincode).to.be.a(\"string\");\r",
+									"    pm.expect(res.Education).to.be.a(\"string\");\r",
+									"\r",
+									"    });\r",
+									"}\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697806-cc218e73-36a3-4e3a-a5d3-c7f4c6ef74fa",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteDieticianById-DELETE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonSchema={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"message\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"data\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"Firstname\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"Lastname\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"ContactNumber\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"DateOfBirth\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"Email\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"HospitalName\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"HospitalStreet\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"HospitalCity\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"HospitalPincode\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"Education\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"Firstname\",\r",
+									"        \"Lastname\",\r",
+									"        \"ContactNumber\",\r",
+									"        \"DateOfBirth\",\r",
+									"        \"Email\",\r",
+									"        \"HospitalName\",\r",
+									"        \"HospitalStreet\",\r",
+									"        \"HospitalCity\",\r",
+									"        \"HospitalPincode\",\r",
+									"        \"Education\"\r",
+									"      ]\r",
+									"    },\r",
+									"    \"timestamp\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"message\",\r",
+									"    \"data\",\r",
+									"    \"timestamp\"\r",
+									" ]\r",
+									"}\r",
+									"pm.test(\"Verify JSON Schema for deleteDieticianById-DELETE\",function() {\r",
+									"    if(pm.response.code === 200) {\r",
+									"        pm.response.to.have.jsonSchema(jsonSchema);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"id": "7d026281-b23f-402c-b51e-1bceb97a7243"
+							}
+						}
+					],
+					"id": "46697806-68ae603b-d247-4e33-838e-f36af120b261",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Morbidities as Admin",
+					"id": "46697806-e971e50e-abca-452d-8436-cf5c88bdf3db",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Morbidity condition by Test name as Admin",
+					"id": "46697806-2453c4e9-d877-4a28-9a25-57be166d2dd5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createDietician2-POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "35ce3df7-0f10-49a4-ac4d-56145eb84549",
+								"exec": [
+									"\r",
+									"const jsonSchema={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"Firstname\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"Lastname\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"ContactNumber\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"DateOfBirth\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"Email\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"HospitalName\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"HospitalStreet\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"HospitalCity\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"HospitalPincode\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"Education\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"Firstname\",\r",
+									"    \"Lastname\",\r",
+									"    \"ContactNumber\",\r",
+									"    \"DateOfBirth\",\r",
+									"    \"Email\",\r",
+									"    \"HospitalName\",\r",
+									"    \"HospitalStreet\",\r",
+									"    \"HospitalCity\",\r",
+									"    \"HospitalPincode\",\r",
+									"    \"Education\"\r",
+									"  ]\r",
+									"}\r",
+									"pm.test(\"Verify JSON Schema for createDietician-POST\",function() {\r",
+									"    if(pm.response.code === 201) {\r",
+									"        pm.response.to.have.jsonSchema(jsonSchema);\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"  "
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697806-ccab3410-0659-4609-95b0-8feef1fc01fc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ContactNumber\": \"{{contact_number}}\",\r\n  \"DateOfBirth\": \"{{date_Of_birth}}\",\r\n  \"Education\": \"{{education}}\",\r\n  \"Email\": \"{{email}}\",\r\n  \"Firstname\": \"{{firstname}}\",\r\n  \"HospitalCity\": \"{{hospital_city}}\",\r\n  \"HospitalName\": \"{{hospital_name}}\",\r\n  \"HospitalPincode\": \"{{hospital_pincode}}\",\r\n  \"HospitalStreet\": \"{{hospital_street}}\",\r\n  \"Lastname\": \"{{lastname}}\"\r\n }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-8dac2843-5cd5-4bfc-b03d-b49c0f3c0e49",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{Admin_Token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						],
+						"id": "588191b1-3e08-427f-8933-db1fd9ab2a52"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						],
+						"id": "d04fde25-7771-4d8a-a61c-6b0fe46fe5b7"
+					}
+				}
+			]
+		},
+		{
+			"name": "UserLogout",
+			"item": [
+				{
+					"name": "userLogout-GET",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"id": "a1844a7c-4a47-41b7-ba5c-0c468a3d614c"
+							}
+						}
+					],
+					"id": "46697806-4a3dd300-3f5e-463d-9839-2ad88911c480",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Admin_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-97f87e4f-2f0e-452a-9cac-056a5540af3d",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{Admin_Token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						],
+						"id": "e50ed504-3f9a-45e8-8b66-020c5637791d"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						],
+						"id": "b83c5caa-8364-4989-9935-6d1331b552ff"
+					}
+				}
+			]
+		},
+		{
+			"name": "UserDietician Login",
+			"item": [
+				{
+					"name": "userLogin as Dietician-POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e4ce1dbf-4242-4eb9-b8c2-793dd5a0cc24",
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"pm.environment.set(\"Dietician_Token\", jsonData.token);\r",
+									"\r",
+									"const jsonSchema={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"loginUserEmail\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"roles\": {\r",
+									"      \"type\": \"array\",\r",
+									"      \"items\": [\r",
+									"        {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      ]\r",
+									"    },\r",
+									"    \"token\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"type\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"userId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"loginUserEmail\",\r",
+									"    \"roles\",\r",
+									"    \"token\",\r",
+									"    \"type\",\r",
+									"    \"userId\"\r",
+									"  ]\r",
+									"};\r",
+									"pm.test(\"Verify JSON Schema for userLogin-POST\",function() {\r",
+									"    if(pm.response.code === 200) {\r",
+									"        pm.response.to.have.jsonSchema(jsonSchema);\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "2b953dee-da6d-4acc-8e55-eb9bd73a36a0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697806-3590a440-233f-440a-b172-6516d2b4c65c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userLoginEmail\": \"{{userLoginEmail}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-935f40c4-63f6-484a-a424-7304b8819220",
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						],
+						"id": "103028de-c924-47b0-85f8-f5f25a628d8b"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						],
+						"id": "e84420bc-c0b5-4a83-abd9-d8246dc6d710"
+					}
+				}
+			]
+		},
+		{
+			"name": "Dietician",
+			"item": [
+				{
+					"name": "Get information of all dieticians as Dietician",
+					"id": "46697806-49770b9e-02e2-4136-afa0-ffb29a7f69f8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get information of dietician by dieticianID",
+					"id": "46697806-99ef65c5-c069-4327-8fe7-124632d2ed4e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Patient",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a0b7e1ec-0768-4064-a64b-0993adbc7795",
+								"exec": [
+									"const response = pm.response.json();\r",
+									"const jsonSchema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"patientId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"FirstName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"LastName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"ContactNumber\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"Email\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"Allergy\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"FoodPreference\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"CuisineCategory\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"FileMorbidity\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"687400b36162bf0de54ed14f\": {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"T4\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"TSH\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"T4\",\r",
+									"            \"TSH\"\r",
+									"          ]\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"687400b36162bf0de54ed14f\"\r",
+									"      ]\r",
+									"    },\r",
+									"    \"FileMorbidityCondition\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"687400b36162bf0de54ed14f\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"687400b36162bf0de54ed14f\"\r",
+									"      ]\r",
+									"    },\r",
+									"    \"DateOfBirth\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"DieticianId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"patientId\",\r",
+									"    \"FirstName\",\r",
+									"    \"LastName\",\r",
+									"    \"ContactNumber\",\r",
+									"    \"Email\",\r",
+									"    \"Allergy\",\r",
+									"    \"FoodPreference\",\r",
+									"    \"CuisineCategory\",\r",
+									"    \"FileMorbidity\",\r",
+									"    \"FileMorbidityCondition\",\r",
+									"    \"DateOfBirth\",\r",
+									"    \"DieticianId\"\r",
+									"  ]\r",
+									"};\r",
+									"if(pm.response.code === 201)\r",
+									"{\r",
+									"pm.test(\"Verify JSON Schema\",function(){\r",
+									"    pm.response.to.have.jsonSchema(jsonSchema);\r",
+									"   \r",
+									"});\r",
+									" pm.test(\"Validating FirstName of the Patient\", () => {\r",
+									"        pm.expect(response.FirstName).to.equal(pm.variables.get(\"P_FirstName\"));  \r",
+									"    }); \r",
+									"\r",
+									"pm.environment.set(\"patient_Email\",response.Email);\r",
+									"pm.environment.set(\"patientId\", response.patientId);\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697806-a3ac1320-5b51-4b6e-b4d1-14c6cec1cece",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patientInfo",
+									"value": "{ \n\"FirstName\": \"{{P_FirstName}}\",\n\"LastName\": \"{{P_Lastname}}\",\n\"ContactNumber\": \"{{P_ContactNumber}}\",\n\"Email\": \"{{P_Email}}\",\n\"Allergy\": \"{{P_Allergy}}\",\n\"FoodPreference\": \"{{P_FoodPreferences}}\",\n\"CuisineCategory\":\"{{P_CuisineCatergory}}\",\n\"DateOfBirth\": \"{{P_DateOfBirth}}\"\n}",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "postman-cloud:///1f061b50-95b7-4950-83d1-b37e9159bde5"
+								},
+								{
+									"key": "vitals",
+									"value": "{ \"Weight\" : {{P_Weight}},   \"Height\" : {{P_Height}}, \"Temperature\" : {{P_Temperature}}, \"SP\" : {{P_SP}}, \"DP\" : {{P_DP}}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Patient by PatientID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5f7dfd9c-f544-4243-b7f8-6e38a9ffb026",
+								"exec": [
+									"const response = pm.response.json();\r",
+									"const jsonSchema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"patientId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"FirstName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"LastName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"ContactNumber\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"Email\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"Allergy\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"FoodPreference\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"CuisineCategory\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"FileMorbidity\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"687400b36162bf0de54ed14f\": {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"T4\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"TSH\": {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"T4\",\r",
+									"            \"TSH\"\r",
+									"          ]\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"687400b36162bf0de54ed14f\"\r",
+									"      ]\r",
+									"    },\r",
+									"    \"FileMorbidityCondition\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"687400b36162bf0de54ed14f\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"687400b36162bf0de54ed14f\"\r",
+									"      ]\r",
+									"    },\r",
+									"    \"DateOfBirth\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"DieticianId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"patientId\",\r",
+									"    \"FirstName\",\r",
+									"    \"LastName\",\r",
+									"    \"ContactNumber\",\r",
+									"    \"Email\",\r",
+									"    \"Allergy\",\r",
+									"    \"FoodPreference\",\r",
+									"    \"CuisineCategory\",\r",
+									"    \"FileMorbidity\",\r",
+									"    \"FileMorbidityCondition\",\r",
+									"    \"DateOfBirth\",\r",
+									"    \"DieticianId\"\r",
+									"  ]\r",
+									"};\r",
+									"if(pm.response.code === 201)\r",
+									"{\r",
+									"pm.test(\"Verify JSON Schema\",function(){\r",
+									"    pm.response.to.have.jsonSchema(jsonSchema);\r",
+									"   \r",
+									"});\r",
+									" pm.test(\"Validating FirstName of the Patient\", () => {\r",
+									"        pm.expect(response.FirstName).to.equal(pm.variables.get(\"P_FirstName\"));  \r",
+									"    }); \r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697806-1f43991a-62fd-467d-9f19-7fce0a66b468",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patientInfo",
+									"value": "{ \n\"FirstName\": \"{{P_FirstName}}\",\n\"LastName\": \"{{P_Lastname}}\",\n\"ContactNumber\": \"{{P_ContactNumber}}\",\n\"Email\": \"{{P_Email}}\",\n\"Allergy\": \"{{P_Allergy}}\",\n\"FoodPreference\": \"{{P_FoodPreferences}}\",\n\"CuisineCategory\":\"{{P_CuisineCatergory}}\",\n\"DateOfBirth\": \"{{P_DateOfBirth}}\"\n}",
+									"type": "text",
+									"uuid": "69388ee7-1423-42fa-a010-23fae81f1217"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"uuid": "1d22fc51-0522-4580-ab70-a4ea2d3d85cc",
+									"src": "w01uZJzgf/HyperThyroid_Report_final.pdf"
+								},
+								{
+									"key": "vitals",
+									"value": "{ \"Weight\" : {{P_Weight}},   \"Height\" : {{P_Height}}, \"Temperature\" : {{P_Temperature}}, \"SP\" : {{P_SP}}, \"DP\" : {{P_DP}}}",
+									"type": "text",
+									"uuid": "355b649d-f183-4dad-b5fb-b649964e994e"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET All Patients as Dietician",
+					"id": "46697806-c0e19441-f65d-4edd-b408-6c54dda1547d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Dietician_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT-Add new reports with vitals",
+					"id": "46697806-347e5ba7-a4bb-4c95-be68-045d46891f31",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "vitals",
+									"value": "{ \"Weight\" : {{P_Weight}},   \"Height\" : {{P_Height}}, \"Temperature\" : {{P_Temperature}}, \"SP\" : {{P_SP}}, \"DP\" : {{P_DP}}}",
+									"type": "text",
+									"uuid": "e7da686a-27a6-4db4-8104-c11f958ca839"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"uuid": "7a24fbfb-d315-4c00-a070-be8b8b1d51fb",
+									"src": "postman-cloud:///1f061ff4-1942-4cf0-945f-db08fc32c33d"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Morbidities as Dietician",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "fbbf9587-1dbc-4ec0-9cff-16db9c4548cf",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697806-a37b65c4-0fc5-4271-8a85-6cee76cc6b19",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Morbidity condition by Test name as Dietician",
+					"id": "46697806-f7b13e00-cc8e-43bc-bf4c-22de87fcf1ab",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patients Morbidity Details",
+					"id": "46697806-4fe9d980-643c-4649-8c30-514498187058",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patient file by File Id",
+					"id": "46697806-7a474508-27db-4439-95e8-707e65e5546f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-ac21bf88-0662-4f59-b514-35be52190b72",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{Dietician_Token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						],
+						"id": "c067f568-cbae-4ac2-a05e-ccda257c92c2"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						],
+						"id": "93d158c6-78fd-4224-968f-30fcd646abc7"
+					}
+				}
+			]
+		},
+		{
+			"name": "Patient",
+			"item": [
+				{
+					"name": "userLogin as Patient-POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e4ce1dbf-4242-4eb9-b8c2-793dd5a0cc24",
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"pm.environment.set(\"Patient_Token\", jsonData.token);\r",
+									"\r",
+									"const jsonSchema={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"loginUserEmail\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"roles\": {\r",
+									"      \"type\": \"array\",\r",
+									"      \"items\": [\r",
+									"        {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      ]\r",
+									"    },\r",
+									"    \"token\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"type\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"userId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"loginUserEmail\",\r",
+									"    \"roles\",\r",
+									"    \"token\",\r",
+									"    \"type\",\r",
+									"    \"userId\"\r",
+									"  ]\r",
+									"};\r",
+									"pm.test(\"Verify JSON Schema for userLogin-POST\",function() {\r",
+									"    if(pm.response.code === 200) {\r",
+									"        pm.response.to.have.jsonSchema(jsonSchema);\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "2b953dee-da6d-4acc-8e55-eb9bd73a36a0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697806-9cf241d5-e5f3-4e34-bf53-27c26b6bdc70",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userLoginEmail\": \"{{userLoginEmail}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get morbidity by patient token",
+					"id": "46697806-0340b7e3-1830-4310-b3db-497561e6ed00",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Patient_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patient file by File Id as patient",
+					"id": "46697806-b502a6e1-b30d-469e-b64d-a9ddf4d61cf1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Patient_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePatientById-DELETE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d026281-b23f-402c-b51e-1bceb97a7243",
+								"exec": [
+									"const jsonSchema={\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"message\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    },\r",
+									"    \"data\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"number\"\r",
+									"        },\r",
+									"        \"Firstname\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"Lastname\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"ContactNumber\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"DateOfBirth\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"Email\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"HospitalName\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"HospitalStreet\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"HospitalCity\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"HospitalPincode\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        },\r",
+									"        \"Education\": {\r",
+									"          \"type\": \"string\",\r",
+									"          \"minLength\": 1\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"Firstname\",\r",
+									"        \"Lastname\",\r",
+									"        \"ContactNumber\",\r",
+									"        \"DateOfBirth\",\r",
+									"        \"Email\",\r",
+									"        \"HospitalName\",\r",
+									"        \"HospitalStreet\",\r",
+									"        \"HospitalCity\",\r",
+									"        \"HospitalPincode\",\r",
+									"        \"Education\"\r",
+									"      ]\r",
+									"    },\r",
+									"    \"timestamp\": {\r",
+									"      \"type\": \"string\",\r",
+									"      \"minLength\": 1\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"message\",\r",
+									"    \"data\",\r",
+									"    \"timestamp\"\r",
+									" ]\r",
+									"}\r",
+									"pm.test(\"Verify JSON Schema for deleteDieticianById-DELETE\",function() {\r",
+									"    if(pm.response.code === 200) {\r",
+									"        pm.response.to.have.jsonSchema(jsonSchema);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697806-67d45ffd-2c3d-4db5-b87e-fca376ae40f2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Dietician_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "userLogoutPatient-GET",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a1844a7c-4a47-41b7-ba5c-0c468a3d614c",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "46697806-c0557d1d-d8a0-4640-8e58-89fbfd6af592",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Patient_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{endpoint}}",
+							"host": [
+								"{{baseURL}}{{endpoint}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "46697806-d9b15b5d-9320-4243-b67a-d4c16a295416",
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "36a9582f-c3ab-4991-97cb-081f06ec910e",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1c66dca3-b8dc-4236-8bad-f0255be71c0b",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "35f9f56a-9291-4b3f-84f8-9998dae5287e",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"if (typeof pm.variables.get('requestdata') !== 'object') {\r",
+					"    pm.variables.set('requestdata', pm.iterationData.toObject());\r",
+					"}\r",
+					"const requestdata = pm.variables.get('requestdata');\r",
+					"\r",
+					"if(typeof requestdata !== 'object' || Object.keys(requestdata).length ===0) {\r",
+					"    console.log(\"No external file found\")\r",
+					"    return;\r",
+					"}\r",
+					"\r",
+					"const currentrequest = requestdata.requests.filter(({name}) => name === pm.info.requestName) [0];\r",
+					"if(!currentrequest){\r",
+					"    console.log(`Request ${pm.info.requestName} has no data defined.`);\r",
+					"}\r",
+					"\r",
+					"const variables = currentrequest.data.shift();\r",
+					"\r",
+					"Object.entries(variables).forEach(([key, value]) => {\r",
+					"        pm.variables.set(key, value);\r",
+					"    });\r",
+					"\r",
+					" pm.variables.set('requestdata',requestdata);\r",
+					"if(currentrequest.data.length > 0){\r",
+					"    pm.execution.setNextRequest(pm.info.requestName)\r",
+					"}\r",
+					" \r",
+					"console.log(\"Resolved Dietician_Id:\", pm.environment.get(\"Dietician_Id\")); "
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "aeffcb2a-5058-4f3a-91ee-4205c2502690",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"const testCaseId = pm.variables.get(\"testCaseId\") || \"\";\r",
+					"const scenarioName = pm.variables.get(\"scenarioName\") || \"\";\r",
+					"const expectedContentType = pm.variables.get(\"expectedContentType\") || \"application/json\";\r",
+					"\r",
+					"pm.test(`Running TestCase: ${testCaseId} - ${scenarioName}`, () => {\r",
+					"    pm.expect(true).to.be.true;\r",
+					"});\r",
+					"\r",
+					"let jsonResponse;\r",
+					"let responseText = pm.response.text();\r",
+					"\r",
+					"if (testCaseId === \"TC_01_userLogout\") {\r",
+					"   \r",
+					"    pm.test(\"Response is plain text for logout\", () => {\r",
+					"        pm.expect(responseText).to.be.a(\"string\").and.not.empty;\r",
+					"    });\r",
+					"\r",
+					"    pm.test(\"Content-Type matches expected for logout\", () => {\r",
+					"        pm.response.to.have.header(\"Content-Type\", expectedContentType);\r",
+					"    });\r",
+					"} else {\r",
+					"   \r",
+					"    try {\r",
+					"        jsonResponse = pm.response.json();\r",
+					"        pm.test(\"Response is a valid JSON Object\", () => {\r",
+					"            pm.expect(jsonResponse).to.be.an(\"object\");\r",
+					"        });\r",
+					"    } catch (e) {\r",
+					"        pm.test(\"Response is a valid JSON Object\", () => {\r",
+					"            throw new Error(\"Response is not a valid JSON Object\");\r",
+					"        });\r",
+					"        return;\r",
+					"    }\r",
+					"\r",
+					"    pm.test(\"Content-Type matches expected\", () => {\r",
+					"        pm.response.to.have.header(\"Content-Type\", expectedContentType);\r",
+					"    });\r",
+					"}\r",
+					"\r",
+					"const statusCode = pm.response.code;\r",
+					"const expectedStatusCode = parseInt(pm.variables.get(\"expectedStatusCode\"));\r",
+					"const expectedErrorMessage = pm.variables.get(\"expectedErrorMessage\");\r",
+					"\r",
+					"\r",
+					"pm.test(\"Status code matches expected\", () => {\r",
+					"    pm.expect(statusCode).to.eql(expectedStatusCode);\r",
+					"});\r",
+					"pm.test(\"Status line matches expected\", () => {\r",
+					"    pm.expect(pm.response.status).to.eql(pm.variables.get(\"expectedStatusLine\"));\r",
+					"});\r",
+					"\r",
+					"\r",
+					"switch (statusCode) {\r",
+					"    case 200:\r",
+					"\r",
+					"       const loginTestCases = [\"TC_01_userLogin\", \"TC_02_userLogin\"];\r",
+					"        const patientTestCases = [\"TC_01_userLoginPatient\"];\r",
+					"\r",
+					"       if (loginTestCases.includes(testCaseId)) {\r",
+					"        pm.test(\"Response Contains valid Token\", () => {\r",
+					"            pm.expect(jsonResponse.token).to.be.a(\"string\").and.not.empty;\r",
+					"        });\r",
+					"        pm.test(\"Token type is 'Bearer'\", () => {\r",
+					"            pm.expect(jsonResponse.type.trim()).to.eql(\"Bearer\");\r",
+					"        });\r",
+					"        pm.test(\"Response contains userId and is a number\", () => {\r",
+					"            pm.expect(jsonResponse.userId).to.be.a(\"number\");\r",
+					"        });\r",
+					"        pm.test(\"Response contains Email and matches with request email\", () => {\r",
+					"            pm.expect(jsonResponse.loginUserEmail).to.eql(pm.variables.get(\"user_LoginEmail\"));\r",
+					"        });\r",
+					"        pm.test(\"Response contains Role as 'ROLE_ADMIN'\", () => {\r",
+					"            pm.expect(jsonResponse.roles).to.include(\"ROLE_ADMIN\");\r",
+					"        });\r",
+					"\r",
+					"        \r",
+					"        pm.environment.set(\"Admin_Token\", jsonResponse.token);\r",
+					"        pm.environment.set(\"userId\", jsonResponse.userId);\r",
+					"     \r",
+					"        \r",
+					"        \r",
+					"\r",
+					"       }\r",
+					"        \r",
+					"\r",
+					"      \r",
+					"       if (testCaseId === \"TC_01_userLogout\") {\r",
+					"           const expectedStatusMessage = pm.variables.get(\"expectedStatusMessage\") || \"\";\r",
+					"\r",
+					"           pm.test(\"Logout message matches expected\", () => {\r",
+					"               pm.expect(responseText.trim()).to.eql(expectedStatusMessage);\r",
+					"           });\r",
+					"\r",
+					"           pm.environment.set(\"Successful_Logout\", responseText.trim() === expectedStatusMessage);\r",
+					"       }\r",
+					"\r",
+					"       \r",
+					"       if (testCaseId === \"TC_01_deleteDieticianById\") {\r",
+					"           const dietician_Id = pm.environment.get(\"Dietician_Id\");\r",
+					"\r",
+					"           \r",
+					"           pm.environment.set(\"Deleted_Dietician_Id\", dietician_Id);\r",
+					"\r",
+					"           const createdData = JSON.parse(pm.environment.get(\"createdDieticianData\") || \"{}\");\r",
+					"\r",
+					"           \r",
+					"           pm.test(\"Delete Message displayed ID\", () => {\r",
+					"               pm.expect(jsonResponse.message).to.eql(`Deleted dietician successfully with id-${dietician_Id}`);\r",
+					"           }); \r",
+					"\r",
+					"           \r",
+					"           pm.test(\"Deleted data matches original POST data (relevant fields only)\", () => {\r",
+					"               const fieldsToCompare = [\r",
+					"                   \"id\",\r",
+					"                   \"Firstname\",\r",
+					"                   \"Lastname\",\r",
+					"                   \"ContactNumber\",\r",
+					"                   \"DateOfBirth\",\r",
+					"                   \"Email\",\r",
+					"                   \"HospitalName\",\r",
+					"                   \"HospitalStreet\",\r",
+					"                   \"HospitalCity\",\r",
+					"                   \"HospitalPincode\",\r",
+					"                   \"Education\"\r",
+					"               ];\r",
+					"\r",
+					"               fieldsToCompare.forEach(field => {\r",
+					"                   pm.expect(jsonResponse.data[field]).to.eql(createdData[field]);\r",
+					"               });\r",
+					"           });\r",
+					"\r",
+					"           pm.test(\"Timestamp is a valid ISO datetime\", () => {\r",
+					"               const isoRegex = /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z)?$/;\r",
+					"               pm.expect(jsonResponse.timestamp).to.match(isoRegex);\r",
+					"           });\r",
+					"       }\r",
+					"\r",
+					"       break;\r",
+					"\r",
+					"    case 201:\r",
+					"        \r",
+					"        pm.test(\"Response contains Dietician ID and it is a number\", () => {\r",
+					"            pm.expect(jsonResponse.id).to.be.a(\"number\");\r",
+					"        });\r",
+					"\r",
+					"        \r",
+					"        pm.test(\"Response contains login Password and is a string\", () => {\r",
+					"            pm.expect(jsonResponse.loginPassword).to.be.a(\"string\").and.not.empty;\r",
+					"        });\r",
+					"\r",
+					"        \r",
+					"        const expectedFields = [\r",
+					"            \"contact_number\",\r",
+					"            \"date_Of_birth\",\r",
+					"            \"education\",\r",
+					"            \"email\",\r",
+					"            \"firstname\",\r",
+					"            \"hospital_city\",\r",
+					"            \"hospital_name\",\r",
+					"            \"hospital_pincode\",\r",
+					"            \"hospital_street\",\r",
+					"            \"lastname\"\r",
+					"        ];\r",
+					"\r",
+					"        expectedFields.forEach(field => {\r",
+					"            const expectedValue = pm.variables.get(field);\r",
+					"\r",
+					"            \r",
+					"            const responseField = field\r",
+					"                .split(\"_\")\r",
+					"                .map((s) => s.charAt(0).toUpperCase() + s.slice(1))\r",
+					"                .join(\"\");\r",
+					"\r",
+					"            pm.test(`Response field '${responseField}' matches request`, () => {\r",
+					"                pm.expect(jsonResponse[responseField]).to.eql(expectedValue);\r",
+					"            });\r",
+					"        });\r",
+					"       \r",
+					"        pm.environment.set(\"Dietician_Id\", jsonResponse.id);\r",
+					"        pm.environment.set(\"Dietician_LoginPassword\", jsonResponse.loginPassword);\r",
+					"        pm.environment.set(\"createdDieticianData\", JSON.stringify(jsonResponse));\r",
+					"        pm.environment.set(\"Dietician_Email\", jsonResponse.Email);\r",
+					"\r",
+					"        break;  \r",
+					"    case 400:\r",
+					"        pm.test(\"Bad Request error message present\", () => {\r",
+					"            pm.expect(jsonResponse.message || jsonResponse.error).to.exist;\r",
+					"        });\r",
+					"        if (expectedErrorMessage) {\r",
+					"            pm.test(\"Error message matches expected\", () => {\r",
+					"                pm.expect((jsonResponse.message || jsonResponse.error).toLowerCase())\r",
+					"                  .to.include(expectedErrorMessage.toLowerCase());\r",
+					"            });\r",
+					"        }\r",
+					"        break;\r",
+					"\r",
+					"    case 401:\r",
+					"        \r",
+					"        if (expectedErrorMessage) {\r",
+					"            pm.test(\"Error message matches expected\", () => {\r",
+					"                pm.expect((jsonResponse.message || jsonResponse.error).toLowerCase())\r",
+					"                  .to.include(expectedErrorMessage.toLowerCase());\r",
+					"            });\r",
+					"        }\r",
+					"        break;\r",
+					"\r",
+					"    case 404:\r",
+					"        pm.test(\"Not Found error message present\", () => {\r",
+					"            pm.expect(jsonResponse.message || jsonResponse.error).to.include(\"Not Found\");\r",
+					"        });\r",
+					"        if (expectedErrorMessage) {\r",
+					"            pm.test(\"Error message matches expected\", () => {\r",
+					"                pm.expect((jsonResponse.message || jsonResponse.error).toLowerCase())\r",
+					"                  .to.include(expectedErrorMessage.toLowerCase());\r",
+					"            });\r",
+					"        }\r",
+					"        break;\r",
+					"\r",
+					"    default:\r",
+					"        pm.test(\"Unhandled status code - verify manually\", () => {\r",
+					"            console.warn(`Received unexpected status code: ${statusCode}`);\r",
+					"            pm.expect(true).to.be.true;\r",
+					"        });\r",
+					"}\r",
+					"\r",
+					"\r",
+					"pm.test(\"Response time is less than 1000ms\", function () {\r",
+					"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+					"});\r",
+					""
+				]
+			}
+		}
+	]
+}
